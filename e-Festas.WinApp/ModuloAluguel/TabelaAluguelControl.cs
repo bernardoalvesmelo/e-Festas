@@ -1,5 +1,4 @@
 ﻿using e_Festas.Dominio.ModuloAluguel;
-using e_Festas.Dominio.ModuloContato;
 
 namespace e_Festas.WinApp.ModuloAluguel
 {

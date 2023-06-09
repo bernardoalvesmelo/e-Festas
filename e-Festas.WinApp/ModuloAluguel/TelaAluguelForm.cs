@@ -77,17 +77,22 @@ namespace e_Festas.WinApp.ModuloAluguel
             cbDesconto.Checked = aluguel.descontoAplicado;
             txtData.Value = aluguel.data;
 
-            if(aluguel.dataQuitacao != new DateTime())
+            if (aluguel.dataQuitacao != new DateTime())
             {
                 cbDataQuitacao.Checked = true;
                 txtDataQuitacao.Value = aluguel.dataQuitacao;
                 txtDataQuitacao.Enabled = true;
             }
-           
+
             txtHorarioInicio.Value = aluguel.horarioInicio;
             txtHorarioTermino.Value = aluguel.horarioTermino;
             cmbClientes.SelectedItem = aluguel.cliente.nome;
             cmbTemas.SelectedItem = aluguel.tema.estilo;
+        }
+
+        private void cbDataQuitacao_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDataQuitacao.Enabled = !txtDataQuitacao.Enabled;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -99,14 +104,8 @@ namespace e_Festas.WinApp.ModuloAluguel
             if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
-
-                DialogResult = DialogResult.None;
+                this.DialogResult = DialogResult.None;
             }
-        }
-
-        private void cbDataQuitacao_CheckedChanged(object sender, EventArgs e)
-        {
-            txtDataQuitacao.Enabled = !txtDataQuitacao.Enabled;
         }
     }
 }

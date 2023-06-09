@@ -102,8 +102,14 @@
         {
             List<string> erros = new List<string>();
 
-            if (this.horarioInicio > horarioTermino)
-                erros.Add("Horário de Início não poder ser maior que de término!");
+            if (this.horarioInicio.CompareTo(horarioTermino) > 0)
+                erros.Add("Horário de início não pode ser maior que de término!");
+
+            if (
+                this.data.CompareTo(dataQuitacao) > 0 
+                && dataQuitacao != new DateTime()
+               )
+                erros.Add("Data não pode ser maior que data de quitação!");
 
             return erros.ToArray();
         }
