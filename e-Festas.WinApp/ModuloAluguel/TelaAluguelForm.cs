@@ -8,6 +8,8 @@ namespace e_Festas.WinApp.ModuloAluguel
         private List<Cliente> clientes;
         private List<Tema> temas;
 
+        private Endereco endereco;
+
         public TelaAluguelForm(List<Aluguel> alugueis, List<Cliente> clientes, List<Tema> temas)
         {
             InitializeComponent();
@@ -59,7 +61,9 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             Tema tema = temas.Find(t => t.estilo == cmbTemas.SelectedItem);
 
-            Aluguel aluguel = new Aluguel(sinal, descontoAplicado, data, dataQuitacao, horarioInicio, horarioTermino, cliente, tema);
+            Endereco endereco = this.endereco;
+
+            Aluguel aluguel = new Aluguel(sinal, descontoAplicado, data, dataQuitacao, horarioInicio, horarioTermino, cliente, tema, endereco);
 
             if (id > 0)
                 aluguel.id = id;
@@ -88,6 +92,7 @@ namespace e_Festas.WinApp.ModuloAluguel
             txtHorarioTermino.Value = aluguel.horarioTermino;
             cmbClientes.SelectedItem = aluguel.cliente.nome;
             cmbTemas.SelectedItem = aluguel.tema.estilo;
+            this.endereco = aluguel.endereco;
         }
 
         private void cbDataQuitacao_CheckedChanged(object sender, EventArgs e)
@@ -105,6 +110,21 @@ namespace e_Festas.WinApp.ModuloAluguel
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
                 this.DialogResult = DialogResult.None;
+            }
+        }
+
+        private void btnEndereco_Click(object sender, EventArgs e)
+        {
+            TelaEnderecoForm telaEndereco = new TelaEnderecoForm();
+
+            if (this.endereco != null)
+                telaEndereco.ConfigurarTela(endereco);
+
+            DialogResult opcaoEscolhida = telaEndereco.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                this.endereco = telaEndereco.ObterEndereco();
             }
         }
     }

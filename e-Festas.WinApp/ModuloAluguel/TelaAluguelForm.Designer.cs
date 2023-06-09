@@ -48,12 +48,13 @@
             txtDataQuitacao = new DateTimePicker();
             label8 = new Label();
             cbDataQuitacao = new CheckBox();
+            btnEndereco = new Button();
             ((System.ComponentModel.ISupportInitialize)txtSinal).BeginInit();
             SuspendLayout();
             // 
             // txtId
             // 
-            txtId.Location = new Point(84, 12);
+            txtId.Location = new Point(105, 14);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(100, 23);
@@ -63,7 +64,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(58, 20);
+            label1.Location = new Point(79, 22);
             label1.Name = "label1";
             label1.Size = new Size(20, 15);
             label1.TabIndex = 16;
@@ -73,7 +74,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(247, 314);
+            btnCancelar.Location = new Point(290, 314);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 15;
@@ -84,7 +85,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(166, 314);
+            btnGravar.Location = new Point(209, 314);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 14;
@@ -94,7 +95,7 @@
             // 
             // txtSinal
             // 
-            txtSinal.Location = new Point(84, 274);
+            txtSinal.Location = new Point(105, 276);
             txtSinal.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
             txtSinal.Minimum = new decimal(new int[] { 40, 0, 0, 0 });
             txtSinal.Name = "txtSinal";
@@ -106,7 +107,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(30, 276);
+            label2.Location = new Point(51, 278);
             label2.Name = "label2";
             label2.Size = new Size(48, 15);
             label2.TabIndex = 19;
@@ -115,7 +116,7 @@
             // cbDesconto
             // 
             cbDesconto.AutoSize = true;
-            cbDesconto.Location = new Point(176, 278);
+            cbDesconto.Location = new Point(197, 280);
             cbDesconto.Name = "cbDesconto";
             cbDesconto.Size = new Size(116, 19);
             cbDesconto.TabIndex = 20;
@@ -127,7 +128,7 @@
             txtHorarioInicio.CustomFormat = "HH:mm";
             txtHorarioInicio.Format = DateTimePickerFormat.Custom;
             txtHorarioInicio.ImeMode = ImeMode.NoControl;
-            txtHorarioInicio.Location = new Point(84, 86);
+            txtHorarioInicio.Location = new Point(105, 88);
             txtHorarioInicio.Name = "txtHorarioInicio";
             txtHorarioInicio.ShowUpDown = true;
             txtHorarioInicio.Size = new Size(54, 23);
@@ -138,7 +139,7 @@
             txtHorarioTermino.CustomFormat = "HH:mm";
             txtHorarioTermino.Format = DateTimePickerFormat.Custom;
             txtHorarioTermino.ImeMode = ImeMode.NoControl;
-            txtHorarioTermino.Location = new Point(230, 86);
+            txtHorarioTermino.Location = new Point(251, 88);
             txtHorarioTermino.Name = "txtHorarioTermino";
             txtHorarioTermino.ShowUpDown = true;
             txtHorarioTermino.Size = new Size(54, 23);
@@ -147,7 +148,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(40, 92);
+            label3.Location = new Point(61, 94);
             label3.Name = "label3";
             label3.Size = new Size(39, 15);
             label3.TabIndex = 23;
@@ -156,7 +157,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(176, 92);
+            label4.Location = new Point(197, 94);
             label4.Name = "label4";
             label4.Size = new Size(53, 15);
             label4.TabIndex = 24;
@@ -165,7 +166,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(42, 63);
+            label5.Location = new Point(63, 65);
             label5.Name = "label5";
             label5.Size = new Size(37, 15);
             label5.TabIndex = 25;
@@ -174,7 +175,7 @@
             // txtData
             // 
             txtData.Format = DateTimePickerFormat.Short;
-            txtData.Location = new Point(84, 57);
+            txtData.Location = new Point(105, 59);
             txtData.Name = "txtData";
             txtData.Size = new Size(200, 23);
             txtData.TabIndex = 26;
@@ -183,7 +184,7 @@
             // 
             cmbClientes.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbClientes.FormattingEnabled = true;
-            cmbClientes.Location = new Point(84, 202);
+            cmbClientes.Location = new Point(105, 204);
             cmbClientes.Name = "cmbClientes";
             cmbClientes.Size = new Size(200, 23);
             cmbClientes.TabIndex = 27;
@@ -192,7 +193,7 @@
             // 
             cmbTemas.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTemas.FormattingEnabled = true;
-            cmbTemas.Location = new Point(84, 231);
+            cmbTemas.Location = new Point(105, 233);
             cmbTemas.Name = "cmbTemas";
             cmbTemas.Size = new Size(200, 23);
             cmbTemas.TabIndex = 28;
@@ -200,7 +201,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(30, 205);
+            label6.Location = new Point(51, 207);
             label6.Name = "label6";
             label6.Size = new Size(50, 15);
             label6.TabIndex = 29;
@@ -209,7 +210,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(41, 234);
+            label7.Location = new Point(62, 236);
             label7.Name = "label7";
             label7.Size = new Size(38, 15);
             label7.TabIndex = 30;
@@ -219,7 +220,7 @@
             // 
             txtDataQuitacao.Enabled = false;
             txtDataQuitacao.Format = DateTimePickerFormat.Short;
-            txtDataQuitacao.Location = new Point(84, 155);
+            txtDataQuitacao.Location = new Point(105, 157);
             txtDataQuitacao.Name = "txtDataQuitacao";
             txtDataQuitacao.Size = new Size(200, 23);
             txtDataQuitacao.TabIndex = 32;
@@ -227,7 +228,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(19, 161);
+            label8.Location = new Point(40, 163);
             label8.Name = "label8";
             label8.Size = new Size(61, 15);
             label8.TabIndex = 31;
@@ -236,7 +237,7 @@
             // cbDataQuitacao
             // 
             cbDataQuitacao.AutoSize = true;
-            cbDataQuitacao.Location = new Point(84, 130);
+            cbDataQuitacao.Location = new Point(105, 132);
             cbDataQuitacao.Name = "cbDataQuitacao";
             cbDataQuitacao.Size = new Size(103, 19);
             cbDataQuitacao.TabIndex = 33;
@@ -244,11 +245,22 @@
             cbDataQuitacao.UseVisualStyleBackColor = true;
             cbDataQuitacao.CheckedChanged += cbDataQuitacao_CheckedChanged;
             // 
+            // btnEndereco
+            // 
+            btnEndereco.Location = new Point(19, 323);
+            btnEndereco.Name = "btnEndereco";
+            btnEndereco.Size = new Size(186, 23);
+            btnEndereco.TabIndex = 35;
+            btnEndereco.Text = "Cadastrar Endereço";
+            btnEndereco.UseVisualStyleBackColor = true;
+            btnEndereco.Click += btnEndereco_Click;
+            // 
             // TelaAluguelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(334, 367);
+            ClientSize = new Size(377, 367);
+            Controls.Add(btnEndereco);
             Controls.Add(cbDataQuitacao);
             Controls.Add(txtDataQuitacao);
             Controls.Add(label8);
@@ -298,5 +310,6 @@
         private DateTimePicker txtDataQuitacao;
         private Label label8;
         private CheckBox cbDataQuitacao;
+        private Button btnEndereco;
     }
 }

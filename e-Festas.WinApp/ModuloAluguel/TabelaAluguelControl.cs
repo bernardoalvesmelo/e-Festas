@@ -65,6 +65,11 @@ namespace e_Festas.WinApp.ModuloAluguel
                     Name = "tema",
                     HeaderText = "Tema"
                 },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "endereco",
+                    HeaderText = "Endereco"
+                }
 
     };
 
@@ -87,7 +92,8 @@ namespace e_Festas.WinApp.ModuloAluguel
                     aluguel.horarioInicio.ToString("HH:mm"),
                     aluguel.horarioTermino.ToString("HH:mm"),
                     aluguel.cliente.nome,
-                    aluguel.tema.estilo);
+                    aluguel.tema.estilo, 
+                    aluguel.endereco.cep);
             }
         }
 

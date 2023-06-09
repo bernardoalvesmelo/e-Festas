@@ -13,13 +13,14 @@
         public DateTime horarioTermino;
         public Cliente cliente;
         public Tema tema;
+        public Endereco endereco;
 
         public Aluguel()
         {
             
         }
 
-        public Aluguel(decimal sinal, bool descontoAplicado, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema)
+        public Aluguel(decimal sinal, bool descontoAplicado, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema, Endereco endereco)
         {
             this.sinal = sinal;
             this.descontoAplicado = descontoAplicado;
@@ -29,12 +30,13 @@
             this.horarioTermino = horarioTermino;
             this.cliente = cliente;
             this.tema = tema;
+            this.endereco = endereco;
             this.valor = CalcularValor();
             this.entrada = CalcularEntrada();
         }
 
 
-        public Aluguel(int id, decimal sinal, bool descontoAplicado, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema)
+        public Aluguel(int id, decimal sinal, bool descontoAplicado, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema, Endereco endereco)
         {
             this.id = id;
             this.sinal = sinal;
@@ -45,6 +47,7 @@
             this.horarioTermino = horarioTermino;
             this.cliente = cliente;
             this.tema = tema;
+            this.endereco = endereco;
             this.valor = CalcularValor();
             this.entrada = CalcularEntrada();
         }
@@ -60,6 +63,9 @@
             this.dataQuitacao = registroAtualizado.dataQuitacao;
             this.horarioInicio = registroAtualizado.horarioInicio;
             this.horarioTermino = registroAtualizado.horarioTermino;
+            this.cliente = registroAtualizado.cliente;
+            this.tema = registroAtualizado.tema;
+            this.endereco = registroAtualizado.endereco;
         }
 
         public void DescontarValor(List<Aluguel> alugueis)
@@ -90,12 +96,13 @@
                 ", Valor: " + Math.Round(valor, 2) +
                 ", Entrada: " + Math.Round(sinal, 2) +
                 ", Data: " + data.ToString("dd/MM/yyyy") +
-                ", Quitação: " + (dataQuitacao == new DateTime() ? "Em Aberto" : 
+                ", Quitação: " + (dataQuitacao == new DateTime() ? "Em Aberto" :
                 dataQuitacao.ToString("dd/MM/yyyy")) +
                 ", Início: " + data.ToString("HH:mm") +
                 ", Término: " + data.ToString("HH:mm") +
                 ", Cliente: " + cliente.nome +
-                ", Tema: " + tema.estilo;
+                ", Tema: " + tema.estilo +
+                ", Endereco: " + endereco.cep;
         }
 
         public override string[] Validar()
@@ -127,7 +134,8 @@
                    horarioInicio == aluguel.horarioInicio &&
                    horarioTermino == aluguel.horarioTermino &&
                    EqualityComparer<Cliente>.Default.Equals(cliente, aluguel.cliente) &&
-                   EqualityComparer<Tema>.Default.Equals(tema, aluguel.tema);
+                   EqualityComparer<Tema>.Default.Equals(tema, aluguel.tema) &&
+                   EqualityComparer<Endereco>.Default.Equals(endereco, aluguel.endereco);
         }
     }
 }
