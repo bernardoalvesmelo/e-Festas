@@ -30,7 +30,7 @@ namespace e_Festas.WinApp.ModuloAluguel
             if (cmbClientes.Items.Count > 0)
                 cmbClientes.SelectedIndex = 0;
 
-            foreach(Tema tema in temas)
+            foreach (Tema tema in temas)
             {
                 cmbTemas.Items.Add(tema.estilo);
             }
@@ -48,6 +48,9 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             DateTime data = txtData.Value.Date;
 
+            DateTime dataQuitacao = cbDataQuitacao.Checked ? txtDataQuitacao.Value.Date :
+                new DateTime();
+
             DateTime horarioInicio = txtHorarioInicio.Value;
 
             DateTime horarioTermino = txtHorarioTermino.Value;
@@ -56,7 +59,7 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             Tema tema = temas.Find(t => t.estilo == cmbTemas.SelectedItem);
 
-            Aluguel aluguel = new Aluguel(sinal, descontoAplicado, data, horarioInicio, horarioTermino, cliente, tema);
+            Aluguel aluguel = new Aluguel(sinal, descontoAplicado, data, dataQuitacao, horarioInicio, horarioTermino, cliente, tema);
 
             if (id > 0)
                 aluguel.id = id;
@@ -73,6 +76,14 @@ namespace e_Festas.WinApp.ModuloAluguel
             txtSinal.Text = aluguel.sinal.ToString();
             cbDesconto.Checked = aluguel.descontoAplicado;
             txtData.Value = aluguel.data;
+
+            if(aluguel.dataQuitacao != new DateTime())
+            {
+                cbDataQuitacao.Checked = true;
+                txtDataQuitacao.Value = aluguel.dataQuitacao;
+                txtDataQuitacao.Enabled = true;
+            }
+           
             txtHorarioInicio.Value = aluguel.horarioInicio;
             txtHorarioTermino.Value = aluguel.horarioTermino;
             cmbClientes.SelectedItem = aluguel.cliente.nome;
@@ -93,5 +104,9 @@ namespace e_Festas.WinApp.ModuloAluguel
             }
         }
 
+        private void cbDataQuitacao_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDataQuitacao.Enabled = !txtDataQuitacao.Enabled;
+        }
     }
 }

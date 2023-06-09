@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <None Update="Compartilhado\e-Festas.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

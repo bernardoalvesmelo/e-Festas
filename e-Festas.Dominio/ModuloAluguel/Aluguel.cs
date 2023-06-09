@@ -8,6 +8,7 @@
         public decimal entrada;
         public bool descontoAplicado;
         public DateTime data;
+        public DateTime dataQuitacao;
         public DateTime horarioInicio;
         public DateTime horarioTermino;
         public Cliente cliente;
@@ -18,11 +19,12 @@
             
         }
 
-        public Aluguel(decimal sinal, bool descontoAplicado, DateTime data, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema)
+        public Aluguel(decimal sinal, bool descontoAplicado, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema)
         {
             this.sinal = sinal;
             this.descontoAplicado = descontoAplicado;
             this.data = data;
+            this.dataQuitacao = dataQuitacao;
             this.horarioInicio = horarioInicio;
             this.horarioTermino = horarioTermino;
             this.cliente = cliente;
@@ -32,12 +34,13 @@
         }
 
 
-        public Aluguel(int id, decimal sinal, bool descontoAplicado, DateTime data, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema)
+        public Aluguel(int id, decimal sinal, bool descontoAplicado, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema)
         {
             this.id = id;
             this.sinal = sinal;
             this.descontoAplicado = descontoAplicado;
             this.data = data;
+            this.dataQuitacao = dataQuitacao;
             this.horarioInicio = horarioInicio;
             this.horarioTermino = horarioTermino;
             this.cliente = cliente;
@@ -54,6 +57,7 @@
             this.descontoAplicado = registroAtualizado.descontoAplicado;
             this.entrada = registroAtualizado.entrada;
             this.data = registroAtualizado.data;
+            this.dataQuitacao = registroAtualizado.dataQuitacao;
             this.horarioInicio = registroAtualizado.horarioInicio;
             this.horarioTermino = registroAtualizado.horarioTermino;
         }
@@ -86,6 +90,8 @@
                 ", Valor: " + Math.Round(valor, 2) +
                 ", Entrada: " + Math.Round(sinal, 2) +
                 ", Data: " + data.ToString("dd/MM/yyyy") +
+                ", Quitação: " + (dataQuitacao == new DateTime() ? "Em Aberto" : 
+                dataQuitacao.ToString("dd/MM/yyyy")) +
                 ", Início: " + data.ToString("HH:mm") +
                 ", Término: " + data.ToString("HH:mm") +
                 ", Cliente: " + cliente.nome +
@@ -111,6 +117,7 @@
                    descontoAplicado == aluguel.descontoAplicado &&
                    entrada == aluguel.entrada &&
                    data == aluguel.data &&
+                   dataQuitacao == aluguel.dataQuitacao &&
                    horarioInicio == aluguel.horarioInicio &&
                    horarioTermino == aluguel.horarioTermino &&
                    EqualityComparer<Cliente>.Default.Equals(cliente, aluguel.cliente) &&
