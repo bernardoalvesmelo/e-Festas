@@ -105,6 +105,8 @@ namespace e_Festas.WinApp.ModuloAluguel
             Aluguel aluguel = ObterAluguel();
 
             string[] erros = aluguel.Validar();
+            if (erros.Length == 0)
+                erros = Validar(aluguel);
 
             if (erros.Length > 0)
             {
@@ -113,6 +115,21 @@ namespace e_Festas.WinApp.ModuloAluguel
             }
         }
 
+        private string[] Validar(Aluguel aluguel)
+        {
+            List<string> erros = new List<string>();
+
+            if(alugueis.FindAll(a => a.id != aluguel.id && a.data == aluguel.data).Count > 0)
+            {
+                erros.Add("Data já reservada!");
+            }
+
+            if(aluguel.endereco == null)
+            {
+                erros.Add("Cadastre um endereço!");
+            }
+            return erros.ToArray();
+        }
         private void btnEndereco_Click(object sender, EventArgs e)
         {
             TelaEnderecoForm telaEndereco = new TelaEnderecoForm();
