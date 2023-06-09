@@ -1,11 +1,14 @@
 using e_Festas.Dominio.ModuloContato;
+using e_Festas.Dominio.ModuloAluguel;
 
 
 using e_Festas.Infra.Dados.Arquivo.Compartilhado;
 using e_Festas.Infra.Dados.Arquivo.ModuloContato;
+using e_Festas.Infra.Dados.Arquivo.ModuloAluguel;
 
 
 using e_Festas.WinApp.ModuloContato;
+using e_Festas.WinApp.ModuloAluguel;
 
 
 namespace e_Festas.WinApp
@@ -17,7 +20,7 @@ namespace e_Festas.WinApp
         static ContextoDados contextoDados = new ContextoDados(carregarDados: true);
 
         private IRepositorioContato repositorioContato = new RepositorioContatoEmArquivo(contextoDados);
-
+        private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmArquivo(contextoDados);
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -47,6 +50,13 @@ namespace e_Festas.WinApp
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorContato(repositorioContato);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void alugueisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorAluguel(repositorioAluguel);
 
             ConfigurarTelaPrincipal(controlador);
         }

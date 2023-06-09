@@ -1,4 +1,5 @@
 ﻿using e_Festas.Dominio.ModuloContato;
+using e_Festas.Dominio.ModuloAluguel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -10,9 +11,12 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
 
         public List<Contato> contatos;
 
+        public List<Aluguel> alugueis;
+
         public ContextoDados()
         {
             contatos = new List<Contato>();
+            alugueis = new List<Aluguel>();
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -43,6 +47,7 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
                     ContextoDados ctx = JsonSerializer.Deserialize<ContextoDados>(registrosJson, config);
 
                     this.contatos = ctx.contatos;
+                    this.alugueis = ctx.alugueis;
                 }
             }
         }
