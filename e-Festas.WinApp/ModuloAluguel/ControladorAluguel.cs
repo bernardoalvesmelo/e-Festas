@@ -29,10 +29,30 @@ namespace e_Festas.WinApp.ModuloAluguel
                 Cliente.Instancia
             };
 
+            if (clientes.Count == 0)
+            {
+                MessageBox.Show($"Cadastre um cliente primeiro!",
+                    "Criação de Aluguéis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
             List<Tema> temas = new List<Tema>
             {
                 Tema.Instancia
             };
+
+            if (temas.Count == 0)
+            {
+                MessageBox.Show($"Cadastre um tema primeiro!",
+                    "Criação de Aluguéis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
 
             TelaAluguelForm telaAluguel = new TelaAluguelForm(
                 repositorioAluguel.SelecionarTodos(),
@@ -69,10 +89,30 @@ namespace e_Festas.WinApp.ModuloAluguel
                 Cliente.Instancia
             };
 
+            if (clientes.Count == 0)
+            {
+                MessageBox.Show($"Cadastre um cliente primeiro!",
+                    "Edição de Aluguéis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
             List<Tema> temas = new List<Tema>
             {
                 Tema.Instancia
             };
+
+            if (temas.Count == 0)
+            {
+                MessageBox.Show($"Cadastre um tema primeiro!",
+                    "Edição de Aluguéis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
 
             TelaAluguelForm telaAluguel = new TelaAluguelForm(
                 repositorioAluguel.SelecionarTodos(),
