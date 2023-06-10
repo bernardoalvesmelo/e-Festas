@@ -95,6 +95,7 @@ namespace e_Festas.WinApp
             btnInserir.ToolTipText = controlador.ToolTipInserir;
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
+            btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;
         }
 
         private void ConfigurarEstados(ControladorBase controlador)
@@ -102,6 +103,7 @@ namespace e_Festas.WinApp
             btnInserir.Enabled = controlador.InserirHabilitado;
             btnEditar.Enabled = controlador.EditarHabilitado;
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
+            btnVisualizar.Enabled = controlador.VisualizarHabilitado;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -119,5 +121,9 @@ namespace e_Festas.WinApp
             controlador.Excluir();
         }
 
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            controlador.Visualizar();
+        }
     }
 }

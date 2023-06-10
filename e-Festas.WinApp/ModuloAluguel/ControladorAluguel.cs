@@ -18,6 +18,10 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override string ToolTipExcluir { get { return "Excluir Aluguel existente"; } }
 
+        public override string ToolTipVisualizar { get { return "Visualizar Endereços"; } }
+
+        public override bool VisualizarHabilitado { get { return true; } }
+
         public override void Inserir()
         {
             List<Cliente> clientes = new List<Cliente>
@@ -118,11 +122,20 @@ namespace e_Festas.WinApp.ModuloAluguel
             CarregarAlugueis();
         }
 
+        public override void Visualizar()
+        {
+            List<Aluguel> alugueis = repositorioAluguel.SelecionarTodos();
+
+            TelaVisualizarAluguelForm telaVisualizar = new TelaVisualizarAluguelForm();
+            telaVisualizar.AtualizarRegistros(alugueis);
+            telaVisualizar.ShowDialog();
+        }
+
         private void CarregarAlugueis()
         {
             List<Aluguel> alugueis = repositorioAluguel.SelecionarTodos();
 
-            tabelaAluguel.AtualizarRegistros(alugueis);            
+            tabelaAluguel.AtualizarRegistros(alugueis); 
         }
 
         public override UserControl ObterListagem()

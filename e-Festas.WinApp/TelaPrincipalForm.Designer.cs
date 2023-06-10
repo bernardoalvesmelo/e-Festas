@@ -31,6 +31,7 @@
             menuStrip1 = new MenuStrip();
             cadastrosMenuItem = new ToolStripMenuItem();
             contatosMenuItem = new ToolStripMenuItem();
+            alugueisToolStripMenuItem = new ToolStripMenuItem();
             relatóriosToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
@@ -43,7 +44,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
-            alugueisToolStripMenuItem = new ToolStripMenuItem();
+            btnVisualizar = new ToolStripButton();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             barraFerramentas.SuspendLayout();
@@ -68,9 +69,16 @@
             // contatosMenuItem
             // 
             contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(180, 22);
+            contatosMenuItem.Size = new Size(122, 22);
             contatosMenuItem.Text = "Contatos";
             contatosMenuItem.Click += contatosMenuItem_Click;
+            // 
+            // alugueisToolStripMenuItem
+            // 
+            alugueisToolStripMenuItem.Name = "alugueisToolStripMenuItem";
+            alugueisToolStripMenuItem.Size = new Size(122, 22);
+            alugueisToolStripMenuItem.Text = "Aluguéis";
+            alugueisToolStripMenuItem.Click += alugueisToolStripMenuItem_Click;
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -96,7 +104,7 @@
             // barraFerramentas
             // 
             barraFerramentas.Enabled = false;
-            barraFerramentas.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, toolStripSeparator3, toolStripSeparator1, labelTipoCadastro });
+            barraFerramentas.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnVisualizar, toolStripSeparator3, toolStripSeparator1, labelTipoCadastro });
             barraFerramentas.Location = new Point(0, 24);
             barraFerramentas.Name = "barraFerramentas";
             barraFerramentas.Size = new Size(800, 45);
@@ -166,12 +174,16 @@
             panelRegistros.Size = new Size(800, 359);
             panelRegistros.TabIndex = 3;
             // 
-            // alugueisToolStripMenuItem
+            // btnVisualizar
             // 
-            alugueisToolStripMenuItem.Name = "alugueisToolStripMenuItem";
-            alugueisToolStripMenuItem.Size = new Size(180, 22);
-            alugueisToolStripMenuItem.Text = "Aluguéis";
-            alugueisToolStripMenuItem.Click += alugueisToolStripMenuItem_Click;
+            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Image = Properties.Resources.apps_FILL0_wght400_GRAD0_opsz24;
+            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
+            btnVisualizar.ImageTransparentColor = Color.Magenta;
+            btnVisualizar.Name = "btnVisualizar";
+            btnVisualizar.Padding = new Padding(7);
+            btnVisualizar.Size = new Size(42, 42);
+            btnVisualizar.Click += btnVisualizar_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -215,5 +227,6 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem alugueisToolStripMenuItem;
+        private ToolStripButton btnVisualizar;
     }
 }
