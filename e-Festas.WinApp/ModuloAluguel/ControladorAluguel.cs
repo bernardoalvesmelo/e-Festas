@@ -175,7 +175,11 @@ namespace e_Festas.WinApp.ModuloAluguel
         {
             List<Aluguel> alugueis = repositorioAluguel.SelecionarTodos();
 
-            tabelaAluguel.AtualizarRegistros(alugueis); 
+            tabelaAluguel.AtualizarRegistros(alugueis);
+
+            string mensagem = $"Visualizando {alugueis.Count} " + (alugueis.Count == 1 ?
+                "aluguel" : "aluguéis");
+            TelaPrincipalForm.Instancia.AtualizarRodape(mensagem);
         }
 
         public override UserControl ObterListagem()
