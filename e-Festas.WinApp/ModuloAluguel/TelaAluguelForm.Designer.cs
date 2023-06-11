@@ -85,6 +85,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Enabled = false;
             btnGravar.Location = new Point(209, 314);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
@@ -247,9 +248,9 @@
             // 
             // btnEndereco
             // 
-            btnEndereco.Location = new Point(19, 323);
+            btnEndereco.Location = new Point(19, 314);
             btnEndereco.Name = "btnEndereco";
-            btnEndereco.Size = new Size(186, 23);
+            btnEndereco.Size = new Size(186, 41);
             btnEndereco.TabIndex = 35;
             btnEndereco.Text = "Cadastrar Endereço";
             btnEndereco.UseVisualStyleBackColor = true;

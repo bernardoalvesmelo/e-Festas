@@ -92,6 +92,9 @@ namespace e_Festas.WinApp.ModuloAluguel
             txtHorarioTermino.Value = aluguel.horarioTermino;
             cmbClientes.SelectedItem = aluguel.cliente.nome;
             cmbTemas.SelectedItem = aluguel.tema.estilo;
+
+            btnGravar.Enabled = true;
+
             this.endereco = aluguel.endereco;
         }
 
@@ -119,12 +122,12 @@ namespace e_Festas.WinApp.ModuloAluguel
         {
             List<string> erros = new List<string>();
 
-            if(alugueis.FindAll(a => a.id != aluguel.id && a.data == aluguel.data).Count > 0)
+            if (alugueis.FindAll(a => a.id != aluguel.id && a.data == aluguel.data).Count > 0)
             {
                 erros.Add("Data já reservada!");
             }
 
-            if(aluguel.endereco == null)
+            if (aluguel.endereco == null)
             {
                 erros.Add("Cadastre um endereço!");
             }
@@ -142,6 +145,7 @@ namespace e_Festas.WinApp.ModuloAluguel
             if (opcaoEscolhida == DialogResult.OK)
             {
                 this.endereco = telaEndereco.ObterEndereco();
+                btnGravar.Enabled = true;
             }
         }
     }
