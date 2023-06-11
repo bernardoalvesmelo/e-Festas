@@ -72,6 +72,11 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override void Editar()
         {
+            //editar não está funcionando para poder testar filtrar sem botão
+            {
+                Filtrar();
+                return;
+            }
             Aluguel aluguel = ObterAluguelSelecionado();
 
             if (aluguel == null)
@@ -175,10 +180,51 @@ namespace e_Festas.WinApp.ModuloAluguel
             CarregarAlugueis();
         }
 
+        public void Filtrar()
+        {
+            Aluguel aluguel = ObterAluguelSelecionado();
+
+            List<Aluguel> alugueis = repositorioAluguel.SelecionarTodos();
+
+            TelaFiltroAluguelForm telaFiltro = new TelaFiltroAluguelForm();
+            DialogResult opcaoEscolhida = telaFiltro.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                switch(telaFiltro.ObterFiltro())
+                {
+                    case FiltroAluguelEnum.Aluguel:
+                        alugueis = repositorioAluguel.SelecionarTodos();
+                        break;
+                    case FiltroAluguelEnum.Aberto:
+                        alugueis = repositorioAluguel.SelecionarTodosEmAberto();
+                        break;
+                    case FiltroAluguelEnum.Endereco:
+                        if(aluguel == null)
+                        {
+                            alugueis = new List<Aluguel>();
+                            break;
+                        }
+                        alugueis = repositorioAluguel.SelecionarTodosPorEndereco(aluguel);
+                        break;
+                }
+            }
+            CarregarAlugueis(alugueis);
+        }
+
         private void CarregarAlugueis()
         {
             List<Aluguel> alugueis = repositorioAluguel.SelecionarTodos();
 
+            tabelaAluguel.AtualizarRegistros(alugueis);
+
+            string mensagem = $"Visualizando {alugueis.Count} " + (alugueis.Count == 1 ?
+                "aluguel" : "aluguéis");
+            TelaPrincipalForm.Instancia.AtualizarRodape(mensagem);
+        }
+
+        private void CarregarAlugueis(List<Aluguel> alugueis)
+        { 
             tabelaAluguel.AtualizarRegistros(alugueis);
 
             string mensagem = $"Visualizando {alugueis.Count} " + (alugueis.Count == 1 ?
