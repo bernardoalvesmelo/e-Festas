@@ -9,6 +9,15 @@ namespace e_Festas.Infra.Dados.Arquivo.ModuloAluguel
             
         }
 
+        public List<Aluguel> SelecionarTodosEmAberto()
+        {
+            return contextoDados.alugueis.FindAll(a => a.dataQuitacao == new DateTime());
+        }
+
+        public List<Aluguel> SelecionarTodosPorEndereco(Aluguel aluguel)
+        {
+            return contextoDados.alugueis.FindAll(a => a.endereco.Equals(aluguel.endereco));
+        }
 
         protected override List<Aluguel> ObterRegistros()
         {
