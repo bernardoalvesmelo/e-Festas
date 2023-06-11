@@ -29,59 +29,71 @@
         private void InitializeComponent()
         {
             btnCancelar = new Button();
-            panel1 = new Panel();
-            gridEnderecos = new DataGridView();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridEnderecos).BeginInit();
+            button1 = new Button();
+            label1 = new Label();
+            cmbVisualizacoes = new ComboBox();
             SuspendLayout();
             // 
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(694, 229);
+            btnCancelar.Location = new Point(195, 87);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 16;
             btnCancelar.Text = "Fechar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // button1
             // 
-            panel1.Controls.Add(gridEnderecos);
-            panel1.Location = new Point(21, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(736, 202);
-            panel1.TabIndex = 17;
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.DialogResult = DialogResult.OK;
+            button1.Location = new Point(114, 87);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 41);
+            button1.TabIndex = 17;
+            button1.Text = "Selecionar";
+            button1.UseVisualStyleBackColor = true;
             // 
-            // gridEnderecos
+            // label1
             // 
-            gridEnderecos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridEnderecos.Dock = DockStyle.Fill;
-            gridEnderecos.Location = new Point(0, 0);
-            gridEnderecos.Name = "gridEnderecos";
-            gridEnderecos.RowTemplate.Height = 25;
-            gridEnderecos.Size = new Size(736, 202);
-            gridEnderecos.TabIndex = 0;
+            label1.AutoSize = true;
+            label1.Location = new Point(52, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(188, 15);
+            label1.TabIndex = 18;
+            label1.Text = "Selecionar campos de visualização";
+            // 
+            // cmbVisualizacoes
+            // 
+            cmbVisualizacoes.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbVisualizacoes.FormattingEnabled = true;
+            cmbVisualizacoes.Location = new Point(65, 40);
+            cmbVisualizacoes.Name = "cmbVisualizacoes";
+            cmbVisualizacoes.Size = new Size(162, 23);
+            cmbVisualizacoes.TabIndex = 19;
             // 
             // TelaVisualizarAluguelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(781, 282);
-            Controls.Add(panel1);
+            ClientSize = new Size(282, 140);
+            Controls.Add(cmbVisualizacoes);
+            Controls.Add(label1);
+            Controls.Add(button1);
             Controls.Add(btnCancelar);
             Name = "TelaVisualizarAluguelForm";
-            Text = "Visualização de Endereços";
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gridEnderecos).EndInit();
+            Text = "Visualização";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnCancelar;
-        private Panel panel1;
-        private DataGridView gridEnderecos;
+        private Button button1;
+        private Label label1;
+        private ComboBox cmbVisualizacoes;
     }
 }

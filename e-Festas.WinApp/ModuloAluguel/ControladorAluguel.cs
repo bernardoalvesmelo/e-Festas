@@ -164,11 +164,15 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override void Visualizar()
         {
-            List<Aluguel> alugueis = repositorioAluguel.SelecionarTodos();
 
             TelaVisualizarAluguelForm telaVisualizar = new TelaVisualizarAluguelForm();
-            telaVisualizar.AtualizarRegistros(alugueis);
-            telaVisualizar.ShowDialog();
+            DialogResult opcaoEscolhida = telaVisualizar.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                tabelaAluguel.ConfigurarVisualizacao(telaVisualizar.ObterVisualizacao());
+            }
+            CarregarAlugueis();
         }
 
         private void CarregarAlugueis()
