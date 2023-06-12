@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace e_Festas.Dominio.ModuloTema
+﻿namespace e_Festas.Dominio.ModuloTema
 {
     public class ItemTema 
     {
@@ -17,6 +11,17 @@ namespace e_Festas.Dominio.ModuloTema
            this.valorItem = valorItem;
         }
 
-       
+        public override string ToString()
+        {
+            return nome;
+        }
+
+        public override bool Equals(object? obj)
+        {
+           return obj is ItemTema itemTema && 
+                nome == itemTema.nome && 
+                valorItem == itemTema.valorItem;
+        }
+
     }
 }

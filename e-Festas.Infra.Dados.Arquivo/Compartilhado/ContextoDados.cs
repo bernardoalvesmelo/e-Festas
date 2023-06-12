@@ -3,7 +3,6 @@ using e_Festas.Dominio.ModuloAluguel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using e_Festas.Dominio.ModuloTema;
-using e_Festas.Infra.Dados.Arquivo.ModuloTema;
 
 namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
 {

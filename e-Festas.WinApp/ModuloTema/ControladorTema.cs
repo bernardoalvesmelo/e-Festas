@@ -21,6 +21,8 @@ namespace e_Festas.WinApp.ModuloTema
 
         public override string ToolTipAdicionarItens => "Adicionar Itens";
 
+        public override bool AdicionarItensHabilitado => true;
+
         public override void Inserir()
         {          
             TelaCadastroTemaForm telaCadastroTema = new TelaCadastroTemaForm();

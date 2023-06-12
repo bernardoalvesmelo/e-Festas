@@ -1,10 +1,11 @@
-﻿using e_Festas.Dominio.ModuloTema;
+﻿using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloTema;
 using System.Data;
 
 namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroItemForm : Form
-    {
+    {    
         public TelaCadastroItemForm(Temas tema)
         {
             InitializeComponent();
@@ -19,10 +20,10 @@ namespace e_Festas.WinApp.ModuloTema
             string nome = TxtItem.Text;
 
             decimal valorItem = Convert.ToDecimal(txtValorItem.Text);
+            
+            ItemTema item = new ItemTema(nome, valorItem);
 
-            ItemTema itemTema = new ItemTema(nome, valorItem);
-
-            listTema.Items.Add(itemTema.nome);
+            listTema.Items.Add(item);
         }
         private void ConfigurarTela(Temas tema)
         {

@@ -1,6 +1,4 @@
-﻿using e_Festas.Dominio.ModuloAluguel;
-
-namespace e_Festas.Dominio.ModuloTema
+﻿namespace e_Festas.Dominio.ModuloTema
 {
     public class Temas : EntidadeBase<Temas>
     {
@@ -41,7 +39,7 @@ namespace e_Festas.Dominio.ModuloTema
         }
 
         public void CalcularValorTotal()
-        {
+        {                 
             decimal qtdItens = itemTemas.Count();
 
             if (qtdItens == 0)
