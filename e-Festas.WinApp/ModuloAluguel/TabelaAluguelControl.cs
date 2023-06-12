@@ -169,7 +169,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "numero",
-                    HeaderText = "Numero"
+                    HeaderText = "Número"
                 }
 
     };
