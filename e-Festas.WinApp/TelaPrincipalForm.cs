@@ -24,7 +24,7 @@ namespace e_Festas.WinApp
 
         static ContextoDados contextoDados = new ContextoDados(carregarDados: true);
 
-        
+
         private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmArquivo(contextoDados);
         private IRepositorioTema repositorioTema = new RepositorioTemaEmArquivo(contextoDados);
         private IRepositorioCliente repositorioCliente = new RepositorioClienteEmArquivo(contextoDados);
@@ -69,6 +69,18 @@ namespace e_Festas.WinApp
             ConfigurarTelaPrincipal(controlador);
         }
         private void temasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorTema(repositorioTema);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+        private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            controlador = new ControladorCliente(repositorioCliente);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+        private void temasToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             controlador = new ControladorTema(repositorioTema);
 
@@ -141,15 +153,9 @@ namespace e_Festas.WinApp
         {
             controlador.Visualizar();
         }
-        private void btnAdicionarItens_Click(object sender, EventArgs e)
+        private void btnAdicionar_Click(object sender, EventArgs e)
         {
             controlador.Adicionar();
-        }
-        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            controlador = new ControladorCliente(repositorioCliente);
-
-            ConfigurarTelaPrincipal(controlador);
         }
     }
 }
