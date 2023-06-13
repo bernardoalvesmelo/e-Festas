@@ -24,7 +24,7 @@ namespace e_Festas.WinApp.ModuloTema
 
             ItemTema item = new ItemTema(nome, valorItem);
 
-            CalcularValorTotal();
+            //CalcularValorTotal();
 
             listTema.Items.Add(item);
         }
