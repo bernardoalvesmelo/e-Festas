@@ -113,6 +113,8 @@ namespace e_Festas.WinApp.ModuloTema
             List<Tema> temas = repositorioTema.SelecionarTodos();
 
             tabelaTema.AtualizarRegistros(temas);
+
+            TelaPrincipalForm.Instancia.AtualizarRodape("Visualizando Temas");
         }
 
         public override string ObterTipoCadastro()

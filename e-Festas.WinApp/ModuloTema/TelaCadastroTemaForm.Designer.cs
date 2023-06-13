@@ -47,6 +47,7 @@
             btnGravar.TabIndex = 0;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // btnCancelar
             // 
@@ -87,10 +88,12 @@
             // 
             // txtIdTema
             // 
+            txtIdTema.Enabled = false;
             txtIdTema.Location = new Point(100, 12);
             txtIdTema.Name = "txtIdTema";
-            txtIdTema.Size = new Size(35, 23);
+            txtIdTema.Size = new Size(24, 23);
             txtIdTema.TabIndex = 5;
+            txtIdTema.Text = "0";
             // 
             // txtValorTema
             // 

@@ -1,4 +1,5 @@
-﻿using e_Festas.Dominio.ModuloTema;
+﻿using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloTema;
 
 namespace e_Festas.WinApp.ModuloTema
 {
@@ -22,6 +23,9 @@ namespace e_Festas.WinApp.ModuloTema
 
             Tema tema = new Tema(valor, nome, id);
 
+            if (id > 0)
+                tema.id = id;
+
             return tema;
         }
 
@@ -32,6 +36,30 @@ namespace e_Festas.WinApp.ModuloTema
             txtNomeTema.Text = temaSelecionada.nome;
 
             txtValorTema.Text = temaSelecionada.valor.ToString();
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Tema tema;
+            try
+            {
+                tema = ObterTema();
+            }
+            catch
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("O valor é obrigatório");
+                DialogResult = DialogResult.None;
+                return;
+            }
+
+            string[] erros = tema.Validar();
+
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
         }
     }
 }

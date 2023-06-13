@@ -6,7 +6,6 @@ namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroItemForm : Form
     {
-        private Tema temas;
         public TelaCadastroItemForm(Tema tema)
         {
             InitializeComponent();
@@ -18,13 +17,18 @@ namespace e_Festas.WinApp.ModuloTema
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(txtId.Text);
+
             string nome = TxtItem.Text;
 
             decimal valorItem = Convert.ToDecimal(txtValorItem.Text);
 
-            ItemTema item = new ItemTema(nome, valorItem);
+            ItemTema item = new ItemTema(id, nome, valorItem);
 
-            listTema.Items.Add(item);
+            if (id > 0)
+                item.id = id;
+
+            listTema.Items.Add(item);           
         }
 
         private void ConfigurarTela(Tema tema)
@@ -38,6 +42,20 @@ namespace e_Festas.WinApp.ModuloTema
         public List<ItemTema> ObterItensCadastrados()
         {
             return listTema.Items.Cast<ItemTema>().ToList();
-        }       
+        }
+
+        //private void btnGravarItem_Click(object sender, EventArgs e)
+        //{            
+        //    ItemTema tema;
+
+        //    string[] erros = tema.Validar();
+
+        //    if (erros.Length > 0)
+        //    {
+        //        TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+        //        DialogResult = DialogResult.None;
+        //    }
+        //}
     }
 }

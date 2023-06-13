@@ -35,6 +35,8 @@ namespace e_Festas.Dominio.ModuloTema
 
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");
+            if (string.IsNullOrEmpty(id.ToString()))
+                erros.Add("O campo 'Id' é obrigatório");
 
             return erros.ToArray();
         }

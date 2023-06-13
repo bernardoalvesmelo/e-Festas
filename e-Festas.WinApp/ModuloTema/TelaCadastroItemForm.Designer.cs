@@ -48,7 +48,7 @@
             btnGravarItem.Size = new Size(90, 36);
             btnGravarItem.TabIndex = 0;
             btnGravarItem.Text = "Gravar";
-            btnGravarItem.UseVisualStyleBackColor = true;
+            btnGravarItem.UseVisualStyleBackColor = true;      
             // 
             // btnCancelar
             // 
@@ -90,7 +90,7 @@
             // lbId
             // 
             lbId.AutoSize = true;
-            lbId.Location = new Point(43, 20);
+            lbId.Location = new Point(57, 20);
             lbId.Name = "lbId";
             lbId.Size = new Size(17, 15);
             lbId.TabIndex = 5;
@@ -98,7 +98,8 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(82, 12);
+            txtId.Enabled = false;
+            txtId.Location = new Point(82, 17);
             txtId.Name = "txtId";
             txtId.Size = new Size(27, 23);
             txtId.TabIndex = 6;
@@ -114,7 +115,7 @@
             // 
             txtValorItem.Location = new Point(82, 92);
             txtValorItem.Name = "txtValorItem";
-            txtValorItem.Size = new Size(99, 23);
+            txtValorItem.Size = new Size(125, 23);
             txtValorItem.TabIndex = 8;
             // 
             // btnAdicionar
