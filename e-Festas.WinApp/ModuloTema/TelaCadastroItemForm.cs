@@ -24,10 +24,9 @@ namespace e_Festas.WinApp.ModuloTema
 
             ItemTema item = new ItemTema(nome, valorItem);
 
-            //CalcularValorTotal();
-
             listTema.Items.Add(item);
         }
+
         private void ConfigurarTela(Temas tema)
         {
             txtId.Text = tema.id.ToString();
@@ -39,14 +38,6 @@ namespace e_Festas.WinApp.ModuloTema
         public List<ItemTema> ObterItensCadastrados()
         {
             return listTema.Items.Cast<ItemTema>().ToList();
-        }
-
-        public void CalcularValorTotal()
-        {
-            foreach (ItemTema item in listTema.Items)
-            {
-                temas.valorTotal += item.valorItem + temas.valor;
-            }
-        }    
+        }       
     }
 }

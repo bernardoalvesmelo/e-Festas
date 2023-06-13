@@ -1,8 +1,9 @@
-﻿namespace e_Festas.Dominio.ModuloTema
+﻿using e_Festas.Dominio.ModuloAluguel;
+
+namespace e_Festas.Dominio.ModuloTema
 {
     public class Temas : EntidadeBase<Temas>
-    {
-        private ItemTema itemTema;
+    {     
         public decimal valor;
         public string nome;      
         public List<ItemTema> itemTemas;
@@ -36,6 +37,18 @@
                 erros.Add("O campo 'nome' é obrigatório");
 
             return erros.ToArray();
-        }     
+        }
+        
+        public void CalcularValorTotal()
+        {
+            decimal resultado = 0;
+
+            foreach (ItemTema item in itemTemas)
+            {
+                resultado += item.valorItem;
+            }
+
+            valorTotal = valor + resultado;
+        }
     }
 }

@@ -139,10 +139,14 @@ namespace e_Festas.WinApp.ModuloTema
             {
                 List<ItemTema> itensParaAdicionar = telaCadastroItem.ObterItensCadastrados();
 
+                temaSelecionado.itemTemas = new List<ItemTema>();
+
                 foreach (ItemTema item in itensParaAdicionar)
                 {
                     temaSelecionado.AdicionarItem(item);
                 }
+
+                temaSelecionado.CalcularValorTotal();
 
                 repositorioTema.Editar(temaSelecionado.id, temaSelecionado);
                 CarregarTemas();           

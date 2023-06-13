@@ -33,12 +33,12 @@ namespace e_Festas.WinApp.ModuloTema
                 {
                     Name = "Valor",
                     HeaderText = "Valor"
-                }, 
-                new DataGridViewTextBoxColumn()
+                },
+                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "valor",
-                    HeaderText = "Valor total"
-                }
+                    Name = "Valor total",
+                    HeaderText = "Valor Total"
+                },
             };
 
             gridTema.Columns.AddRange(colunas);

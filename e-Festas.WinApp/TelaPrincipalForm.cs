@@ -1,13 +1,8 @@
-using e_Festas.Dominio.ModuloContato;
 using e_Festas.Dominio.ModuloAluguel;
 
 
 using e_Festas.Infra.Dados.Arquivo.Compartilhado;
-using e_Festas.Infra.Dados.Arquivo.ModuloContato;
 using e_Festas.Infra.Dados.Arquivo.ModuloAluguel;
-
-
-using e_Festas.WinApp.ModuloContato;
 using e_Festas.WinApp.ModuloAluguel;
 using e_Festas.WinApp.ModuloTema;
 using e_Festas.Dominio.ModuloTema;
