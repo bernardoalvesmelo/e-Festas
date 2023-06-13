@@ -1,9 +1,8 @@
-﻿using e_Festas.Dominio.ModuloContato;
-using e_Festas.Dominio.ModuloAluguel;
+﻿using e_Festas.Dominio.ModuloAluguel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using e_Festas.Dominio.ModuloTema;
- using e_Festas.Dominio.ModuloCliente;
+using e_Festas.Dominio.ModuloCliente;
 
 namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
 {
@@ -11,18 +10,14 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
     {
         private const string NOME_ARQUIVO = "Compartilhado\\e-Festas.json";
 
-        public List<Contato> contatos;
-
         public List<Aluguel> alugueis;
        
         public List<Tema> temas;
         
-
         public List<Cliente> clientes;
 
         public ContextoDados()
         {
-            contatos = new List<Contato>();
             alugueis = new List<Aluguel>();
             temas = new List<Tema>();
             clientes = new List<Cliente>(); 
@@ -55,7 +50,6 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
                 {
                     ContextoDados ctx = JsonSerializer.Deserialize<ContextoDados>(registrosJson, config);
 
-                    this.contatos = ctx.contatos;
                     this.alugueis = ctx.alugueis;
                     this.temas = ctx.temas;
                     this.clientes = ctx.clientes;

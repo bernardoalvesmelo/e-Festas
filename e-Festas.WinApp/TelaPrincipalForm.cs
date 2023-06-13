@@ -1,21 +1,16 @@
-using e_Festas.Dominio.ModuloContato;
 using e_Festas.Dominio.ModuloAluguel;
 using e_Festas.Dominio.ModuloTema;
 using e_Festas.Dominio.ModuloCliente;
 
-
 using e_Festas.Infra.Dados.Arquivo.Compartilhado;
-using e_Festas.Infra.Dados.Arquivo.ModuloContato;
 using e_Festas.Infra.Dados.Arquivo.ModuloAluguel;
 using e_Festas.Infra.Dados.Arquivo.ModuloCliente;
 using e_Festas.Infra.Dados.Arquivo.ModuloTema;
 
-
-using e_Festas.WinApp.ModuloContato;
 using e_Festas.WinApp.ModuloAluguel;
-using e_Festas.WinApp.ModuloContato;
 using e_Festas.WinApp.ModuloTema;
 using e_Festas.WinApp.ModuloCliente;
+
 namespace e_Festas.WinApp
 {
     public partial class TelaPrincipalForm : Form
@@ -28,7 +23,6 @@ namespace e_Festas.WinApp
         private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmArquivo(contextoDados);
         private IRepositorioTema repositorioTema = new RepositorioTemaEmArquivo(contextoDados);
         private IRepositorioCliente repositorioCliente = new RepositorioClienteEmArquivo(contextoDados);
-        private IRepositorioContato repositorioContato = new RepositorioContatoEmArquivo(contextoDados);
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -54,13 +48,6 @@ namespace e_Festas.WinApp
                 return telaPrincipal;
             }
         }
-
-        //private void contatosMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    controlador = new ControladorContato(repositorioContato);
-
-        //    ConfigurarTelaPrincipal(controlador);
-        //}
 
         private void alugueisToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -149,6 +136,7 @@ namespace e_Festas.WinApp
         {
             controlador.Visualizar();
         }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             controlador.Adicionar();
