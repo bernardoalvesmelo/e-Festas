@@ -8,9 +8,9 @@
 
         public abstract string ToolTipExcluir { get; }
 
-        public virtual string ToolTipVisualizar => "Indisponível";
+        public virtual string ToolTipVisualizar { get; }
 
-        public virtual string ToolTipFiltrar => "Indisponível";
+        public virtual string ToolTipFiltrar  {get; }
 
         public virtual string? ToolTipAdicionarItens { get; }
 
@@ -45,7 +45,5 @@
         public abstract UserControl ObterListagem();
 
         public abstract string ObterTipoCadastro();
-
     }
-
 }
