@@ -43,7 +43,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(-1, 117);
+            label4.Location = new Point(8, 117);
             label4.Name = "label4";
             label4.Size = new Size(44, 15);
             label4.TabIndex = 19;
@@ -60,21 +60,21 @@
             // 
             // txtEmailCliente
             // 
-            txtEmailCliente.Location = new Point(49, 114);
+            txtEmailCliente.Location = new Point(59, 114);
             txtEmailCliente.Name = "txtEmailCliente";
             txtEmailCliente.Size = new Size(149, 23);
             txtEmailCliente.TabIndex = 17;
             // 
             // txtTelefoneCliente
             // 
-            txtTelefoneCliente.Location = new Point(49, 85);
+            txtTelefoneCliente.Location = new Point(59, 85);
             txtTelefoneCliente.Name = "txtTelefoneCliente";
             txtTelefoneCliente.Size = new Size(156, 23);
             txtTelefoneCliente.TabIndex = 16;
             // 
             // txtNomeCliente
             // 
-            txtNomeCliente.Location = new Point(48, 57);
+            txtNomeCliente.Location = new Point(58, 56);
             txtNomeCliente.Name = "txtNomeCliente";
             txtNomeCliente.Size = new Size(157, 23);
             txtNomeCliente.TabIndex = 15;
@@ -82,7 +82,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(-1, 61);
+            label2.Location = new Point(9, 59);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 14;
@@ -109,7 +109,7 @@
             // btnGravarCliente
             // 
             btnGravarCliente.DialogResult = DialogResult.OK;
-            btnGravarCliente.Location = new Point(211, 106);
+            btnGravarCliente.Location = new Point(221, 102);
             btnGravarCliente.Name = "btnGravarCliente";
             btnGravarCliente.Size = new Size(75, 45);
             btnGravarCliente.TabIndex = 20;
@@ -119,7 +119,7 @@
             // 
             // btnCancelarCliente
             // 
-            btnCancelarCliente.Location = new Point(292, 106);
+            btnCancelarCliente.Location = new Point(302, 102);
             btnCancelarCliente.Name = "btnCancelarCliente";
             btnCancelarCliente.Size = new Size(75, 45);
             btnCancelarCliente.TabIndex = 21;
@@ -130,7 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(403, 197);
+            ClientSize = new Size(403, 155);
             Controls.Add(btnCancelarCliente);
             Controls.Add(btnGravarCliente);
             Controls.Add(label4);

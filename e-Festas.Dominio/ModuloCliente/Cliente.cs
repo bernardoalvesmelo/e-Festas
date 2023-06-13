@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,7 +61,13 @@ namespace e_Festas.Dominio.ModuloCliente
             if (string.IsNullOrEmpty(email))
                 erros.Add("O campo 'email' é obrigatório");
 
+            if (MailAddress.TryCreate(email, out _) == false)
+            {
+                erros.Add("O campo email não esta em formato valido.");
+            }
+
             return erros.ToArray();
+
         }
 
         public override bool Equals(object? obj)
