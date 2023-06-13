@@ -61,10 +61,25 @@ namespace e_Festas.Dominio.ModuloCliente
             if (string.IsNullOrEmpty(email))
                 erros.Add("O campo 'email' é obrigatório");
 
+            int nomeerro = nome.Count();
+            int telefoneerro = telefone.Count();
+
+            if (telefoneerro <= 9)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                erros.Add("O campo 'TELEFONE', deve ter 9 ou mais caracteres.");
+            }
+            if (nomeerro < 4)
+            {
+                erros.Add("O campo 'NOME', deve ter pelo menos 4 caracteres.");
+            }
+
             if (MailAddress.TryCreate(email, out _) == false)
             {
-                erros.Add("O campo email não esta em formato valido.");
+                erros.Add("O campo 'EMAIL' não esta em formato valido.");
             }
+
+             
 
             return erros.ToArray();
 
