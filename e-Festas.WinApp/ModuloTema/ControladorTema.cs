@@ -114,7 +114,7 @@ namespace e_Festas.WinApp.ModuloTema
 
             tabelaTema.AtualizarRegistros(temas);
 
-            TelaPrincipalForm.Instancia.AtualizarRodape("Visualizando Temas");
+            TelaPrincipalForm.Instancia.AtualizarRodape("Visualizando"+ " " + temas.Count + " " + "Temas");
         }
 
         public override string ObterTipoCadastro()
