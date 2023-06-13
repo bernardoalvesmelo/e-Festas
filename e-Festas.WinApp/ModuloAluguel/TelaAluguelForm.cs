@@ -1,5 +1,6 @@
 ﻿using e_Festas.Dominio.ModuloCliente;
 using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloTema;
 
 namespace e_Festas.WinApp.ModuloAluguel
 {
@@ -35,7 +36,7 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             foreach (Tema tema in temas)
             {
-                cmbTemas.Items.Add(tema.estilo);
+                cmbTemas.Items.Add(tema.nome);
             }
             if (cmbTemas.Items.Count > 0)
                 cmbTemas.SelectedIndex = 0;
@@ -60,7 +61,7 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             Cliente cliente = clientes.Find(c => c.nome == cmbClientes.SelectedItem);
 
-            Tema tema = temas.Find(t => t.estilo == cmbTemas.SelectedItem);
+            Tema tema = temas.Find(t => t.nome == cmbTemas.SelectedItem);
 
             Endereco endereco = this.endereco;
 
@@ -92,7 +93,7 @@ namespace e_Festas.WinApp.ModuloAluguel
             txtHorarioInicio.Value = aluguel.horarioInicio;
             txtHorarioTermino.Value = aluguel.horarioTermino;
             cmbClientes.SelectedItem = aluguel.cliente.nome;
-            cmbTemas.SelectedItem = aluguel.tema.estilo;
+            cmbTemas.SelectedItem = aluguel.tema.nome;
 
             btnGravar.Enabled = true;
 

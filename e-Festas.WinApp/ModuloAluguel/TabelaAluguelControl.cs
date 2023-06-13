@@ -115,7 +115,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                 gridAlugueis.Rows.Add(
                     aluguel.id,
                     aluguel.cliente.nome,
-                    aluguel.tema.estilo,
+                    aluguel.tema.nome,
                     Math.Round(aluguel.valor, 2),
                     Math.Round(aluguel.entrada, 2),
                     aluguel.data.ToString("dd/MM/yyyy"),

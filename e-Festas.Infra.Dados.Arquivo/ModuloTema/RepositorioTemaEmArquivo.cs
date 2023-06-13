@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace e_Festas.Infra.Dados.Arquivo.ModuloTema
 {
-    public class RepositorioTemaEmArquivo : RepositorioEmArquivoBase<Temas>, IRepositorioTema
+    public class RepositorioTemaEmArquivo : RepositorioEmArquivoBase<Tema>, IRepositorioTema
     {
         public RepositorioTemaEmArquivo(ContextoDados contexto) : base(contexto)
         {
         }
 
-        protected override List<Temas> ObterRegistros()
+        protected override List<Tema> ObterRegistros()
         {
             return contextoDados.temas;
         }

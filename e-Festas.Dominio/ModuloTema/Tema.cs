@@ -2,14 +2,14 @@
 
 namespace e_Festas.Dominio.ModuloTema
 {
-    public class Temas : EntidadeBase<Temas>
+    public class Tema : EntidadeBase<Tema>
     {     
         public decimal valor;
         public string nome;      
         public List<ItemTema> itemTemas;
         public decimal valorTotal;      
 
-        public Temas(decimal valor, string nome, int id)
+        public Tema(decimal valor, string nome, int id)
         {
             this.valor = valor;
             this.nome = nome;
@@ -22,7 +22,7 @@ namespace e_Festas.Dominio.ModuloTema
             itemTemas.Add(item);
         }
 
-        public override void AtualizarInformacoes(Temas registroAtualizado)
+        public override void AtualizarInformacoes(Tema registroAtualizado)
         {
             this.valor = registroAtualizado.valor;
             this.nome= registroAtualizado.nome;

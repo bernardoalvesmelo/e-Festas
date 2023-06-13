@@ -64,13 +64,7 @@ namespace e_Festas.WinApp
 
         private void alugueisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorAluguel(repositorioAluguel);
-
-            ConfigurarTelaPrincipal(controlador);
-        }
-        private void temasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            controlador = new ControladorTema(repositorioTema);
+            controlador = new ControladorAluguel(repositorioAluguel, repositorioTema, repositorioCliente);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -123,6 +117,7 @@ namespace e_Festas.WinApp
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;
             btnAdicionarItens.ToolTipText = controlador.ToolTipAdicionarItens;
+            btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
         }
 
         private void ConfigurarEstados(ControladorBase controlador)
@@ -132,6 +127,7 @@ namespace e_Festas.WinApp
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
             btnVisualizar.Enabled = controlador.VisualizarHabilitado;
             btnAdicionarItens.Enabled = controlador.AdicionarItensHabilitado;
+            btnFiltrar.Enabled = controlador.FiltrarHabilitado;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -156,6 +152,11 @@ namespace e_Festas.WinApp
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             controlador.Adicionar();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            controlador.Filtrar();
         }
     }
 }

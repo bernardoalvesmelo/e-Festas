@@ -12,7 +12,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         }
 
-        public Temas ObterTema()
+        public Tema ObterTema()
         {
             int id = Convert.ToInt32(txtIdTema.Text);
 
@@ -20,12 +20,12 @@ namespace e_Festas.WinApp.ModuloTema
 
             decimal valor = Convert.ToDecimal(txtValorTema.Text);
 
-            Temas tema = new Temas(valor, nome, id);
+            Tema tema = new Tema(valor, nome, id);
 
             return tema;
         }
 
-        public void ConfigurarTela(Temas temaSelecionada)
+        public void ConfigurarTela(Tema temaSelecionada)
         {
             txtIdTema.Text = temaSelecionada.id.ToString();
 

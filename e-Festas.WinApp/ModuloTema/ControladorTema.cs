@@ -5,7 +5,7 @@ namespace e_Festas.WinApp.ModuloTema
     public class ControladorTema : ControladorBase
     {
         private TabelaTemaControl tabelaTema;
-        protected List<Temas> listaregistros;
+        protected List<Tema> listaregistros;
         private IRepositorioTema repositorioTema;
 
         public ControladorTema(IRepositorioTema repositorioTema)
@@ -31,7 +31,7 @@ namespace e_Festas.WinApp.ModuloTema
 
             if (opcaoEscolhida == DialogResult.OK)
             {              
-                Temas tema = telaCadastroTema.ObterTema();
+                Tema tema = telaCadastroTema.ObterTema();
 
                 repositorioTema.Inserir(tema);
 
@@ -41,7 +41,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         public override void Editar()
         {
-            Temas temaSelecionado = ObterTemaSelecionado();
+            Tema temaSelecionado = ObterTemaSelecionado();
 
             if (temaSelecionado == null)
             {
@@ -58,7 +58,7 @@ namespace e_Festas.WinApp.ModuloTema
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Temas tema = telatema.ObterTema();
+                Tema tema = telatema.ObterTema();
 
                 repositorioTema.Editar(tema.id,tema);
 
@@ -66,7 +66,7 @@ namespace e_Festas.WinApp.ModuloTema
             }
         }
 
-        private Temas ObterTemaSelecionado()
+        private Tema ObterTemaSelecionado()
         {
             int id = tabelaTema.ObterIdSelecionado();
 
@@ -75,7 +75,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         public override void Excluir()
         {
-            Temas tema = ObterTemaSelecionado();
+            Tema tema = ObterTemaSelecionado();
 
             if (tema == null)
             {
@@ -110,7 +110,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         private void CarregarTemas()
         {
-            List<Temas> temas = repositorioTema.SelecionarTodos();
+            List<Tema> temas = repositorioTema.SelecionarTodos();
 
             tabelaTema.AtualizarRegistros(temas);
         }
@@ -122,7 +122,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         public override void Adicionar()
         {
-            Temas temaSelecionado = ObterTemaSelecionado();
+            Tema temaSelecionado = ObterTemaSelecionado();
 
             if (temaSelecionado == null)
             {

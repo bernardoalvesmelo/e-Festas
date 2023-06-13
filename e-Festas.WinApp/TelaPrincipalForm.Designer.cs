@@ -48,6 +48,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
+            btnFiltrar = new ToolStripButton();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             barraFerramentas.SuspendLayout();
@@ -120,7 +121,7 @@
             // barraFerramentas
             // 
             barraFerramentas.Enabled = false;
-            barraFerramentas.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnVisualizar, btnAdicionarItens, toolStripSeparator3, toolStripSeparator1, labelTipoCadastro });
+            barraFerramentas.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, btnVisualizar, btnAdicionarItens, toolStripSeparator3, toolStripSeparator1, labelTipoCadastro });
             barraFerramentas.Location = new Point(0, 24);
             barraFerramentas.Name = "barraFerramentas";
             barraFerramentas.Size = new Size(800, 45);
@@ -179,7 +180,7 @@
             // btnAdicionarItens
             // 
             btnAdicionarItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnAdicionarItens.Image = Properties.Resources.add_circle_FILL0_wght400_GRAD0_opsz24;
+            btnAdicionarItens.Image = Properties.Resources.library_add_FILL0_wght400_GRAD0_opsz24;
             btnAdicionarItens.ImageScaling = ToolStripItemImageScaling.None;
             btnAdicionarItens.ImageTransparentColor = Color.Magenta;
             btnAdicionarItens.Name = "btnAdicionarItens";
@@ -211,6 +212,17 @@
             panelRegistros.Name = "panelRegistros";
             panelRegistros.Size = new Size(800, 359);
             panelRegistros.TabIndex = 3;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnFiltrar.Image = Properties.Resources.outline_filter_alt_black_24dp;
+            btnFiltrar.ImageScaling = ToolStripItemImageScaling.None;
+            btnFiltrar.ImageTransparentColor = Color.Magenta;
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Padding = new Padding(7);
+            btnFiltrar.Size = new Size(42, 42);
+            btnFiltrar.Click += btnFiltrar_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -258,5 +270,6 @@
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem temasToolStripMenuItem;
         private ToolStripButton btnAdicionarItens;
+        private ToolStripButton btnFiltrar;
     }
 }

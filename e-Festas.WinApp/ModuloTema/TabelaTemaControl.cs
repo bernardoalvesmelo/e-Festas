@@ -43,11 +43,11 @@ namespace e_Festas.WinApp.ModuloTema
 
             gridTema.Columns.AddRange(colunas);
         }
-        public void AtualizarRegistros(List<Temas> temas)
+        public void AtualizarRegistros(List<Tema> temas)
         {
             gridTema.Rows.Clear();
 
-            foreach (Temas tema in temas)
+            foreach (Tema tema in temas)
             {
                 gridTema.Rows.Add(tema.id, tema.nome, tema.valor, tema.valorTotal);
             }

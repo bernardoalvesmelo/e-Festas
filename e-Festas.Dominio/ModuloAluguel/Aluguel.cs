@@ -1,4 +1,5 @@
 ﻿using e_Festas.Dominio.ModuloCliente;
+using e_Festas.Dominio.ModuloTema;
 namespace e_Festas.Dominio.ModuloAluguel
    
 {
@@ -103,7 +104,7 @@ namespace e_Festas.Dominio.ModuloAluguel
                 ", Início: " + data.ToString("HH:mm") +
                 ", Término: " + data.ToString("HH:mm") +
                 ", Cliente: " + cliente.nome +
-                ", Tema: " + tema.estilo +
+                ", Tema: " + tema.nome +
                 ", Endereco: " + endereco.cep;
         }
 

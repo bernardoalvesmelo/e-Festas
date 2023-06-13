@@ -15,7 +15,7 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
 
         public List<Aluguel> alugueis;
        
-        public List<Temas> temas;
+        public List<Tema> temas;
         
 
         public List<Cliente> clientes;
@@ -24,7 +24,7 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
         {
             contatos = new List<Contato>();
             alugueis = new List<Aluguel>();
-            temas = new List<Temas>();
+            temas = new List<Tema>();
             clientes = new List<Cliente>(); 
         }
 

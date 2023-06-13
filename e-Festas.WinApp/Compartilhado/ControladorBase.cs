@@ -10,6 +10,8 @@
 
         public virtual string ToolTipVisualizar => "Indisponível";
 
+        public virtual string ToolTipFiltrar => "Indisponível";
+
         public virtual string? ToolTipAdicionarItens { get; }
 
         public virtual bool InserirHabilitado { get { return true; } }
@@ -17,6 +19,7 @@
         public virtual bool ExcluirHabilitado { get { return true; } }
         public virtual bool VisualizarHabilitado { get { return false; } }
         public virtual bool AdicionarItensHabilitado { get { return false; } }
+        public virtual bool FiltrarHabilitado { get { return false; } }
 
         public abstract void Inserir();
 
@@ -29,14 +32,19 @@
 
         }
 
-        public abstract UserControl ObterListagem();
-
-        public abstract string ObterTipoCadastro();
-
         public virtual void Adicionar()
         {
 
         }
+
+        public virtual void Filtrar()
+        {
+
+        }
+
+        public abstract UserControl ObterListagem();
+
+        public abstract string ObterTipoCadastro();
 
     }
 

@@ -2,10 +2,10 @@
 {
     public interface IRepositorioTema
     {
-        void Inserir(Temas novoTema);
-        void Editar(int id, Temas tema);
-        void Excluir(Temas temaSelecionado);
-        List<Temas> SelecionarTodos();
-        Temas SelecionarPorId(int id);
+        void Inserir(Tema novoTema);
+        void Editar(int id, Tema tema);
+        void Excluir(Tema temaSelecionado);
+        List<Tema> SelecionarTodos();
+        Tema SelecionarPorId(int id);
     }
 }

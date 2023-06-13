@@ -6,8 +6,8 @@ namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroItemForm : Form
     {
-        private Temas temas;
-        public TelaCadastroItemForm(Temas tema)
+        private Tema temas;
+        public TelaCadastroItemForm(Tema tema)
         {
             InitializeComponent();
 
@@ -27,7 +27,7 @@ namespace e_Festas.WinApp.ModuloTema
             listTema.Items.Add(item);
         }
 
-        private void ConfigurarTela(Temas tema)
+        private void ConfigurarTela(Tema tema)
         {
             txtId.Text = tema.id.ToString();
 

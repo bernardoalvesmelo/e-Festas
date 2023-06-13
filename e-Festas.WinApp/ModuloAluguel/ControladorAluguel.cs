@@ -1,16 +1,24 @@
 ﻿using e_Festas.Dominio.ModuloCliente;
 using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloTema;
 
 namespace e_Festas.WinApp.ModuloAluguel
 {
     public class ControladorAluguel : ControladorBase
     {
         private IRepositorioAluguel repositorioAluguel;
+        private IRepositorioTema repositorioTema;
+        private IRepositorioCliente repositorioCliente;
         private TabelaAluguelControl tabelaAluguel;
 
-        public ControladorAluguel(IRepositorioAluguel repositorioAluguel)
+        public ControladorAluguel(
+            IRepositorioAluguel repositorioAluguel, 
+            IRepositorioTema repositorioTema, 
+            IRepositorioCliente repositorioCliente)
         {
             this.repositorioAluguel = repositorioAluguel;
+            this.repositorioCliente = repositorioCliente;
+            this.repositorioTema = repositorioTema;
         }
 
         public override string ToolTipInserir { get { return "Inserir novo Aluguel";  } }
@@ -21,14 +29,14 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override string ToolTipVisualizar { get { return "Visualizar Endereços"; } }
 
-        public override bool VisualizarHabilitado { get { return true; } }
+        public override string ToolTipFiltrar { get { return "Filtrar Aluguéis"; } }
+
+        public override bool FiltrarHabilitado { get { return true; } }
 
         public override void Inserir()
         {
-            List<Cliente> clientes = new List<Cliente>();
-           
-          
-
+            List<Cliente> clientes = repositorioCliente.SelecionarTodos();
+                  
             if (clientes.Count == 0)
             {
                 MessageBox.Show($"Cadastre um cliente primeiro!",
@@ -39,10 +47,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                 return;
             }
 
-            List<Tema> temas = new List<Tema>
-            {
-                Tema.Instancia
-            };
+            List<Tema> temas = repositorioTema.SelecionarTodos();
 
             if (temas.Count == 0)
             {
@@ -72,11 +77,6 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override void Editar()
         {
-            //editar não está funcionando para poder testar filtrar sem botão
-            {
-                Filtrar();
-                return;
-            }
             Aluguel aluguel = ObterAluguelSelecionado();
 
             if (aluguel == null)
@@ -89,7 +89,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                 return;
             }
 
-            List<Cliente> clientes = new List<Cliente>();
+            List<Cliente> clientes = repositorioCliente.SelecionarTodos();
            
 
             if (clientes.Count == 0)
@@ -102,10 +102,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                 return;
             }
 
-            List<Tema> temas = new List<Tema>
-            {
-                Tema.Instancia
-            };
+            List<Tema> temas = repositorioTema.SelecionarTodos();
 
             if (temas.Count == 0)
             {
@@ -178,7 +175,7 @@ namespace e_Festas.WinApp.ModuloAluguel
             CarregarAlugueis();
         }
 
-        public void Filtrar()
+        public override void Filtrar()
         {
             Aluguel aluguel = ObterAluguelSelecionado();
 
