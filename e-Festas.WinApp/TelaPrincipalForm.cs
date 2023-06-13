@@ -5,11 +5,13 @@ using e_Festas.Dominio.ModuloAluguel;
 using e_Festas.Infra.Dados.Arquivo.Compartilhado;
 using e_Festas.Infra.Dados.Arquivo.ModuloContato;
 using e_Festas.Infra.Dados.Arquivo.ModuloAluguel;
+using e_Festas.Infra.Dados.Arquivo.ModuloCliente;
 
 
 using e_Festas.WinApp.ModuloContato;
 using e_Festas.WinApp.ModuloAluguel;
-
+using e_Festas.WinApp.ModuloCliente;
+using e_Festas.Dominio.ModuloCliente;
 
 namespace e_Festas.WinApp
 {
@@ -18,7 +20,7 @@ namespace e_Festas.WinApp
         private ControladorBase controlador;
 
         static ContextoDados contextoDados = new ContextoDados(carregarDados: true);
-
+        private IRepositorioCliente repositorioCliente = new RepositorioClienteEmArquivo(contextoDados);
         private IRepositorioContato repositorioContato = new RepositorioContatoEmArquivo(contextoDados);
         private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmArquivo(contextoDados);
 
@@ -124,6 +126,13 @@ namespace e_Festas.WinApp
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             controlador.Visualizar();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorCliente(repositorioCliente);
+
+            ConfigurarTelaPrincipal(controlador);
         }
     }
 }

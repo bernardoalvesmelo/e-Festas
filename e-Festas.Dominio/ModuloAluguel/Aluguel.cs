@@ -1,4 +1,6 @@
-﻿namespace e_Festas.Dominio.ModuloAluguel
+﻿using e_Festas.Dominio.ModuloCliente;
+namespace e_Festas.Dominio.ModuloAluguel
+   
 {
     [Serializable]
     public class Aluguel : EntidadeBase<Aluguel>

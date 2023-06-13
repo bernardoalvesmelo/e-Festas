@@ -2,6 +2,7 @@
 using e_Festas.Dominio.ModuloAluguel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+ using e_Festas.Dominio.ModuloCliente;
 
 namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
 {
@@ -13,10 +14,13 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
 
         public List<Aluguel> alugueis;
 
+        public List<Cliente> clientes;
+
         public ContextoDados()
         {
             contatos = new List<Contato>();
             alugueis = new List<Aluguel>();
+            clientes = new List<Cliente>(); 
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -48,6 +52,7 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
 
                     this.contatos = ctx.contatos;
                     this.alugueis = ctx.alugueis;
+                    this.clientes = ctx.clientes;
                 }
             }
         }

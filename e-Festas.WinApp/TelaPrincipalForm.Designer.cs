@@ -40,11 +40,12 @@
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
+            btnVisualizar = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
-            btnVisualizar = new ToolStripButton();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             barraFerramentas.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             // cadastrosMenuItem
             // 
-            cadastrosMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contatosMenuItem, alugueisToolStripMenuItem });
+            cadastrosMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contatosMenuItem, alugueisToolStripMenuItem, clientesToolStripMenuItem });
             cadastrosMenuItem.Name = "cadastrosMenuItem";
             cadastrosMenuItem.Size = new Size(71, 20);
             cadastrosMenuItem.Text = "Cadastros";
@@ -69,14 +70,14 @@
             // contatosMenuItem
             // 
             contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(122, 22);
+            contatosMenuItem.Size = new Size(180, 22);
             contatosMenuItem.Text = "Contatos";
             contatosMenuItem.Click += contatosMenuItem_Click;
             // 
             // alugueisToolStripMenuItem
             // 
             alugueisToolStripMenuItem.Name = "alugueisToolStripMenuItem";
-            alugueisToolStripMenuItem.Size = new Size(122, 22);
+            alugueisToolStripMenuItem.Size = new Size(180, 22);
             alugueisToolStripMenuItem.Text = "Aluguéis";
             alugueisToolStripMenuItem.Click += alugueisToolStripMenuItem_Click;
             // 
@@ -149,6 +150,17 @@
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(6, 45);
             // 
+            // btnVisualizar
+            // 
+            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Image = Properties.Resources.apps_FILL0_wght400_GRAD0_opsz24;
+            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
+            btnVisualizar.ImageTransparentColor = Color.Magenta;
+            btnVisualizar.Name = "btnVisualizar";
+            btnVisualizar.Padding = new Padding(7);
+            btnVisualizar.Size = new Size(42, 42);
+            btnVisualizar.Click += btnVisualizar_Click;
+            // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
@@ -174,16 +186,12 @@
             panelRegistros.Size = new Size(800, 359);
             panelRegistros.TabIndex = 3;
             // 
-            // btnVisualizar
+            // clientesToolStripMenuItem
             // 
-            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnVisualizar.Image = Properties.Resources.apps_FILL0_wght400_GRAD0_opsz24;
-            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
-            btnVisualizar.ImageTransparentColor = Color.Magenta;
-            btnVisualizar.Name = "btnVisualizar";
-            btnVisualizar.Padding = new Padding(7);
-            btnVisualizar.Size = new Size(42, 42);
-            btnVisualizar.Click += btnVisualizar_Click;
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(180, 22);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -228,5 +236,6 @@
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem alugueisToolStripMenuItem;
         private ToolStripButton btnVisualizar;
+        private ToolStripMenuItem clientesToolStripMenuItem;
     }
 }

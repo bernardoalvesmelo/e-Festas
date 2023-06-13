@@ -1,4 +1,5 @@
-﻿using e_Festas.Dominio.ModuloAluguel;
+﻿using e_Festas.Dominio.ModuloCliente;
+using e_Festas.Dominio.ModuloAluguel;
 
 namespace e_Festas.WinApp.ModuloAluguel
 {
@@ -24,10 +25,9 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override void Inserir()
         {
-            List<Cliente> clientes = new List<Cliente>
-            {
-                Cliente.Instancia
-            };
+            List<Cliente> clientes = new List<Cliente>();
+           
+          
 
             if (clientes.Count == 0)
             {
@@ -89,10 +89,8 @@ namespace e_Festas.WinApp.ModuloAluguel
                 return;
             }
 
-            List<Cliente> clientes = new List<Cliente>
-            {
-                Cliente.Instancia
-            };
+            List<Cliente> clientes = new List<Cliente>();
+           
 
             if (clientes.Count == 0)
             {
