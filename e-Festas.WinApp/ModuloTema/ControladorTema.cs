@@ -145,8 +145,8 @@ namespace e_Festas.WinApp.ModuloTema
                 }
 
                 repositorioTema.Editar(temaSelecionado.id, temaSelecionado);
-                CarregarTemas();
-            }
+                CarregarTemas();           
+            }          
         }
     }
 }

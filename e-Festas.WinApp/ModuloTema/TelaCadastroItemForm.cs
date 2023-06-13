@@ -5,7 +5,8 @@ using System.Data;
 namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroItemForm : Form
-    {    
+    {
+        private Temas temas;
         public TelaCadastroItemForm(Temas tema)
         {
             InitializeComponent();
@@ -20,8 +21,10 @@ namespace e_Festas.WinApp.ModuloTema
             string nome = TxtItem.Text;
 
             decimal valorItem = Convert.ToDecimal(txtValorItem.Text);
-            
+
             ItemTema item = new ItemTema(nome, valorItem);
+
+            CalcularValorTotal();
 
             listTema.Items.Add(item);
         }
@@ -37,5 +40,13 @@ namespace e_Festas.WinApp.ModuloTema
         {
             return listTema.Items.Cast<ItemTema>().ToList();
         }
+
+        public void CalcularValorTotal()
+        {
+            foreach (ItemTema item in listTema.Items)
+            {
+                temas.valorTotal += item.valorItem + temas.valor;
+            }
+        }    
     }
 }

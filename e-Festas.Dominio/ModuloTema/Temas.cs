@@ -6,7 +6,7 @@
         public decimal valor;
         public string nome;      
         public List<ItemTema> itemTemas;
-        public decimal valorTotal;
+        public decimal valorTotal;      
 
         public Temas(decimal valor, string nome, int id)
         {
@@ -36,20 +36,6 @@
                 erros.Add("O campo 'nome' é obrigatório");
 
             return erros.ToArray();
-        }
-
-        public void CalcularValorTotal()
-        {                 
-            decimal qtdItens = itemTemas.Count();
-
-            if (qtdItens == 0)
-                return;
-
-            decimal valorItens = qtdItens * itemTema.valorItem;
-
-            decimal resultado = valor + valorItens;
-
-            valorTotal = Math.Round(resultado, 2);
-        }
+        }     
     }
 }
