@@ -65,6 +65,6 @@ namespace e_Festas.WinApp.ModuloCliente
             }
         }
 
-
+       
     }
 }

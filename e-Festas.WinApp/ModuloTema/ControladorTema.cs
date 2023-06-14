@@ -32,7 +32,8 @@ namespace e_Festas.WinApp.ModuloTema
             if (opcaoEscolhida == DialogResult.OK)
             {              
                 Tema tema = telaCadastroTema.ObterTema();
-
+                tema.CalcularValorTotal();
+               
                 repositorioTema.Inserir(tema);
 
                 CarregarTemas();

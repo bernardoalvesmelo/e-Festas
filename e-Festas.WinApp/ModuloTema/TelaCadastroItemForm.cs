@@ -21,7 +21,19 @@ namespace e_Festas.WinApp.ModuloTema
 
             string nome = TxtItem.Text;
 
-            decimal valorItem = Convert.ToDecimal(txtValorItem.Text);
+            decimal valorItem;
+            
+            try
+            {
+                valorItem = Convert.ToDecimal(txtValorItem.Text);
+               
+            }
+            catch
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("O campo 'VALOR' precisa ser um número.");
+                DialogResult = DialogResult.None;
+                return;
+            }
 
             ItemTema item = new ItemTema(id, nome, valorItem);
 

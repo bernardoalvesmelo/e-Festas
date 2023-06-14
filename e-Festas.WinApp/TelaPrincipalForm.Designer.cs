@@ -71,21 +71,21 @@
             // alugueisToolStripMenuItem
             // 
             alugueisToolStripMenuItem.Name = "alugueisToolStripMenuItem";
-            alugueisToolStripMenuItem.Size = new Size(180, 22);
+            alugueisToolStripMenuItem.Size = new Size(120, 22);
             alugueisToolStripMenuItem.Text = "Aluguéis";
             alugueisToolStripMenuItem.Click += alugueisToolStripMenuItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(180, 22);
+            clientesToolStripMenuItem.Size = new Size(120, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click_1;
             // 
             // temasToolStripMenuItem
             // 
             temasToolStripMenuItem.Name = "temasToolStripMenuItem";
-            temasToolStripMenuItem.Size = new Size(180, 22);
+            temasToolStripMenuItem.Size = new Size(120, 22);
             temasToolStripMenuItem.Text = "Temas";
             temasToolStripMenuItem.Click += temasToolStripMenuItem_Click_1;
             // 
@@ -101,8 +101,7 @@
             // labelRodape
             // 
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(52, 17);
-            labelRodape.Text = "[rodape]";
+            labelRodape.Size = new Size(0, 17);
             // 
             // barraFerramentas
             // 
@@ -198,8 +197,7 @@
             // labelTipoCadastro
             // 
             labelTipoCadastro.Name = "labelTipoCadastro";
-            labelTipoCadastro.Size = new Size(75, 42);
-            labelTipoCadastro.Text = "tipoCadastro";
+            labelTipoCadastro.Size = new Size(0, 42);
             // 
             // panelRegistros
             // 

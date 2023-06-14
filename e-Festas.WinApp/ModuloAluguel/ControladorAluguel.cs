@@ -33,6 +33,8 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override bool FiltrarHabilitado { get { return true; } }
 
+        public override bool VisualizarHabilitado { get { return true; } }
+
         public override void Inserir()
         {
             List<Cliente> clientes = repositorioCliente.SelecionarTodos();
