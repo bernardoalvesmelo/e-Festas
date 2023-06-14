@@ -15,6 +15,11 @@ namespace e_Festas.Dominio.ModuloTema
            this.valorItem = valorItem;
         }
 
+        public ItemTema()
+        {
+
+        }
+
         public override string ToString()
         {
             return nome;
