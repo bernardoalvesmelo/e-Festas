@@ -7,7 +7,12 @@ namespace e_Festas.Dominio.ModuloTema
         public decimal valor;
         public string nome;      
         public List<ItemTema> itemTemas;
-        public decimal valorTotal;      
+        public decimal valorTotal;  
+        
+        public Tema()
+        {
+
+        }
 
         public Tema(decimal valor, string nome, int id)
         {

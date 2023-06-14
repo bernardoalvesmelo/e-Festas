@@ -1,4 +1,5 @@
-﻿using e_Festas.Dominio.ModuloCliente;
+﻿using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloCliente;
 using e_Festas.WinApp.ModuloCliente;
 using System;
 using System.Collections.Generic;
@@ -102,6 +103,10 @@ namespace e_Festas.WinApp.ModuloCliente
             List<Cliente> clientes = repositorioCliente.SelecionarTodos();
 
             tabelaCliente.AtualizarRegistros(clientes);
+
+            string mensagem = $"Visualizando {clientes.Count} " + (clientes.Count == 1 ?
+                "cliente" : "clientes");
+            TelaPrincipalForm.Instancia.AtualizarRodape(mensagem);
         }
 
         public override UserControl ObterListagem()
