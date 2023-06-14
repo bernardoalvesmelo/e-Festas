@@ -43,17 +43,17 @@
             // btnGravarItem
             // 
             btnGravarItem.DialogResult = DialogResult.OK;
-            btnGravarItem.Location = new Point(161, 280);
+            btnGravarItem.Location = new Point(205, 295);
             btnGravarItem.Name = "btnGravarItem";
             btnGravarItem.Size = new Size(90, 36);
             btnGravarItem.TabIndex = 0;
             btnGravarItem.Text = "Gravar";
-            btnGravarItem.UseVisualStyleBackColor = true;      
+            btnGravarItem.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(257, 280);
+            btnCancelar.Location = new Point(301, 295);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(83, 36);
             btnCancelar.TabIndex = 1;
@@ -64,37 +64,37 @@
             // 
             listTema.FormattingEnabled = true;
             listTema.ItemHeight = 15;
-            listTema.Location = new Point(43, 121);
+            listTema.Location = new Point(41, 133);
             listTema.Name = "listTema";
-            listTema.Size = new Size(297, 139);
+            listTema.Size = new Size(309, 139);
             listTema.TabIndex = 2;
             // 
             // lbNomeItem
             // 
             lbNomeItem.AutoSize = true;
-            lbNomeItem.Location = new Point(43, 53);
+            lbNomeItem.Location = new Point(43, 58);
             lbNomeItem.Name = "lbNomeItem";
-            lbNomeItem.Size = new Size(31, 15);
+            lbNomeItem.Size = new Size(34, 15);
             lbNomeItem.TabIndex = 3;
-            lbNomeItem.Text = "Item";
+            lbNomeItem.Text = "Item:";
             // 
             // lbValorItem
             // 
             lbValorItem.AutoSize = true;
-            lbValorItem.Location = new Point(43, 95);
+            lbValorItem.Location = new Point(41, 95);
             lbValorItem.Name = "lbValorItem";
-            lbValorItem.Size = new Size(33, 15);
+            lbValorItem.Size = new Size(36, 15);
             lbValorItem.TabIndex = 4;
-            lbValorItem.Text = "Valor";
+            lbValorItem.Text = "Valor:";
             // 
             // lbId
             // 
             lbId.AutoSize = true;
-            lbId.Location = new Point(57, 20);
+            lbId.Location = new Point(57, 25);
             lbId.Name = "lbId";
-            lbId.Size = new Size(17, 15);
+            lbId.Size = new Size(20, 15);
             lbId.TabIndex = 5;
-            lbId.Text = "Id";
+            lbId.Text = "Id:";
             // 
             // txtId
             // 
@@ -106,21 +106,21 @@
             // 
             // TxtItem
             // 
-            TxtItem.Location = new Point(82, 53);
+            TxtItem.Location = new Point(83, 50);
             TxtItem.Name = "TxtItem";
             TxtItem.Size = new Size(206, 23);
             TxtItem.TabIndex = 7;
             // 
             // txtValorItem
             // 
-            txtValorItem.Location = new Point(82, 92);
+            txtValorItem.Location = new Point(83, 87);
             txtValorItem.Name = "txtValorItem";
             txtValorItem.Size = new Size(125, 23);
             txtValorItem.TabIndex = 8;
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(213, 92);
+            btnAdicionar.Location = new Point(234, 87);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(75, 23);
             btnAdicionar.TabIndex = 9;
@@ -145,7 +145,7 @@
             Controls.Add(btnGravarItem);
             Name = "TelaCadastroItemForm";
             ShowIcon = false;
-            Text = "TelaCadastroItemForm";
+            Text = "Cadastro de Itens";
             ResumeLayout(false);
             PerformLayout();
         }

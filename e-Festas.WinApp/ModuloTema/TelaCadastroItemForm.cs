@@ -22,11 +22,11 @@ namespace e_Festas.WinApp.ModuloTema
             string nome = TxtItem.Text;
 
             decimal valorItem;
-            
+
             try
             {
                 valorItem = Convert.ToDecimal(txtValorItem.Text);
-               
+
             }
             catch
             {
@@ -40,7 +40,7 @@ namespace e_Festas.WinApp.ModuloTema
             if (id > 0)
                 item.id = id;
 
-            listTema.Items.Add(item);           
+            listTema.Items.Add(item);
         }
 
         private void ConfigurarTela(Tema tema)

@@ -41,7 +41,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(127, 130);
+            btnGravar.Location = new Point(241, 145);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(91, 38);
             btnGravar.TabIndex = 0;
@@ -52,7 +52,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(233, 130);
+            btnCancelar.Location = new Point(338, 145);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(91, 38);
             btnCancelar.TabIndex = 1;
@@ -62,49 +62,50 @@
             // lbIdTema
             // 
             lbIdTema.AutoSize = true;
-            lbIdTema.Location = new Point(72, 15);
+            lbIdTema.Location = new Point(126, 20);
             lbIdTema.Name = "lbIdTema";
-            lbIdTema.Size = new Size(17, 15);
+            lbIdTema.Size = new Size(20, 15);
             lbIdTema.TabIndex = 2;
-            lbIdTema.Text = "Id";
+            lbIdTema.Text = "Id:";
             // 
             // lbValorTema
             // 
             lbValorTema.AutoSize = true;
-            lbValorTema.Location = new Point(56, 51);
+            lbValorTema.Location = new Point(110, 50);
             lbValorTema.Name = "lbValorTema";
-            lbValorTema.Size = new Size(33, 15);
+            lbValorTema.Size = new Size(36, 15);
             lbValorTema.TabIndex = 3;
-            lbValorTema.Text = "Valor";
+            lbValorTema.Text = "Valor:";
             // 
             // lbNomeTema
             // 
             lbNomeTema.AutoSize = true;
-            lbNomeTema.Location = new Point(1, 86);
+            lbNomeTema.Location = new Point(58, 79);
             lbNomeTema.Name = "lbNomeTema";
-            lbNomeTema.Size = new Size(88, 15);
+            lbNomeTema.Size = new Size(94, 15);
             lbNomeTema.TabIndex = 4;
-            lbNomeTema.Text = "Nome do Tema";
+            lbNomeTema.Text = "Nome do Tema: ";
             // 
             // txtIdTema
             // 
             txtIdTema.Enabled = false;
-            txtIdTema.Location = new Point(100, 12);
+            txtIdTema.Location = new Point(152, 12);
+            txtIdTema.Multiline = true;
             txtIdTema.Name = "txtIdTema";
-            txtIdTema.Size = new Size(24, 23);
+            txtIdTema.Size = new Size(21, 23);
             txtIdTema.TabIndex = 5;
             txtIdTema.Text = "0";
             // 
             // txtValorTema
             // 
-            txtValorTema.Location = new Point(100, 43);
+            txtValorTema.Location = new Point(152, 42);
             txtValorTema.Name = "txtValorTema";
             txtValorTema.Size = new Size(118, 23);
             txtValorTema.TabIndex = 6;
             // 
             // txtNomeTema
             // 
-            txtNomeTema.Location = new Point(100, 78);
+            txtNomeTema.Location = new Point(152, 71);
             txtNomeTema.Name = "txtNomeTema";
             txtNomeTema.Size = new Size(224, 23);
             txtNomeTema.TabIndex = 7;
@@ -113,7 +114,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(397, 215);
+            ClientSize = new Size(441, 195);
             Controls.Add(txtNomeTema);
             Controls.Add(txtValorTema);
             Controls.Add(txtIdTema);
@@ -124,7 +125,7 @@
             Controls.Add(btnGravar);
             Name = "TelaCadastroTemaForm";
             ShowIcon = false;
-            Text = "Cadastro de Tema";
+            Text = "Cadastro de Temas";
             ResumeLayout(false);
             PerformLayout();
         }
