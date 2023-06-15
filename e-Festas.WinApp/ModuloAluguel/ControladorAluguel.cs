@@ -31,9 +31,13 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override string ToolTipFiltrar { get { return "Filtrar Aluguéis"; } }
 
+        public override string ToolTipConcluir { get { return "Concluir Aluguel Existente"; } }
+
         public override bool FiltrarHabilitado { get { return true; } }
 
         public override bool VisualizarHabilitado { get { return true; } }
+
+        public override bool ConcluirHabilitado { get { return true; } }
 
         public override void Inserir()
         {
@@ -93,7 +97,7 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             if (aluguel.dataQuitacao != new DateTime())
             {
-                MessageBox.Show($"Não pode editar um aluguel quitado!",
+                MessageBox.Show($"Não pode editar um aluguel concluído!",
                     "Edição de Aluguéis",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
@@ -139,6 +143,49 @@ namespace e_Festas.WinApp.ModuloAluguel
             {
                 Aluguel aluguelAtualizado = telaAluguel.ObterAluguel();
                 repositorioAluguel.Editar(aluguelAtualizado.id, aluguelAtualizado);                
+            }
+            CarregarAlugueis();
+        }
+
+        public void Concluir()
+        {
+            Aluguel aluguel = ObterAluguelSelecionado();
+
+            if (aluguel == null)
+            {
+                MessageBox.Show($"Selecione um aluguel primeiro!",
+                    "Edição de Aluguéis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            if (aluguel.dataQuitacao != new DateTime())
+            {
+                MessageBox.Show($"Não pode concluir um aluguel concluído!",
+                    "Edição de Aluguéis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja fechar o aluguel {aluguel.id}?", "Conclusão de Aluguéis",
+               MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida != DialogResult.OK)
+                return;
+
+
+            TelaConcluirAluguelForm telaConcluir = new TelaConcluirAluguelForm();
+
+            opcaoEscolhida = telaConcluir.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Aluguel aluguelAtualizado = telaConcluir.ObterAluguel();
+                repositorioAluguel.Editar(aluguelAtualizado.id, aluguelAtualizado);
             }
             CarregarAlugueis();
         }
