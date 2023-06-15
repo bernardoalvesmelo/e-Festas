@@ -33,11 +33,15 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override string ToolTipConcluir { get { return "Concluir Aluguel Existente"; } }
 
+        public override string ToolTipConfigurar { get { return "Configurar Aluguéis"; } }
+
         public override bool FiltrarHabilitado { get { return true; } }
 
         public override bool VisualizarHabilitado { get { return true; } }
 
         public override bool ConcluirHabilitado { get { return true; } }
+
+        public override bool ConfigurarHabilitado { get { return true; } }
 
         public override void Inserir()
         {
