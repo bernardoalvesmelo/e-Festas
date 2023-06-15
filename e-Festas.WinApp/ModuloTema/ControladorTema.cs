@@ -134,7 +134,7 @@ namespace e_Festas.WinApp.ModuloTema
                 return;
             }
 
-            TelaCadastroItemForm telaCadastroItem = new TelaCadastroItemForm(temaSelecionado);
+            TelaAdicionarItemForm telaCadastroItem = new TelaAdicionarItemForm(temaSelecionado);
 
             DialogResult opcaoEscolhida = telaCadastroItem.ShowDialog();
 

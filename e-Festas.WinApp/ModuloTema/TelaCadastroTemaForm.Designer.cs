@@ -34,8 +34,8 @@
             lbValorTema = new Label();
             lbNomeTema = new Label();
             txtIdTema = new TextBox();
-            txtValorTema = new TextBox();
             txtNomeTema = new TextBox();
+            txtValorTema = new MaskedTextBox();
             SuspendLayout();
             // 
             // btnGravar
@@ -96,13 +96,6 @@
             txtIdTema.TabIndex = 5;
             txtIdTema.Text = "0";
             // 
-            // txtValorTema
-            // 
-            txtValorTema.Location = new Point(152, 42);
-            txtValorTema.Name = "txtValorTema";
-            txtValorTema.Size = new Size(118, 23);
-            txtValorTema.TabIndex = 6;
-            // 
             // txtNomeTema
             // 
             txtNomeTema.Location = new Point(152, 71);
@@ -110,13 +103,22 @@
             txtNomeTema.Size = new Size(224, 23);
             txtNomeTema.TabIndex = 7;
             // 
+            // txtValorTema
+            // 
+            txtValorTema.Location = new Point(152, 41);
+            txtValorTema.Mask = "00000000";
+            txtValorTema.Name = "txtValorTema";
+            txtValorTema.Size = new Size(100, 23);
+            txtValorTema.TabIndex = 8;
+            txtValorTema.ValidatingType = typeof(int);
+            // 
             // TelaCadastroTemaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(441, 195);
-            Controls.Add(txtNomeTema);
             Controls.Add(txtValorTema);
+            Controls.Add(txtNomeTema);
             Controls.Add(txtIdTema);
             Controls.Add(lbNomeTema);
             Controls.Add(lbValorTema);
@@ -138,7 +140,7 @@
         private Label lbValorTema;
         private Label lbNomeTema;
         private TextBox txtIdTema;
-        private TextBox txtValorTema;
         private TextBox txtNomeTema;
+        private MaskedTextBox txtValorTema;
     }
 }

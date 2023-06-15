@@ -24,14 +24,7 @@ namespace e_Festas.Dominio.ModuloTema
         {
             return nome;
         }
-
-        public override bool Equals(object? obj)
-        {
-           return obj is ItemTema itemTema && 
-                nome == itemTema.nome && 
-                valorItem == itemTema.valorItem;
-        }
-
+      
         public override void AtualizarInformacoes(ItemTema registroAtualizado)
         {
             this.id = registroAtualizado.id;
@@ -51,6 +44,15 @@ namespace e_Festas.Dominio.ModuloTema
                 erros.Add("O campo 'Valor' é obrigatório");
 
             return erros.ToArray();
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ItemTema tema &&
+                   id == tema.id &&
+                   id == tema.id &&
+                   nome == tema.nome &&
+                   valorItem == tema.valorItem;
         }
     }
 }

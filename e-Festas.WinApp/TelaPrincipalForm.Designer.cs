@@ -33,6 +33,8 @@
             alugueisToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             temasToolStripMenuItem = new ToolStripMenuItem();
+            itensToolStripMenuItem = new ToolStripMenuItem();
+            itensToolStripMenuItem1 = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
             barraFerramentas = new ToolStrip();
@@ -71,23 +73,38 @@
             // alugueisToolStripMenuItem
             // 
             alugueisToolStripMenuItem.Name = "alugueisToolStripMenuItem";
-            alugueisToolStripMenuItem.Size = new Size(120, 22);
+            alugueisToolStripMenuItem.Size = new Size(180, 22);
             alugueisToolStripMenuItem.Text = "Aluguéis";
             alugueisToolStripMenuItem.Click += alugueisToolStripMenuItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(120, 22);
+            clientesToolStripMenuItem.Size = new Size(180, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click_1;
             // 
             // temasToolStripMenuItem
             // 
+            temasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { itensToolStripMenuItem, itensToolStripMenuItem1 });
             temasToolStripMenuItem.Name = "temasToolStripMenuItem";
-            temasToolStripMenuItem.Size = new Size(120, 22);
+            temasToolStripMenuItem.Size = new Size(180, 22);
             temasToolStripMenuItem.Text = "Temas";
-            temasToolStripMenuItem.Click += temasToolStripMenuItem_Click_1;
+            //temasToolStripMenuItem.Click += temasToolStripMenuItem_Click_1;
+            // 
+            // itensToolStripMenuItem
+            // 
+            itensToolStripMenuItem.Name = "itensToolStripMenuItem";
+            itensToolStripMenuItem.Size = new Size(180, 22);
+            itensToolStripMenuItem.Text = "Temas";
+            itensToolStripMenuItem.Click += itensToolStripMenuItem_Click;
+            // 
+            // itensToolStripMenuItem1
+            // 
+            itensToolStripMenuItem1.Name = "itensToolStripMenuItem1";
+            itensToolStripMenuItem1.Size = new Size(180, 22);
+            itensToolStripMenuItem1.Text = "Itens";
+            itensToolStripMenuItem1.Click += itensToolStripMenuItem1_Click;
             // 
             // statusStrip1
             // 
@@ -253,5 +270,7 @@
         private ToolStripMenuItem temasToolStripMenuItem;
         private ToolStripButton btnAdicionarItens;
         private ToolStripButton btnFiltrar;
+        private ToolStripMenuItem itensToolStripMenuItem;
+        private ToolStripMenuItem itensToolStripMenuItem1;
     }
 }

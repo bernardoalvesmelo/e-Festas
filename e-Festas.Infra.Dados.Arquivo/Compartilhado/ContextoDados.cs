@@ -16,11 +16,14 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
         
         public List<Cliente> clientes;
 
+        public List<ItemTema> itemTemas;
+
         public ContextoDados()
         {
             alugueis = new List<Aluguel>();
             temas = new List<Tema>();
-            clientes = new List<Cliente>(); 
+            clientes = new List<Cliente>();
+            itemTemas = new List<ItemTema>();
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -53,6 +56,7 @@ namespace e_Festas.Infra.Dados.Arquivo.Compartilhado
                     this.alugueis = ctx.alugueis;
                     this.temas = ctx.temas;
                     this.clientes = ctx.clientes;
+                    this.itemTemas = ctx.itemTemas;
                 }
             }
         }

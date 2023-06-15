@@ -28,121 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnGravarItem = new Button();
+            btnGravar = new Button();
             btnCancelar = new Button();
-            listTema = new ListBox();
-            lbNomeItem = new Label();
-            lbValorItem = new Label();
             lbId = new Label();
+            lbNome = new Label();
+            lblValor = new Label();
             txtId = new TextBox();
-            TxtItem = new TextBox();
-            txtValorItem = new TextBox();
-            btnAdicionar = new Button();
+            maskedValor = new MaskedTextBox();
+            txtNome = new TextBox();
             SuspendLayout();
             // 
-            // btnGravarItem
+            // btnGravar
             // 
-            btnGravarItem.DialogResult = DialogResult.OK;
-            btnGravarItem.Location = new Point(205, 295);
-            btnGravarItem.Name = "btnGravarItem";
-            btnGravarItem.Size = new Size(90, 36);
-            btnGravarItem.TabIndex = 0;
-            btnGravarItem.Text = "Gravar";
-            btnGravarItem.UseVisualStyleBackColor = true;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Location = new Point(239, 153);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(88, 40);
+            btnGravar.TabIndex = 0;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(301, 295);
+            btnCancelar.Location = new Point(339, 153);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(83, 36);
+            btnCancelar.Size = new Size(90, 40);
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // listTema
-            // 
-            listTema.FormattingEnabled = true;
-            listTema.ItemHeight = 15;
-            listTema.Location = new Point(41, 133);
-            listTema.Name = "listTema";
-            listTema.Size = new Size(309, 139);
-            listTema.TabIndex = 2;
-            // 
-            // lbNomeItem
-            // 
-            lbNomeItem.AutoSize = true;
-            lbNomeItem.Location = new Point(43, 58);
-            lbNomeItem.Name = "lbNomeItem";
-            lbNomeItem.Size = new Size(34, 15);
-            lbNomeItem.TabIndex = 3;
-            lbNomeItem.Text = "Item:";
-            // 
-            // lbValorItem
-            // 
-            lbValorItem.AutoSize = true;
-            lbValorItem.Location = new Point(41, 95);
-            lbValorItem.Name = "lbValorItem";
-            lbValorItem.Size = new Size(36, 15);
-            lbValorItem.TabIndex = 4;
-            lbValorItem.Text = "Valor:";
-            // 
             // lbId
             // 
             lbId.AutoSize = true;
-            lbId.Location = new Point(57, 25);
+            lbId.Location = new Point(131, 46);
             lbId.Name = "lbId";
             lbId.Size = new Size(20, 15);
-            lbId.TabIndex = 5;
+            lbId.TabIndex = 2;
             lbId.Text = "Id:";
+            // 
+            // lbNome
+            // 
+            lbNome.AutoSize = true;
+            lbNome.Location = new Point(108, 75);
+            lbNome.Name = "lbNome";
+            lbNome.Size = new Size(43, 15);
+            lbNome.TabIndex = 3;
+            lbNome.Text = "Nome:";
+            // 
+            // lblValor
+            // 
+            lblValor.AutoSize = true;
+            lblValor.Location = new Point(115, 105);
+            lblValor.Name = "lblValor";
+            lblValor.Size = new Size(36, 15);
+            lblValor.TabIndex = 4;
+            lblValor.Text = "Valor:";
             // 
             // txtId
             // 
-            txtId.Enabled = false;
-            txtId.Location = new Point(82, 17);
+            txtId.Location = new Point(157, 38);
             txtId.Name = "txtId";
-            txtId.Size = new Size(27, 23);
-            txtId.TabIndex = 6;
+            txtId.Size = new Size(24, 23);
+            txtId.TabIndex = 5;
             // 
-            // TxtItem
+            // maskedValor
             // 
-            TxtItem.Location = new Point(83, 50);
-            TxtItem.Name = "TxtItem";
-            TxtItem.Size = new Size(206, 23);
-            TxtItem.TabIndex = 7;
+            maskedValor.Location = new Point(157, 97);
+            maskedValor.Mask = "00000";
+            maskedValor.Name = "maskedValor";
+            maskedValor.Size = new Size(67, 23);
+            maskedValor.TabIndex = 6;
+            maskedValor.ValidatingType = typeof(int);
             // 
-            // txtValorItem
+            // txtNome
             // 
-            txtValorItem.Location = new Point(83, 87);
-            txtValorItem.Name = "txtValorItem";
-            txtValorItem.Size = new Size(125, 23);
-            txtValorItem.TabIndex = 8;
-            // 
-            // btnAdicionar
-            // 
-            btnAdicionar.Location = new Point(234, 87);
-            btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(75, 23);
-            btnAdicionar.TabIndex = 9;
-            btnAdicionar.Text = "Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = true;
-            btnAdicionar.Click += btnAdicionar_Click;
+            txtNome.Location = new Point(157, 67);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(116, 23);
+            txtNome.TabIndex = 7;
             // 
             // TelaCadastroItemForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 343);
-            Controls.Add(btnAdicionar);
-            Controls.Add(txtValorItem);
-            Controls.Add(TxtItem);
+            ClientSize = new Size(441, 205);
+            Controls.Add(txtNome);
+            Controls.Add(maskedValor);
             Controls.Add(txtId);
+            Controls.Add(lblValor);
+            Controls.Add(lbNome);
             Controls.Add(lbId);
-            Controls.Add(lbValorItem);
-            Controls.Add(lbNomeItem);
-            Controls.Add(listTema);
             Controls.Add(btnCancelar);
-            Controls.Add(btnGravarItem);
+            Controls.Add(btnGravar);
             Name = "TelaCadastroItemForm";
             ShowIcon = false;
             Text = "Cadastro de Itens";
@@ -152,15 +131,13 @@
 
         #endregion
 
-        private Button btnGravarItem;
+        private Button btnGravar;
         private Button btnCancelar;
-        private ListBox listTema;
-        private Label lbNomeItem;
-        private Label lbValorItem;
         private Label lbId;
+        private Label lbNome;
+        private Label lblValor;
         private TextBox txtId;
-        private TextBox TxtItem;
-        private TextBox txtValorItem;
-        private Button btnAdicionar;
+        private MaskedTextBox maskedValor;
+        private TextBox txtNome;
     }
 }

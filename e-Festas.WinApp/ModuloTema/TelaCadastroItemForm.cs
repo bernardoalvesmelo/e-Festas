@@ -1,73 +1,62 @@
-﻿using e_Festas.Dominio.ModuloAluguel;
-using e_Festas.Dominio.ModuloTema;
-using System.Data;
+﻿using e_Festas.Dominio.ModuloTema;
 
 namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroItemForm : Form
     {
-        public TelaCadastroItemForm(Tema tema)
+        public TelaCadastroItemForm()
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
-
-            ConfigurarTela(tema);
         }
-
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        public ItemTema ObterItem()
         {
             int id = Convert.ToInt32(txtId.Text);
 
-            string nome = TxtItem.Text;
+            string nome = txtNome.Text;
 
-            decimal valorItem;
+            decimal valor = Convert.ToDecimal(maskedValor.Text);
 
-            try
-            {
-                valorItem = Convert.ToDecimal(txtValorItem.Text);
-
-            }
-            catch
-            {
-                TelaPrincipalForm.Instancia.AtualizarRodape("O campo 'VALOR' precisa ser um número.");
-                DialogResult = DialogResult.None;
-                return;
-            }
-
-            ItemTema item = new ItemTema(id, nome, valorItem);
+            ItemTema item = new ItemTema(id, nome, valor);
 
             if (id > 0)
                 item.id = id;
 
-            listTema.Items.Add(item);
+            return item;
         }
 
-        private void ConfigurarTela(Tema tema)
+        public void ConfigurarTela(ItemTema itemSelecionado)
         {
-            txtId.Text = tema.id.ToString();
+            txtId.Text = itemSelecionado.id.ToString();
 
-            TxtItem.Text = tema.nome;
+            txtNome.Text = itemSelecionado.nome;
 
-            listTema.Items.AddRange(tema.itemTemas.ToArray());
+            maskedValor.Text = itemSelecionado.valorItem.ToString();
         }
-        public List<ItemTema> ObterItensCadastrados()
+
+        private void btnGravar_Click(object sender, EventArgs e)
         {
-            return listTema.Items.Cast<ItemTema>().ToList();
+            ItemTema Item;
+            try
+            {
+                Item = ObterItem();
+            }
+            catch
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("O valor é obrigatório");
+                DialogResult = DialogResult.None;
+                return;
+            }
+
+            string[] erros = Item.Validar();
+
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
         }
-
-        //private void btnGravarItem_Click(object sender, EventArgs e)
-        //{            
-        //    ItemTema tema;
-
-        //    string[] erros = tema.Validar();
-
-        //    if (erros.Length > 0)
-        //    {
-        //        TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
-
-        //        DialogResult = DialogResult.None;
-        //    }
-        //}
     }
 }
