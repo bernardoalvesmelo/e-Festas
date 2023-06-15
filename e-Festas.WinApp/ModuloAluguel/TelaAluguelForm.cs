@@ -40,6 +40,17 @@ namespace e_Festas.WinApp.ModuloAluguel
                 cmbTemas.SelectedIndex = 0;
         }
 
+        public void CarregarConfiguracao()
+        {
+            txtSinal.Text = Configuracao.sinal.ToString();
+
+            txtDesconto.Text = Configuracao.descontoValor.ToString();
+
+            txtDescontoMaximo.Text = Configuracao.descontoMaximo.ToString();
+
+            cbDesconto.Checked = Configuracao.descontoAplicado;
+        }
+
         public Aluguel ObterAluguel()
         {
             int id = Convert.ToInt32(txtId.Text);

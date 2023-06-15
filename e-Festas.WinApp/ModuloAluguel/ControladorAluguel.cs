@@ -71,6 +71,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                 temas);
 
             DialogResult opcaoEscolhida = telaAluguel.ShowDialog();
+            telaAluguel.CarregarConfiguracao();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
@@ -188,6 +189,13 @@ namespace e_Festas.WinApp.ModuloAluguel
                 repositorioAluguel.Editar(aluguelAtualizado.id, aluguelAtualizado);
             }
             CarregarAlugueis();
+        }
+
+        public void Configurar()
+        {
+            TelaConfigurarAluguelForm telaConfigurar = new TelaConfigurarAluguelForm();
+
+            telaConfigurar.ShowDialog();
         }
 
         private Aluguel ObterAluguelSelecionado()

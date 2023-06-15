@@ -6,6 +6,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using e_Festas.Dominio.ModuloAluguel;
 
 namespace e_Festas.Dominio.ModuloCliente
 {
@@ -15,6 +16,8 @@ namespace e_Festas.Dominio.ModuloCliente
 
         public string telefone;
         public string email;
+
+        public List<Aluguel> alugueis = new List<Aluguel>();
         
         public Cliente()
         {
