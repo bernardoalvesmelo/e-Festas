@@ -14,7 +14,7 @@
 
         protected abstract List<T> ObterRegistros();
 
-        public void Inserir(T novoRegistro)
+        public virtual void Inserir(T novoRegistro)
         {
             List<T> registros = ObterRegistros();
 
@@ -25,7 +25,7 @@
             contextoDados.GravarEmArquivoJson();
         }
 
-        public void Editar(int id, T registroAtualizado)
+        public virtual void Editar(int id, T registroAtualizado)
         {
             T registroSelecionado = SelecionarPorId(id);
 
@@ -34,7 +34,7 @@
             contextoDados.GravarEmArquivoJson();
         }
 
-        public void Excluir(T registroSelecionado)
+        public virtual void Excluir(T registroSelecionado)
         {
             List<T> registros = ObterRegistros();
 

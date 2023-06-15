@@ -9,6 +9,31 @@ namespace e_Festas.Infra.Dados.Arquivo.ModuloAluguel
             
         }
 
+        public override void Inserir(Aluguel novoAluguel)
+        {         
+            base.Inserir(novoAluguel);
+            novoAluguel.cliente.alugueis.Add(novoAluguel);
+        }
+        public override void Editar(int id, Aluguel Aluguel)
+        {
+            Aluguel aluguelAnterior = SelecionarPorId(id);
+
+            aluguelAnterior.cliente.alugueis = 
+                aluguelAnterior.cliente.alugueis.FindAll(a => a.id != id);
+
+            base.Editar(id, Aluguel);
+            aluguelAnterior.cliente.alugueis.Add(aluguelAnterior);
+        }
+        public override void Excluir(Aluguel aluguelSelecionado)
+        {
+            Aluguel aluguelAnterior = SelecionarPorId(id);
+
+            aluguelAnterior.cliente.alugueis =
+                aluguelAnterior.cliente.alugueis.FindAll(a => a.id != id);
+
+            base.Excluir(aluguelSelecionado);
+        }
+
         public List<Aluguel> SelecionarTodosEmAberto()
         {
             return contextoDados.alugueis.FindAll(a => a.dataQuitacao == new DateTime());
