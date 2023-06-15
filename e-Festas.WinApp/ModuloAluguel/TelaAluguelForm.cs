@@ -71,7 +71,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                 aluguel.id = id;
 
             if (cbDesconto.Checked)
-                aluguel.DescontarValor(alugueis);
+                aluguel.DescontarValor();
 
             return aluguel;
         }

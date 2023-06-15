@@ -74,12 +74,9 @@ namespace e_Festas.Dominio.ModuloAluguel
             this.endereco = registroAtualizado.endereco;
         }
 
-        public void DescontarValor(List<Aluguel> alugueis)
+        public void DescontarValor()
         {
-            int numeroAlugueis = alugueis.FindAll(
-                a => a.cliente.id == this.cliente.id 
-                && (a.id < this.id || this.id == 0)
-                ).Count();
+            int numeroAlugueis = this.cliente.alugueis.Count();
             decimal desconto = numeroAlugueis > 4 ? (decimal)0.8 :  1 - (numeroAlugueis * descontoValor / 100);
             this.valor = this.valor * desconto;
 
