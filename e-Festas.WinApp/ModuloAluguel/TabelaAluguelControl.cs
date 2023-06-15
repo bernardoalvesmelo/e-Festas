@@ -138,29 +138,9 @@ namespace e_Festas.WinApp.ModuloAluguel
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "pais",
-                    HeaderText = "Pais"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "estado",
-                    HeaderText = "Estado"
-                },
-                new DataGridViewTextBoxColumn()
-                {
                     Name = "cidade",
                     HeaderText = "Cidade"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "bairro",
-                    HeaderText = "Bairro"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "cep",
-                    HeaderText = "CEP"
-                },
+                },             
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "rua",
@@ -188,11 +168,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                 Endereco endereco = aluguel.endereco;
                 gridAlugueis.Rows.Add(
                     aluguel.id,
-                    endereco.pais,
-                    endereco.estado,
                     endereco.cidade,
-                    endereco.bairro,
-                    endereco.cep,
                     endereco.rua,
                     endereco.numero
                     );

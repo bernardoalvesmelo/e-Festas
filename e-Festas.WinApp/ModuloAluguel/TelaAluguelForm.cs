@@ -10,8 +10,6 @@ namespace e_Festas.WinApp.ModuloAluguel
         private List<Cliente> clientes;
         private List<Tema> temas;
 
-        private Endereco endereco;
-
         public TelaAluguelForm(List<Aluguel> alugueis, List<Cliente> clientes, List<Tema> temas)
         {
             InitializeComponent();
@@ -50,6 +48,8 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             bool descontoAplicado = cbDesconto.Checked;
 
+            decimal descontoValor = Convert.ToDecimal(txtDesconto.Text);
+
             DateTime data = txtData.Value.Date;
 
             DateTime dataQuitacao = cbDataQuitacao.Checked ? txtDataQuitacao.Value.Date :
@@ -63,9 +63,9 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             Tema tema = temas.Find(t => t.nome == cmbTemas.SelectedItem);
 
-            Endereco endereco = this.endereco;
+            Endereco endereco = ObterEndereco();
 
-            Aluguel aluguel = new Aluguel(sinal, descontoAplicado, data, dataQuitacao, horarioInicio, horarioTermino, cliente, tema, endereco);
+            Aluguel aluguel = new Aluguel(sinal, descontoAplicado, descontoValor, data, dataQuitacao, horarioInicio, horarioTermino, cliente, tema, endereco);
 
             if (id > 0)
                 aluguel.id = id;
@@ -80,6 +80,7 @@ namespace e_Festas.WinApp.ModuloAluguel
         {
             txtId.Text = aluguel.id.ToString();
             txtSinal.Text = aluguel.sinal.ToString();
+            txtDesconto.Text = aluguel.descontoValor.ToString();
             cbDesconto.Checked = aluguel.descontoAplicado;
             txtData.Value = aluguel.data;
 
@@ -97,12 +98,26 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             btnGravar.Enabled = true;
 
-            this.endereco = aluguel.endereco;
+            ConfigurarTela(aluguel.endereco);
         }
 
         private void cbDataQuitacao_CheckedChanged(object sender, EventArgs e)
         {
-            txtDataQuitacao.Enabled = !txtDataQuitacao.Enabled;
+            if (cbDataQuitacao.Checked == false)
+            {
+                txtDataQuitacao.Enabled = false;
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja fechar o aluguel?", "Fechamento de Aluguéis",
+               MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                txtDataQuitacao.Enabled = true;
+                return;
+            }
+            cbDataQuitacao.Checked = false;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -110,8 +125,12 @@ namespace e_Festas.WinApp.ModuloAluguel
             Aluguel aluguel = ObterAluguel();
 
             string[] erros = aluguel.Validar();
+
             if (erros.Length == 0)
                 erros = Validar(aluguel);
+
+            if (erros.Length == 0)
+                erros = aluguel.endereco.Validar();
 
             if (erros.Length > 0)
             {
@@ -135,19 +154,40 @@ namespace e_Festas.WinApp.ModuloAluguel
             }
             return erros.ToArray();
         }
-        private void btnEndereco_Click(object sender, EventArgs e)
+
+        public Endereco ObterEndereco()
         {
-            TelaEnderecoForm telaEndereco = new TelaEnderecoForm();
+            string cidade = txtCidade.Text;
 
-            if (this.endereco != null)
-                telaEndereco.ConfigurarTela(endereco);
+            string rua = txtRua.Text;
 
-            DialogResult opcaoEscolhida = telaEndereco.ShowDialog();
+            string numero = txtNumero.Text;
 
-            if (opcaoEscolhida == DialogResult.OK)
+
+            Endereco endereco = new Endereco(cidade, rua, numero);
+
+            return endereco;
+        }
+
+        public void ConfigurarTela(Endereco endereco)
+        {
+            txtCidade.Text = endereco.cidade;
+
+            txtRua.Text = endereco.rua;
+
+            txtNumero.Text = endereco.numero;
+        }
+
+        private void btnlGravar_Click(object sender, EventArgs e)
+        {
+            Endereco endereco = ObterEndereco();
+
+            string[] erros = endereco.Validar();
+
+            if (erros.Length > 0)
             {
-                this.endereco = telaEndereco.ObterEndereco();
-                btnGravar.Enabled = true;
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+                this.DialogResult = DialogResult.None;
             }
         }
     }

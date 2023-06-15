@@ -91,6 +91,16 @@ namespace e_Festas.WinApp.ModuloAluguel
                 return;
             }
 
+            if (aluguel.dataQuitacao != new DateTime())
+            {
+                MessageBox.Show($"Não pode editar um aluguel quitado!",
+                    "Edição de Aluguéis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
             List<Cliente> clientes = repositorioCliente.SelecionarTodos();
            
 
