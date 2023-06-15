@@ -52,7 +52,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(-1, 88);
+            label3.Location = new Point(1, 88);
             label3.Name = "label3";
             label3.Size = new Size(54, 15);
             label3.TabIndex = 18;
@@ -82,7 +82,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 59);
+            label2.Location = new Point(12, 59);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 14;
@@ -90,7 +90,7 @@
             // 
             // txtIdCliente
             // 
-            txtIdCliente.Location = new Point(48, 27);
+            txtIdCliente.Location = new Point(59, 31);
             txtIdCliente.Name = "txtIdCliente";
             txtIdCliente.ReadOnly = true;
             txtIdCliente.Size = new Size(100, 23);
@@ -100,7 +100,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(17, 31);
+            label1.Location = new Point(32, 34);
             label1.Name = "label1";
             label1.Size = new Size(20, 15);
             label1.TabIndex = 12;
@@ -109,7 +109,7 @@
             // btnGravarCliente
             // 
             btnGravarCliente.DialogResult = DialogResult.OK;
-            btnGravarCliente.Location = new Point(221, 102);
+            btnGravarCliente.Location = new Point(226, 114);
             btnGravarCliente.Name = "btnGravarCliente";
             btnGravarCliente.Size = new Size(75, 45);
             btnGravarCliente.TabIndex = 20;
@@ -120,7 +120,7 @@
             // btnCancelarCliente
             // 
             btnCancelarCliente.DialogResult = DialogResult.Cancel;
-            btnCancelarCliente.Location = new Point(302, 102);
+            btnCancelarCliente.Location = new Point(307, 114);
             btnCancelarCliente.Name = "btnCancelarCliente";
             btnCancelarCliente.Size = new Size(75, 45);
             btnCancelarCliente.TabIndex = 21;

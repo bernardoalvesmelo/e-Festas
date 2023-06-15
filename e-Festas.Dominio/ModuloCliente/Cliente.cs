@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace e_Festas.Dominio.ModuloCliente
 {
@@ -51,7 +52,7 @@ namespace e_Festas.Dominio.ModuloCliente
         public override string[] Validar()
         {
             List<string> erros = new List<string>();
-
+          
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");
 
@@ -63,11 +64,12 @@ namespace e_Festas.Dominio.ModuloCliente
 
             int nomeerro = nome.Count();
             int telefoneerro = telefone.Count();
+            bool isValid = Regex.IsMatch(telefone, @"\(\d{2}\) \d{4}-\d{4}");
 
-            if (telefoneerro <= 9)
+            if (isValid == false)
             {
                 Console.BackgroundColor = ConsoleColor.Red;
-                erros.Add("O campo 'TELEFONE', deve ter 9 ou mais caracteres.");
+                erros.Add("O campo 'TELEFONE',não esta no formato correto;");
             }
             if (nomeerro < 4)
             {
