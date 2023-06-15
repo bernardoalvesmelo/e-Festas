@@ -132,6 +132,8 @@
             // cbDesconto
             // 
             cbDesconto.AutoSize = true;
+            cbDesconto.Checked = true;
+            cbDesconto.CheckState = CheckState.Checked;
             cbDesconto.Location = new Point(30, 30);
             cbDesconto.Name = "cbDesconto";
             cbDesconto.Size = new Size(116, 19);
@@ -261,7 +263,7 @@
             tabPage1.Location = new Point(4, 27);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(293, 169);
+            tabPage1.Size = new Size(302, 169);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Aluguel";
             tabPage1.UseVisualStyleBackColor = true;
@@ -277,7 +279,7 @@
             tabPage2.Location = new Point(4, 27);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(293, 169);
+            tabPage2.Size = new Size(302, 169);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Endereço";
             tabPage2.UseVisualStyleBackColor = true;
@@ -356,7 +358,7 @@
             txtDescontoMaximo.ReadOnly = true;
             txtDescontoMaximo.Size = new Size(54, 23);
             txtDescontoMaximo.TabIndex = 24;
-            txtDescontoMaximo.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            txtDescontoMaximo.Value = new decimal(new int[] { 15, 0, 0, 0 });
             // 
             // label8
             // 

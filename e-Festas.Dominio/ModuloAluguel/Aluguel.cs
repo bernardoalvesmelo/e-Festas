@@ -85,11 +85,11 @@ namespace e_Festas.Dominio.ModuloAluguel
         {
             int numeroAlugueis = this.cliente.alugueis.Count();
 
-            decimal descontoUtilizado = descontoValor > descontoMaximo ? descontoMaximo :
-                descontoValor;
+            decimal descontoMaximo = 1 - (numeroAlugueis * this.descontoMaximo / 100);
+            decimal desconto = 1 - (numeroAlugueis * this.descontoValor / 100);
 
-            decimal desconto = 1 - (numeroAlugueis * descontoUtilizado / 100);
-            
+            desconto = desconto < descontoMaximo ? descontoMaximo : desconto;
+
             this.valor = this.valor * desconto;
 
             this.entrada = CalcularEntrada();

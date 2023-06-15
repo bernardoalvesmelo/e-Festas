@@ -42,11 +42,11 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public void CarregarConfiguracao()
         {
-            txtSinal.Text = Configuracao.sinal.ToString();
+            txtSinal.Value = Configuracao.sinal;
 
-            txtDesconto.Text = Configuracao.descontoValor.ToString();
+            txtDesconto.Value = Configuracao.descontoValor;
 
-            txtDescontoMaximo.Text = Configuracao.descontoMaximo.ToString();
+            txtDescontoMaximo.Value = Configuracao.descontoMaximo;
 
             cbDesconto.Checked = Configuracao.descontoAplicado;
         }
@@ -55,13 +55,13 @@ namespace e_Festas.WinApp.ModuloAluguel
         {
             int id = Convert.ToInt32(txtId.Text);
 
-            decimal sinal = Convert.ToDecimal(txtSinal.Text);
+            decimal sinal = txtSinal.Value;
 
             bool descontoAplicado = cbDesconto.Checked;
 
-            decimal descontoValor = Convert.ToDecimal(txtDesconto.Text);
+            decimal descontoValor = txtDesconto.Value;
 
-            decimal descontoMaximo = Convert.ToDecimal(txtDescontoMaximo.Text);
+            decimal descontoMaximo = txtDescontoMaximo.Value;
 
             DateTime data = txtData.Value.Date;
 
@@ -91,10 +91,10 @@ namespace e_Festas.WinApp.ModuloAluguel
         public void ConfigurarTela(Aluguel aluguel)
         {
             txtId.Text = aluguel.id.ToString();
-            txtSinal.Text = aluguel.sinal.ToString();
-            txtDesconto.Text = aluguel.descontoValor.ToString();
+            txtSinal.Value = aluguel.sinal;
+            txtDesconto.Value = aluguel.descontoValor;
             cbDesconto.Checked = aluguel.descontoAplicado;
-            txtDescontoMaximo.Text = aluguel.descontoMaximo.ToString();
+            txtDescontoMaximo.Value = aluguel.descontoMaximo;
 
             txtData.Value = aluguel.data;
             txtHorarioInicio.Value = aluguel.horarioInicio;

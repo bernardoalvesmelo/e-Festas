@@ -13,24 +13,24 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public void CarregarConfiguracao()
         {
-            txtSinal.Text = Configuracao.sinal.ToString();
+            txtSinal.Value = Configuracao.sinal;
            
-            txtDesconto.Text = Configuracao.descontoValor.ToString();
+            txtDesconto.Value = Configuracao.descontoValor;
             
-            txtDescontoMaximo.Text = Configuracao.descontoMaximo.ToString();
+            txtDescontoMaximo.Value = Configuracao.descontoMaximo;
 
             cbDesconto.Checked = Configuracao.descontoAplicado;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-        Configuracao.sinal = Convert.ToDecimal(txtSinal.Text);
+            Configuracao.sinal = txtSinal.Value;
 
-        Configuracao.descontoValor = Convert.ToDecimal(txtDesconto.Text);
+            Configuracao.descontoValor = txtDesconto.Value;
 
-        Configuracao.descontoMaximo = Convert.ToDecimal(txtDescontoMaximo.Text);
+            Configuracao.descontoMaximo = txtDescontoMaximo.Value;
 
-        Configuracao.descontoAplicado = cbDesconto.Checked;
+            Configuracao.descontoAplicado = cbDesconto.Checked;
         }
     }
 }

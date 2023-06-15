@@ -74,8 +74,8 @@ namespace e_Festas.WinApp.ModuloAluguel
                 clientes,
                 temas);
 
-            DialogResult opcaoEscolhida = telaAluguel.ShowDialog();
             telaAluguel.CarregarConfiguracao();
+            DialogResult opcaoEscolhida = telaAluguel.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {

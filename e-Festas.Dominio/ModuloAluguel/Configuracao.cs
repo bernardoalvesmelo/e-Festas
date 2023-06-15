@@ -4,10 +4,10 @@
     {
         public static decimal sinal = 40;
 
-        public static decimal descontoValor = 0;
+        public static decimal descontoValor = 1;
 
-        public static decimal descontoMaximo = 0;
+        public static decimal descontoMaximo = 15;
 
-        public static bool descontoAplicado = false;
+        public static bool descontoAplicado = true;
     }
 }
