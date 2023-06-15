@@ -55,17 +55,17 @@
             label10 = new Label();
             txtCidade = new TextBox();
             tabPage3 = new TabPage();
-            txtDesconto = new NumericUpDown();
-            label9 = new Label();
             txtDescontoMaximo = new NumericUpDown();
             label8 = new Label();
+            txtDesconto = new NumericUpDown();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)txtSinal).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtDesconto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtDescontoMaximo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtDesconto).BeginInit();
             SuspendLayout();
             // 
             // txtId
@@ -90,7 +90,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(238, 222);
+            btnCancelar.Location = new Point(247, 222);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 15;
@@ -101,7 +101,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(157, 222);
+            btnGravar.Location = new Point(166, 222);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 14;
@@ -241,7 +241,7 @@
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(301, 200);
+            tabControl1.Size = new Size(310, 200);
             tabControl1.TabIndex = 34;
             // 
             // tabPage1
@@ -341,31 +341,10 @@
             tabPage3.Controls.Add(cbDesconto);
             tabPage3.Location = new Point(4, 27);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(293, 169);
+            tabPage3.Size = new Size(302, 169);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Configuração";
             tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // txtDesconto
-            // 
-            txtDesconto.DecimalPlaces = 1;
-            txtDesconto.Increment = new decimal(new int[] { 5, 0, 0, 65536 });
-            txtDesconto.Location = new Point(222, 74);
-            txtDesconto.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            txtDesconto.Name = "txtDesconto";
-            txtDesconto.ReadOnly = true;
-            txtDesconto.Size = new Size(54, 23);
-            txtDesconto.TabIndex = 22;
-            txtDesconto.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(144, 76);
-            label9.Name = "label9";
-            label9.Size = new Size(73, 15);
-            label9.TabIndex = 21;
-            label9.Text = "Desconto% :";
             // 
             // txtDescontoMaximo
             // 
@@ -388,11 +367,32 @@
             label8.TabIndex = 23;
             label8.Text = "Desconto Limite% :";
             // 
+            // txtDesconto
+            // 
+            txtDesconto.DecimalPlaces = 1;
+            txtDesconto.Increment = new decimal(new int[] { 5, 0, 0, 65536 });
+            txtDesconto.Location = new Point(222, 74);
+            txtDesconto.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            txtDesconto.Name = "txtDesconto";
+            txtDesconto.ReadOnly = true;
+            txtDesconto.Size = new Size(54, 23);
+            txtDesconto.TabIndex = 22;
+            txtDesconto.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(144, 76);
+            label9.Name = "label9";
+            label9.Size = new Size(73, 15);
+            label9.TabIndex = 21;
+            label9.Text = "Desconto% :";
+            // 
             // TelaAluguelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(325, 275);
+            ClientSize = new Size(334, 275);
             Controls.Add(tabControl1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
@@ -406,8 +406,8 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)txtDesconto).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtDescontoMaximo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtDesconto).EndInit();
             ResumeLayout(false);
         }
 

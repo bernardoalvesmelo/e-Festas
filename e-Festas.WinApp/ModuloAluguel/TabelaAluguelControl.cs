@@ -66,6 +66,11 @@ namespace e_Festas.WinApp.ModuloAluguel
                 },
                 new DataGridViewTextBoxColumn()
                 {
+                    Name = "telefone",
+                    HeaderText = "Telefone"
+                },
+                new DataGridViewTextBoxColumn()
+                {
                     Name = "tema",
                     HeaderText = "Tema"
                 },
@@ -83,18 +88,8 @@ namespace e_Festas.WinApp.ModuloAluguel
                 {
                     Name = "data",
                     HeaderText = "Data"
-                },
+                }, 
                 new DataGridViewTextBoxColumn()
-                {
-                    Name = "horarioInicio",
-                    HeaderText = "Inicio"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "horarioTermino",
-                    HeaderText = "Término"
-                },
-                 new DataGridViewTextBoxColumn()
                 {
                     Name = "dataQuitacao",
                     HeaderText = "Quitação"
@@ -115,12 +110,11 @@ namespace e_Festas.WinApp.ModuloAluguel
                 gridAlugueis.Rows.Add(
                     aluguel.id,
                     aluguel.cliente.nome,
+                    aluguel.cliente.telefone,
                     aluguel.tema.nome,
                     Math.Round(aluguel.valor, 2),
                     Math.Round(aluguel.entrada, 2),
                     aluguel.data.ToString("dd/MM/yyyy"),
-                    aluguel.horarioInicio.ToString("HH:mm"),
-                    aluguel.horarioTermino.ToString("HH:mm"),
                     aluguel.dataQuitacao == new DateTime() ? "Em Aberto" :
                         aluguel.dataQuitacao.ToString("dd/MM/yyyy"));
             }
