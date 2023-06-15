@@ -211,6 +211,16 @@ namespace e_Festas.WinApp.ModuloAluguel
                 return;
             }
 
+            if (aluguel.dataQuitacao == new DateTime())
+            {
+                MessageBox.Show($"Não pode excluir um aluguel em aberto!",
+                    "Exclusão de Aluguéis",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o aluguel {aluguel.id}?", "Exclusão de Aluguéis",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
