@@ -9,12 +9,16 @@ namespace e_Festas.Dominio.ModuloAluguel
         public decimal valor;
         public decimal sinal;
         public decimal entrada;
+
         public decimal descontoValor;
+        public decimal descontoMaximo;
         public bool descontoAplicado;
+
         public DateTime data;
         public DateTime dataQuitacao;
         public DateTime horarioInicio;
         public DateTime horarioTermino;
+
         public Cliente cliente;
         public Tema tema;
         public Endereco endereco;
@@ -24,11 +28,12 @@ namespace e_Festas.Dominio.ModuloAluguel
             
         }
 
-        public Aluguel(decimal sinal, bool descontoAplicado, decimal descontoValor, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema, Endereco endereco)
+        public Aluguel(decimal sinal, bool descontoAplicado, decimal descontoValor, decimal descontoMaximo, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema, Endereco endereco)
         {
             this.sinal = sinal;
             this.descontoAplicado = descontoAplicado;
             this.descontoValor = descontoValor;
+            this.descontoMaximo = descontoMaximo;
             this.data = data;
             this.dataQuitacao = dataQuitacao;
             this.horarioInicio = horarioInicio;
@@ -41,12 +46,13 @@ namespace e_Festas.Dominio.ModuloAluguel
         }
 
 
-        public Aluguel(int id, decimal sinal, bool descontoAplicado, decimal descontoValor, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema, Endereco endereco)
+        public Aluguel(int id, decimal sinal, bool descontoAplicado, decimal descontoValor, decimal descontoMaximo, DateTime data, DateTime dataQuitacao, DateTime horarioInicio, DateTime horarioTermino, Cliente cliente, Tema tema, Endereco endereco)
         {
             this.id = id;
             this.sinal = sinal;
             this.descontoAplicado = descontoAplicado;
             this.descontoValor = descontoValor;
+            this.descontoMaximo = descontoMaximo;
             this.data = data;
             this.dataQuitacao = dataQuitacao;
             this.horarioInicio = horarioInicio;
@@ -64,6 +70,7 @@ namespace e_Festas.Dominio.ModuloAluguel
             this.valor = registroAtualizado.valor;
             this.sinal = registroAtualizado.sinal;
             this.descontoAplicado = registroAtualizado.descontoAplicado;
+            this.descontoMaximo = registroAtualizado.descontoMaximo;
             this.entrada = registroAtualizado.entrada;
             this.data = registroAtualizado.data;
             this.dataQuitacao = registroAtualizado.dataQuitacao;
@@ -77,7 +84,12 @@ namespace e_Festas.Dominio.ModuloAluguel
         public void DescontarValor()
         {
             int numeroAlugueis = this.cliente.alugueis.Count();
-            decimal desconto = numeroAlugueis > 4 ? (decimal)0.8 :  1 - (numeroAlugueis * descontoValor / 100);
+
+            decimal descontoUtilizado = descontoValor > descontoMaximo ? descontoMaximo :
+                descontoValor;
+
+            decimal desconto = 1 - (numeroAlugueis * descontoUtilizado / 100);
+            
             this.valor = this.valor * desconto;
 
             this.entrada = CalcularEntrada();
@@ -145,6 +157,7 @@ namespace e_Festas.Dominio.ModuloAluguel
                    sinal == aluguel.sinal &&
                    descontoAplicado == aluguel.descontoAplicado &&
                    descontoValor == aluguel.descontoValor &&
+                   descontoMaximo == aluguel.descontoMaximo &&
                    entrada == aluguel.entrada &&
                    data == aluguel.data &&
                    dataQuitacao == aluguel.dataQuitacao &&

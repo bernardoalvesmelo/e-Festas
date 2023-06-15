@@ -50,10 +50,11 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             decimal descontoValor = Convert.ToDecimal(txtDesconto.Text);
 
+            decimal descontoMaximo = Convert.ToDecimal(txtDescontoMaximo.Text);
+
             DateTime data = txtData.Value.Date;
 
-            DateTime dataQuitacao = cbDataQuitacao.Checked ? txtDataQuitacao.Value.Date :
-                new DateTime();
+            DateTime dataQuitacao = new DateTime();
 
             DateTime horarioInicio = txtHorarioInicio.Value;
 
@@ -65,7 +66,7 @@ namespace e_Festas.WinApp.ModuloAluguel
 
             Endereco endereco = ObterEndereco();
 
-            Aluguel aluguel = new Aluguel(sinal, descontoAplicado, descontoValor, data, dataQuitacao, horarioInicio, horarioTermino, cliente, tema, endereco);
+            Aluguel aluguel = new Aluguel(sinal, descontoAplicado, descontoValor, descontoMaximo, data, dataQuitacao, horarioInicio, horarioTermino, cliente, tema, endereco);
 
             if (id > 0)
                 aluguel.id = id;
@@ -82,42 +83,18 @@ namespace e_Festas.WinApp.ModuloAluguel
             txtSinal.Text = aluguel.sinal.ToString();
             txtDesconto.Text = aluguel.descontoValor.ToString();
             cbDesconto.Checked = aluguel.descontoAplicado;
+            txtDescontoMaximo.Text = aluguel.descontoMaximo.ToString();
+
             txtData.Value = aluguel.data;
-
-            if (aluguel.dataQuitacao != new DateTime())
-            {
-                cbDataQuitacao.Checked = true;
-                txtDataQuitacao.Value = aluguel.dataQuitacao;
-                txtDataQuitacao.Enabled = true;
-            }
-
             txtHorarioInicio.Value = aluguel.horarioInicio;
             txtHorarioTermino.Value = aluguel.horarioTermino;
+
             cmbClientes.SelectedItem = aluguel.cliente.nome;
             cmbTemas.SelectedItem = aluguel.tema.nome;
 
             btnGravar.Enabled = true;
 
             ConfigurarTela(aluguel.endereco);
-        }
-
-        private void cbDataQuitacao_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbDataQuitacao.Checked == false)
-            {
-                txtDataQuitacao.Enabled = false;
-                return;
-            }
-
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja fechar o aluguel?", "Fechamento de Aluguéis",
-               MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (opcaoEscolhida == DialogResult.OK)
-            {
-                txtDataQuitacao.Enabled = true;
-                return;
-            }
-            cbDataQuitacao.Checked = false;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
