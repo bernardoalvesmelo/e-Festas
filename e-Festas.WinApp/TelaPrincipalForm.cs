@@ -23,6 +23,7 @@ namespace e_Festas.WinApp
         private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmArquivo(contextoDados);
         private IRepositorioTema repositorioTema = new RepositorioTemaEmArquivo(contextoDados);
         private IRepositorioCliente repositorioCliente = new RepositorioClienteEmArquivo(contextoDados);
+        private IRepositorioItem repositorioItem = new RepositorioItemEmArquivo(contextoDados);
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -61,9 +62,23 @@ namespace e_Festas.WinApp
 
             ConfigurarTelaPrincipal(controlador);
         }
-        private void temasToolStripMenuItem_Click_1(object sender, EventArgs e)
+
+        //private void temasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        //{
+        //    controlador = new ControladorTema(repositorioTema);
+
+        //    ConfigurarTelaPrincipal(controlador);
+        //}
+
+        private void itensToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorTema(repositorioTema);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+        private void itensToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorItem(repositorioItem);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -145,6 +160,6 @@ namespace e_Festas.WinApp
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             controlador.Filtrar();
-        }
+        }     
     }
 }
