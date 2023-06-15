@@ -73,6 +73,7 @@
             btnGravar.TabIndex = 35;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // TelaConcluirAluguelForm
             // 

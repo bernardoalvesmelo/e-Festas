@@ -26,6 +26,8 @@ namespace e_Festas.Infra.Dados.Arquivo.ModuloAluguel
         }
         public override void Excluir(Aluguel aluguelSelecionado)
         {
+            int id = aluguelSelecionado.id;
+
             Aluguel aluguelAnterior = SelecionarPorId(id);
 
             aluguelAnterior.cliente.alugueis =

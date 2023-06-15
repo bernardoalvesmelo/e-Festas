@@ -20,6 +20,7 @@ namespace e_Festas.WinApp.ModuloAluguel
                     aluguel.sinal,
                     aluguel.descontoAplicado,
                     aluguel.descontoValor,
+                    aluguel.descontoMaximo,
                     aluguel.data,
                     aluguel.dataQuitacao,
                     aluguel.horarioInicio,
@@ -35,18 +36,17 @@ namespace e_Festas.WinApp.ModuloAluguel
             return this.aluguel;
         }
 
-        private void btngGravar_Click(object sender, EventArgs e)
+        private void btnGravar_Click(object sender, EventArgs e)
         {
-            Aluguel aluguel = ObterAluguel();
+        Aluguel aluguel = ObterAluguel();
 
-            string[] erros = aluguel.Validar();
+        string[] erros = aluguel.Validar();
 
-            if (erros.Length > 0)
+        if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
                 this.DialogResult = DialogResult.None;
             }
         }
-
     }
 }
