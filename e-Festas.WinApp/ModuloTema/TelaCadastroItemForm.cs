@@ -4,13 +4,12 @@ namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroItemForm : Form
     {
-        public TelaCadastroItemForm(ItemTema tema)
+        public TelaCadastroItemForm()
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
-
-            ConfigurarTela(tema);
+          
         }
         public ItemTema ObterItem()
         {

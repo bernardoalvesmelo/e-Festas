@@ -6,8 +6,7 @@ namespace e_Festas.WinApp.ModuloTema
     {
         private TabelaItemTemaControl tabelaItem;
         protected List<ItemTema> listaregistros;
-        private IRepositorioItem repositorioItem;
-        ItemTema tema;
+        private IRepositorioItem repositorioItem;      
 
         public ControladorItem(IRepositorioItem repositorioItem)
         {                    
@@ -22,7 +21,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         public override void Inserir()
         {
-            TelaCadastroItemForm telaCadastroItem = new TelaCadastroItemForm(tema);
+            TelaCadastroItemForm telaCadastroItem = new TelaCadastroItemForm();
 
             DialogResult opcaoEscolhida = telaCadastroItem.ShowDialog();
 
@@ -47,7 +46,7 @@ namespace e_Festas.WinApp.ModuloTema
                 return;
             }
 
-            TelaCadastroItemForm item = new TelaCadastroItemForm(tema);
+            TelaCadastroItemForm item = new TelaCadastroItemForm();
 
             item.ConfigurarTela(itemSelecionado);
 
