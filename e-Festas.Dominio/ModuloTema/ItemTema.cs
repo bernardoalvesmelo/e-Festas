@@ -3,10 +3,10 @@
 namespace e_Festas.Dominio.ModuloTema
 {
     public class ItemTema : EntidadeBase<ItemTema>
-    {
-        public int id;
+    {       
         public string nome;
         public decimal valorItem;
+        public bool selecionado;
 
         public ItemTema(int id,string nome,decimal valorItem)
         {
@@ -50,9 +50,9 @@ namespace e_Festas.Dominio.ModuloTema
         {
             return obj is ItemTema tema &&
                    id == tema.id &&
-                   id == tema.id &&
                    nome == tema.nome &&
-                   valorItem == tema.valorItem;
+                   valorItem == tema.valorItem &&
+                   selecionado == tema.selecionado;
         }
     }
 }
