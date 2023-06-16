@@ -36,12 +36,13 @@
             txtIdTema = new TextBox();
             txtNomeTema = new TextBox();
             txtValorTema = new MaskedTextBox();
+            listItensTema = new CheckedListBox();
             SuspendLayout();
             // 
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(241, 145);
+            btnGravar.Location = new Point(347, 266);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(91, 38);
             btnGravar.TabIndex = 0;
@@ -52,7 +53,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(338, 145);
+            btnCancelar.Location = new Point(444, 266);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(91, 38);
             btnCancelar.TabIndex = 1;
@@ -112,11 +113,20 @@
             txtValorTema.TabIndex = 8;
             txtValorTema.ValidatingType = typeof(int);
             // 
+            // listItensTema
+            // 
+            listItensTema.FormattingEnabled = true;
+            listItensTema.Location = new Point(152, 115);
+            listItensTema.Name = "listItensTema";
+            listItensTema.Size = new Size(224, 130);
+            listItensTema.TabIndex = 9;
+            // 
             // TelaCadastroTemaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(441, 195);
+            ClientSize = new Size(547, 311);
+            Controls.Add(listItensTema);
             Controls.Add(txtValorTema);
             Controls.Add(txtNomeTema);
             Controls.Add(txtIdTema);
@@ -142,5 +152,6 @@
         private TextBox txtIdTema;
         private TextBox txtNomeTema;
         private MaskedTextBox txtValorTema;
+        private CheckedListBox listItensTema;
     }
 }

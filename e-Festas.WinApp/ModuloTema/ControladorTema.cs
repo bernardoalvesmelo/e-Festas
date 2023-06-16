@@ -7,10 +7,12 @@ namespace e_Festas.WinApp.ModuloTema
         private TabelaTemaControl tabelaTema;
         protected List<Tema> listaregistros;
         private IRepositorioTema repositorioTema;
-
-        public ControladorTema(IRepositorioTema repositorioTema)
+        private IRepositorioItem repositorioItem;
+        
+        public ControladorTema(IRepositorioTema repositorioTema, IRepositorioItem repositorio)
         {
             this.repositorioTema = repositorioTema;
+            this.repositorioItem = repositorio;
         }
 
         public override string ToolTipInserir => "Inserir novo Tema";
@@ -24,7 +26,7 @@ namespace e_Festas.WinApp.ModuloTema
         public override bool AdicionarItensHabilitado => true;
 
         public override void Inserir()
-        {          
+        {           
             TelaCadastroTemaForm telaCadastroTema = new TelaCadastroTemaForm();
 
             DialogResult opcaoEscolhida = telaCadastroTema.ShowDialog();
@@ -153,7 +155,9 @@ namespace e_Festas.WinApp.ModuloTema
 
                 repositorioTema.Editar(temaSelecionado.id, temaSelecionado);
                 CarregarTemas();           
-            }          
-        }
+            }
+
+           
+        }     
     }
 }

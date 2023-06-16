@@ -5,12 +5,12 @@ namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroTemaForm : Form
     {
+       
         public TelaCadastroTemaForm()
         {
             InitializeComponent();
 
-            this.ConfigurarDialog();
-
+            this.ConfigurarDialog();          
         }
 
         public Tema ObterTema()
@@ -22,12 +22,32 @@ namespace e_Festas.WinApp.ModuloTema
             decimal valor = Convert.ToDecimal(txtValorTema.Text);
 
             Tema tema = new Tema(valor, nome, id);
-
+         
             if (id > 0)
                 tema.id = id;
-
+           
             return tema;
         }
+
+        //public void PopularCheckBox(Tema tema)
+        //{           
+        //   List<ItemTema> listItens = repositorio.SelecionarTodos();
+
+        //    foreach(ItemTema itemTema in listItens)
+        //    {
+        //        listItensTema.Items.Add(itemTema);
+        //    }
+
+        //    foreach(ItemTema item in tema.itemTemas)
+        //    {
+        //        int index = listItensTema.Items.IndexOf(item);
+
+        //        if(index >= 0)
+        //        {
+        //            listItensTema.SetItemChecked(index, true);
+        //        }
+        //    }
+        //}
 
         public void ConfigurarTela(Tema temaSelecionada)
         {
@@ -35,7 +55,7 @@ namespace e_Festas.WinApp.ModuloTema
 
             txtNomeTema.Text = temaSelecionada.nome;
 
-            txtValorTema.Text = temaSelecionada.valor.ToString();
+            txtValorTema.Text = temaSelecionada.valor.ToString();          
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
