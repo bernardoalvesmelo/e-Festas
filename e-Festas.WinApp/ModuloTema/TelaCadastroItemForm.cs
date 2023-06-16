@@ -4,15 +4,17 @@ namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroItemForm : Form
     {
-        public TelaCadastroItemForm()
+        public TelaCadastroItemForm(ItemTema tema)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
+
+            ConfigurarTela(tema);
         }
         public ItemTema ObterItem()
         {
-            int id = Convert.ToInt32(txtId.Text);
+            int id = Convert.ToInt32(txtID.Text);
 
             string nome = txtNome.Text;
 
@@ -28,7 +30,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         public void ConfigurarTela(ItemTema itemSelecionado)
         {
-            txtId.Text = itemSelecionado.id.ToString();
+            txtID.Text = itemSelecionado.id.ToString();
 
             txtNome.Text = itemSelecionado.nome;
 

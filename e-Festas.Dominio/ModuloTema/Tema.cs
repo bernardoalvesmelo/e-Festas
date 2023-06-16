@@ -14,12 +14,12 @@ namespace e_Festas.Dominio.ModuloTema
 
         }
 
-        public Tema(decimal valor, string nome, int id)
+        public Tema(decimal valor, string nome, int id, List<ItemTema> itemTemas)
         {
             this.valor = valor;
             this.nome = nome;
             this.id = id;
-            itemTemas = new List<ItemTema>();
+            this.itemTemas = itemTemas;
         }
 
         public void AdicionarItem(ItemTema item)
@@ -32,6 +32,7 @@ namespace e_Festas.Dominio.ModuloTema
             this.valor = registroAtualizado.valor;
             this.nome= registroAtualizado.nome;
             this.id= registroAtualizado.id;
+            this.itemTemas = registroAtualizado.itemTemas;
         }
 
         public override string[] Validar()
