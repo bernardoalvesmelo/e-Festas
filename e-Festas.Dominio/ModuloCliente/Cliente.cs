@@ -19,7 +19,6 @@ namespace e_Festas.Dominio.ModuloCliente
 
         public List<Aluguel> alugueis = new List<Aluguel>();
         
-      public  List<Aluguel> alugueis = new List<Aluguel>();
         public Cliente()
         {
 
