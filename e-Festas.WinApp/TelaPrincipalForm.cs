@@ -136,10 +136,7 @@ namespace e_Festas.WinApp
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             controlador.Visualizar();
-            btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;
-            btnInserir.Enabled = controlador.InserirHabilitado;
-            btnEditar.Enabled = controlador.EditarHabilitado;
-            btnExcluir.Enabled = controlador.ExcluirHabilitado;
+            ConfigurarBarraFerramentas(controlador);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)

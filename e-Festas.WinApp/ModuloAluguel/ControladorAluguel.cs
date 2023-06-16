@@ -11,6 +11,10 @@ namespace e_Festas.WinApp.ModuloAluguel
         private IRepositorioCliente repositorioCliente;
         private TabelaAluguelControl tabelaAluguel;
 
+        VisualizacaoAluguelEnum tipoVisualizacao;
+
+        private string visualizar;
+
         public ControladorAluguel(
             IRepositorioAluguel repositorioAluguel, 
             IRepositorioTema repositorioTema, 
@@ -19,6 +23,9 @@ namespace e_Festas.WinApp.ModuloAluguel
             this.repositorioAluguel = repositorioAluguel;
             this.repositorioCliente = repositorioCliente;
             this.repositorioTema = repositorioTema;
+
+            this.tipoVisualizacao = VisualizacaoAluguelEnum.Alugueis;
+            this.visualizar = "Visualizar Endereços";
         }
 
         public override string ToolTipInserir { get { return "Inserir novo Aluguel";  } }
@@ -27,7 +34,7 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override string ToolTipExcluir { get { return "Excluir Aluguel existente"; } }
 
-        public override string ToolTipVisualizar { get { return "Visualizar Endereços"; } }
+        public override string ToolTipVisualizar { get { return visualizar; } }
 
         public override string ToolTipFiltrar { get { return "Filtrar Aluguéis"; } }
 
@@ -152,7 +159,7 @@ namespace e_Festas.WinApp.ModuloAluguel
             CarregarAlugueis();
         }
 
-        public void Concluir()
+        public override void Concluir()
         {
             Aluguel aluguel = ObterAluguelSelecionado();
 
@@ -195,7 +202,7 @@ namespace e_Festas.WinApp.ModuloAluguel
             CarregarAlugueis();
         }
 
-        public void Configurar()
+        public override void Configurar()
         {
             TelaConfigurarAluguelForm telaConfigurar = new TelaConfigurarAluguelForm();
 
@@ -245,14 +252,19 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public override void Visualizar()
         {
-
-            TelaVisualizarAluguelForm telaVisualizar = new TelaVisualizarAluguelForm();
-            DialogResult opcaoEscolhida = telaVisualizar.ShowDialog();
-
-            if (opcaoEscolhida == DialogResult.OK)
+            if (this.tipoVisualizacao == VisualizacaoAluguelEnum.Alugueis)
             {
-                tabelaAluguel.ConfigurarVisualizacao(telaVisualizar.ObterVisualizacao());
+                tipoVisualizacao = VisualizacaoAluguelEnum.Enderecos;
+                this.visualizar = "Visualizar Aluguéis";
             }
+
+            else if (this.tipoVisualizacao == VisualizacaoAluguelEnum.Enderecos)
+            {
+                tipoVisualizacao = VisualizacaoAluguelEnum.Alugueis;
+                this.visualizar = "Visualizar Endereços";
+            }
+
+            tabelaAluguel.ConfigurarVisualizacao(this.tipoVisualizacao);
             CarregarAlugueis();
         }
 
