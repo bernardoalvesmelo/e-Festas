@@ -5,12 +5,13 @@ namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroTemaForm : Form
     {
-       
+        private List<ItemTema> itemtemas;
+
         public TelaCadastroTemaForm()
         {
             InitializeComponent();
 
-            this.ConfigurarDialog();          
+            this.ConfigurarDialog();
         }
 
         public Tema ObterTema()
@@ -22,10 +23,10 @@ namespace e_Festas.WinApp.ModuloTema
             decimal valor = Convert.ToDecimal(txtValorTema.Text);
 
             Tema tema = new Tema(valor, nome, id);
-         
+
             if (id > 0)
                 tema.id = id;
-           
+
             return tema;
         }
 
@@ -55,7 +56,16 @@ namespace e_Festas.WinApp.ModuloTema
 
             txtNomeTema.Text = temaSelecionada.nome;
 
-            txtValorTema.Text = temaSelecionada.valor.ToString();          
+            txtValorTema.Text = temaSelecionada.valor.ToString();
+        }
+        public void ObterItens(List<ItemTema> itens)
+        {        
+            this.itemtemas = itens;
+
+            foreach (ItemTema item in itens)
+            {
+                cbItens.Items.Add(item);
+            }
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
