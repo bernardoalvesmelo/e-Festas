@@ -60,7 +60,7 @@ namespace e_Festas.WinApp.ModuloCliente
 
             foreach (Aluguel aluguel in Aluguel)
             {
-                GridClienteVizualizar.Rows.Add(aluguel.id, aluguel.cliente, aluguel.tema);
+                GridClienteVizualizar.Rows.Add(aluguel.id, aluguel.cliente.nome, aluguel.tema.nome);
             }
         }
 
