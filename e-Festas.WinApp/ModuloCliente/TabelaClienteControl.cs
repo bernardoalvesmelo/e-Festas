@@ -50,8 +50,12 @@ namespace e_Festas.WinApp.ModuloCliente
                     Name = "email",
                     HeaderText = "E-mail"
                 },
-               
-                
+                  new DataGridViewTextBoxColumn()
+                {
+                    Name = "Alugueis",
+                    HeaderText = "Alugueis"
+                },
+
             };
 
             gridCliente.Columns.AddRange(colunas);
@@ -63,7 +67,7 @@ namespace e_Festas.WinApp.ModuloCliente
 
             foreach (Cliente cliente in Cliente)
             {
-                gridCliente.Rows.Add(cliente.id, cliente.nome,cliente.telefone,cliente.email);
+                gridCliente.Rows.Add(cliente.id, cliente.nome,cliente.telefone,cliente.email,cliente.alugueis.Count);
             }
         }
 
