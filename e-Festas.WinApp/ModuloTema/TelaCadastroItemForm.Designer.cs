@@ -33,9 +33,9 @@
             lbId = new Label();
             lbNome = new Label();
             lblValor = new Label();
-            txtId = new TextBox();
+            txtID = new TextBox();
             maskedValor = new MaskedTextBox();
-            txtNome = new TextBox();
+            txtNome = new MaskedTextBox();
             SuspendLayout();
             // 
             // btnGravar
@@ -86,12 +86,12 @@
             lblValor.TabIndex = 4;
             lblValor.Text = "Valor:";
             // 
-            // txtId
+            // txtID
             // 
-            txtId.Location = new Point(157, 38);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(24, 23);
-            txtId.TabIndex = 5;
+            txtID.Location = new Point(157, 38);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(24, 23);
+            txtID.TabIndex = 5;
             // 
             // maskedValor
             // 
@@ -105,9 +105,10 @@
             // txtNome
             // 
             txtNome.Location = new Point(157, 67);
+            txtNome.Mask = "aaaaaaaaa";
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(116, 23);
-            txtNome.TabIndex = 7;
+            txtNome.Size = new Size(100, 23);
+            txtNome.TabIndex = 8;
             // 
             // TelaCadastroItemForm
             // 
@@ -116,7 +117,7 @@
             ClientSize = new Size(441, 205);
             Controls.Add(txtNome);
             Controls.Add(maskedValor);
-            Controls.Add(txtId);
+            Controls.Add(txtID);
             Controls.Add(lblValor);
             Controls.Add(lbNome);
             Controls.Add(lbId);
@@ -136,8 +137,8 @@
         private Label lbId;
         private Label lbNome;
         private Label lblValor;
-        private TextBox txtId;
+        private TextBox txtID;
         private MaskedTextBox maskedValor;
-        private TextBox txtNome;
+        private MaskedTextBox txtNome;
     }
 }
