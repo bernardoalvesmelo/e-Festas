@@ -31,6 +31,8 @@ namespace e_Festas.WinApp.ModuloTema
 
             DialogResult opcaoEscolhida = telaCadastroTema.ShowDialog();
 
+            telaCadastroTema.ObterItens(this.repositorioItem.SelecionarTodos());
+
             if (opcaoEscolhida == DialogResult.OK)
             {              
                 Tema tema = telaCadastroTema.ObterTema();
@@ -54,6 +56,8 @@ namespace e_Festas.WinApp.ModuloTema
             }
 
             TelaCadastroTemaForm telatema = new TelaCadastroTemaForm();
+
+            telatema.ObterItens(this.repositorioItem.SelecionarTodos());
 
             telatema.ConfigurarTela(temaSelecionado);
 

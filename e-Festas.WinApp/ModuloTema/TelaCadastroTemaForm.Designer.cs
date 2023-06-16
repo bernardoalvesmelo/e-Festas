@@ -36,7 +36,7 @@
             txtIdTema = new TextBox();
             txtNomeTema = new TextBox();
             txtValorTema = new MaskedTextBox();
-            listItensTema = new CheckedListBox();
+            cbItens = new CheckedListBox();
             SuspendLayout();
             // 
             // btnGravar
@@ -113,20 +113,20 @@
             txtValorTema.TabIndex = 8;
             txtValorTema.ValidatingType = typeof(int);
             // 
-            // listItensTema
+            // cbItens
             // 
-            listItensTema.FormattingEnabled = true;
-            listItensTema.Location = new Point(152, 115);
-            listItensTema.Name = "listItensTema";
-            listItensTema.Size = new Size(224, 130);
-            listItensTema.TabIndex = 9;
+            cbItens.FormattingEnabled = true;
+            cbItens.Location = new Point(152, 115);
+            cbItens.Name = "cbItens";
+            cbItens.Size = new Size(224, 130);
+            cbItens.TabIndex = 9;
             // 
             // TelaCadastroTemaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(547, 311);
-            Controls.Add(listItensTema);
+            Controls.Add(cbItens);
             Controls.Add(txtValorTema);
             Controls.Add(txtNomeTema);
             Controls.Add(txtIdTema);
@@ -152,6 +152,6 @@
         private TextBox txtIdTema;
         private TextBox txtNomeTema;
         private MaskedTextBox txtValorTema;
-        private CheckedListBox listItensTema;
+        private CheckedListBox cbItens;
     }
 }
