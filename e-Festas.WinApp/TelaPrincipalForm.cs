@@ -105,6 +105,7 @@ namespace e_Festas.WinApp
             btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;
             btnAdicionarItens.ToolTipText = controlador.ToolTipAdicionarItens;
             btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
+
         }
 
         private void ConfigurarEstados(ControladorBase controlador)
@@ -135,6 +136,10 @@ namespace e_Festas.WinApp
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             controlador.Visualizar();
+            btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;
+            btnInserir.Enabled = controlador.InserirHabilitado;
+            btnEditar.Enabled = controlador.EditarHabilitado;
+            btnExcluir.Enabled = controlador.ExcluirHabilitado;
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)

@@ -13,10 +13,14 @@ namespace e_Festas.WinApp.ModuloCliente
 {
     public partial class TelaClienteForm : Form
     {
-        public TelaClienteForm()
+
+        List<Cliente> Clientes = new List<Cliente>();
+        public TelaClienteForm(List<Cliente> Clientes)
         {
             InitializeComponent();
             this.ConfigurarDialog();
+            this.Clientes = Clientes;
+
         }
         public Cliente ObterCliente()
         {
@@ -60,6 +64,15 @@ namespace e_Festas.WinApp.ModuloCliente
             if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
+
+            int numero = Clientes.FindAll(c => c.nome == c.nome).Count();
+
+            if (numero > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Nome de 'Cliente' já existente");
 
                 DialogResult = DialogResult.None;
             }

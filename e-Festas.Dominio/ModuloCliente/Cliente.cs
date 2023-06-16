@@ -19,6 +19,7 @@ namespace e_Festas.Dominio.ModuloCliente
 
         public List<Aluguel> alugueis = new List<Aluguel>();
         
+      public  List<Aluguel> alugueis = new List<Aluguel>();
         public Cliente()
         {
 
@@ -55,7 +56,10 @@ namespace e_Festas.Dominio.ModuloCliente
         public override string[] Validar()
         {
             List<string> erros = new List<string>();
-          
+            
+
+           int nomeerro = nome.Count(); 
+
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");
 
@@ -64,16 +68,8 @@ namespace e_Festas.Dominio.ModuloCliente
 
             if (string.IsNullOrEmpty(email))
                 erros.Add("O campo 'email' é obrigatório");
+         
 
-            int nomeerro = nome.Count();
-            int telefoneerro = telefone.Count();
-            bool isValid = Regex.IsMatch(telefone, @"\(\d{2}\) \d{4}-\d{4}");
-
-            if (isValid == false)
-            {
-                Console.BackgroundColor = ConsoleColor.Red;
-                erros.Add("O campo 'TELEFONE',não esta no formato correto;");
-            }
             if (nomeerro < 4)
             {
                 erros.Add("O campo 'NOME', deve ter pelo menos 4 caracteres.");
@@ -92,11 +88,12 @@ namespace e_Festas.Dominio.ModuloCliente
 
         public override bool Equals(object? obj)
         {
-            return obj is Cliente Cliente &&
-                   id == Cliente.id &&
-                   nome == Cliente.nome &&
-                   telefone == Cliente.telefone &&
-                   email == Cliente.email;
+            return obj is Cliente cliente &&
+                   id == cliente.id &&
+                   nome == cliente.nome &&
+                   telefone == cliente.telefone &&
+                   email == cliente.email &&
+                   EqualityComparer<List<Aluguel>>.Default.Equals(alugueis, cliente.alugueis);
         }
     }
 }

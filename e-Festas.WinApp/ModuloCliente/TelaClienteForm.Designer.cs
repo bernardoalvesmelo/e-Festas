@@ -31,19 +31,19 @@
             label4 = new Label();
             label3 = new Label();
             txtEmailCliente = new TextBox();
-            txtTelefoneCliente = new TextBox();
             txtNomeCliente = new TextBox();
             label2 = new Label();
             txtIdCliente = new TextBox();
             label1 = new Label();
             btnGravarCliente = new Button();
             btnCancelarCliente = new Button();
+            txtTelefoneCliente = new MaskedTextBox();
             SuspendLayout();
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(8, 117);
+            label4.Location = new Point(49, 94);
             label4.Name = "label4";
             label4.Size = new Size(44, 15);
             label4.TabIndex = 19;
@@ -52,7 +52,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1, 88);
+            label3.Location = new Point(38, 68);
             label3.Name = "label3";
             label3.Size = new Size(54, 15);
             label3.TabIndex = 18;
@@ -60,21 +60,14 @@
             // 
             // txtEmailCliente
             // 
-            txtEmailCliente.Location = new Point(59, 114);
+            txtEmailCliente.Location = new Point(96, 94);
             txtEmailCliente.Name = "txtEmailCliente";
-            txtEmailCliente.Size = new Size(149, 23);
+            txtEmailCliente.Size = new Size(159, 23);
             txtEmailCliente.TabIndex = 17;
-            // 
-            // txtTelefoneCliente
-            // 
-            txtTelefoneCliente.Location = new Point(59, 85);
-            txtTelefoneCliente.Name = "txtTelefoneCliente";
-            txtTelefoneCliente.Size = new Size(156, 23);
-            txtTelefoneCliente.TabIndex = 16;
             // 
             // txtNomeCliente
             // 
-            txtNomeCliente.Location = new Point(58, 56);
+            txtNomeCliente.Location = new Point(98, 37);
             txtNomeCliente.Name = "txtNomeCliente";
             txtNomeCliente.Size = new Size(157, 23);
             txtNomeCliente.TabIndex = 15;
@@ -82,7 +75,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 59);
+            label2.Location = new Point(49, 40);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 14;
@@ -90,7 +83,7 @@
             // 
             // txtIdCliente
             // 
-            txtIdCliente.Location = new Point(59, 31);
+            txtIdCliente.Location = new Point(98, 11);
             txtIdCliente.Name = "txtIdCliente";
             txtIdCliente.ReadOnly = true;
             txtIdCliente.Size = new Size(100, 23);
@@ -100,7 +93,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 34);
+            label1.Location = new Point(72, 14);
             label1.Name = "label1";
             label1.Size = new Size(20, 15);
             label1.TabIndex = 12;
@@ -109,7 +102,7 @@
             // btnGravarCliente
             // 
             btnGravarCliente.DialogResult = DialogResult.OK;
-            btnGravarCliente.Location = new Point(226, 114);
+            btnGravarCliente.Location = new Point(130, 132);
             btnGravarCliente.Name = "btnGravarCliente";
             btnGravarCliente.Size = new Size(75, 45);
             btnGravarCliente.TabIndex = 20;
@@ -120,24 +113,32 @@
             // btnCancelarCliente
             // 
             btnCancelarCliente.DialogResult = DialogResult.Cancel;
-            btnCancelarCliente.Location = new Point(307, 114);
+            btnCancelarCliente.Location = new Point(211, 132);
             btnCancelarCliente.Name = "btnCancelarCliente";
             btnCancelarCliente.Size = new Size(75, 45);
             btnCancelarCliente.TabIndex = 21;
             btnCancelarCliente.Text = "Cancelar";
             btnCancelarCliente.UseVisualStyleBackColor = true;
             // 
+            // txtTelefoneCliente
+            // 
+            txtTelefoneCliente.Location = new Point(98, 66);
+            txtTelefoneCliente.Mask = "(99) 0000-00000";
+            txtTelefoneCliente.Name = "txtTelefoneCliente";
+            txtTelefoneCliente.Size = new Size(157, 23);
+            txtTelefoneCliente.TabIndex = 22;
+            // 
             // TelaClienteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(403, 155);
+            ClientSize = new Size(298, 188);
+            Controls.Add(txtTelefoneCliente);
             Controls.Add(btnCancelarCliente);
             Controls.Add(btnGravarCliente);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(txtEmailCliente);
-            Controls.Add(txtTelefoneCliente);
             Controls.Add(txtNomeCliente);
             Controls.Add(label2);
             Controls.Add(txtIdCliente);
@@ -153,12 +154,13 @@
         private Label label4;
         private Label label3;
         private TextBox txtEmailCliente;
-        private TextBox txtTelefoneCliente;
+
         private TextBox txtNomeCliente;
         private Label label2;
         private TextBox txtIdCliente;
         private Label label1;
         private Button btnGravarCliente;
         private Button btnCancelarCliente;
+        private MaskedTextBox txtTelefoneCliente;
     }
 }

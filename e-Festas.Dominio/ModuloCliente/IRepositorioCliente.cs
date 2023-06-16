@@ -14,5 +14,8 @@ namespace e_Festas.Dominio.ModuloCliente
         void Excluir(Cliente cliente);
         List<Cliente> SelecionarTodos();
         Cliente SelecionarPorId(int id);
+
+       
+         
     }
 }
