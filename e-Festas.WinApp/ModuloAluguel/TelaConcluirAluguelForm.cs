@@ -33,6 +33,7 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         public Aluguel ObterAluguel()
         {
+            this.aluguel.dataQuitacao = txtDataQuitacao.Value.Date;
             return this.aluguel;
         }
 
