@@ -9,6 +9,7 @@ namespace e_Festas.WinApp.ModuloAluguel
         {
             InitializeComponent();
             this.ConfigurarDialog();
+            CarregarConfiguracao();
         }
 
         public void CarregarConfiguracao()

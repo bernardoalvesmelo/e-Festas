@@ -72,7 +72,7 @@ namespace e_Festas.WinApp
 
         private void itensToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTema(repositorioTema,repositorioItem);
+            controlador = new ControladorTema(repositorioTema, repositorioItem);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -120,6 +120,8 @@ namespace e_Festas.WinApp
             btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;
             btnAdicionarItens.ToolTipText = controlador.ToolTipAdicionarItens;
             btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
+            btnConcluir.ToolTipText = controlador.ToolTipConcluir;
+            btnConfigurar.ToolTipText= controlador.ToolTipConfigurar;
         }
 
         private void ConfigurarEstados(ControladorBase controlador)
@@ -130,6 +132,8 @@ namespace e_Festas.WinApp
             btnVisualizar.Enabled = controlador.VisualizarHabilitado;
             btnAdicionarItens.Enabled = controlador.AdicionarItensHabilitado;
             btnFiltrar.Enabled = controlador.FiltrarHabilitado;
+            btnConcluir.Enabled = controlador.ConcluirHabilitado;
+            btnConfigurar.Enabled = controlador.ConfigurarHabilitado;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -161,6 +165,16 @@ namespace e_Festas.WinApp
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             controlador.Filtrar();
-        }     
+        }
+
+        private void btnConcluir_Click(object sender, EventArgs e)
+        {
+            controlador.Concluir();
+        }
+
+        private void btnConfigurar_Click(object sender, EventArgs e)
+        {
+            controlador.Configurar();
+        }
     }
 }
