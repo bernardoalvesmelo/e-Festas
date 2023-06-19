@@ -32,8 +32,6 @@ namespace e_Festas.WinApp.ModuloCliente
 
             string email = txtEmailCliente.Text;
 
-
-
             Cliente Cliente = new Cliente(nome, telefone, email);
 
             if (id > 0)
@@ -52,7 +50,6 @@ namespace e_Festas.WinApp.ModuloCliente
 
             txtEmailCliente.Text = Cliente.email;
 
-
         }
 
         private void btnGravarCliente_Click(object sender, EventArgs e)
@@ -68,7 +65,8 @@ namespace e_Festas.WinApp.ModuloCliente
                 DialogResult = DialogResult.None;
             }
 
-            int numero = Clientes.FindAll(c => c.nome == c.nome).Count();
+            int numero = Clientes.FindAll(c => c.nome == txtNomeCliente.Text && c.id != Cliente.id ).Count();
+
 
             if (numero > 0)
             {
@@ -77,7 +75,6 @@ namespace e_Festas.WinApp.ModuloCliente
                 DialogResult = DialogResult.None;
             }
         }
-
 
     }
 }
