@@ -32,7 +32,7 @@ namespace e_Festas.Dominio.ModuloTema
             this.valor = registroAtualizado.valor;
             this.nome= registroAtualizado.nome;
             this.id= registroAtualizado.id;
-            this.itemTemas = registroAtualizado.itemTemas;
+            this.itemTemas = registroAtualizado.itemTemas;        
         }
 
         public override string[] Validar()

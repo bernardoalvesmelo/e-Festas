@@ -118,14 +118,14 @@ namespace e_Festas.WinApp.ModuloTema
                 DialogResult = DialogResult.None;
             }
 
-            //int numero = temas.FindAll(t => t.nome == t.nome).Count();
+            int numero = temas.FindAll(t => t.nome == txtNomeTema.Text && t.id != tema.id).Count();
+            
+            if (numero > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Nome do 'Tema' já existente");
 
-            //if (numero > 0)
-            //{
-            //    TelaPrincipalForm.Instancia.AtualizarRodape("Nome do 'Tema' já existente");
-
-            //    DialogResult = DialogResult.None;
-            //}
+                DialogResult = DialogResult.None;
+            }
         }
     }
 }
