@@ -1,4 +1,5 @@
-﻿using e_Festas.Dominio.ModuloTema;
+﻿using e_Festas.Dominio.ModuloCliente;
+using e_Festas.Dominio.ModuloTema;
 
 namespace e_Festas.WinApp.ModuloTema
 {
@@ -9,11 +10,11 @@ namespace e_Festas.WinApp.ModuloTema
             InitializeComponent();
 
             this.ConfigurarDialog();
-          
+
         }
         public ItemTema ObterItem()
         {
-            int id = Convert.ToInt32(txtID.Text);
+            int id = Convert.ToInt32(txtIditem.Text);
 
             string nome = txtNome.Text;
 
@@ -29,7 +30,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         public void ConfigurarTela(ItemTema itemSelecionado)
         {
-            txtID.Text = itemSelecionado.id.ToString();
+            txtIditem.Text = itemSelecionado.id.ToString();
 
             txtNome.Text = itemSelecionado.nome;
 
@@ -39,17 +40,18 @@ namespace e_Festas.WinApp.ModuloTema
         private void btnGravar_Click(object sender, EventArgs e)
         {
             ItemTema Item;
-            try
-            {
-                Item = ObterItem();
-            }
-            catch
-            {
-                TelaPrincipalForm.Instancia.AtualizarRodape("O valor é obrigatório");
-                DialogResult = DialogResult.None;
-                return;
-            }
+            //try
+            //{
+            //    Item = ObterItem();
+            //}
+            //catch
+            //{
+            //    TelaPrincipalForm.Instancia.AtualizarRodape("O valor é obrigatório");
+            //    DialogResult = DialogResult.None;
+            //    return;
+            //}
 
+            Item = ObterItem();
             string[] erros = Item.Validar();
 
             if (erros.Length > 0)

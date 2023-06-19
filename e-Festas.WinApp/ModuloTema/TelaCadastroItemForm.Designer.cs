@@ -33,7 +33,7 @@
             lbId = new Label();
             lbNome = new Label();
             lblValor = new Label();
-            txtID = new TextBox();
+            txtIditem = new TextBox();
             maskedValor = new MaskedTextBox();
             txtNome = new MaskedTextBox();
             SuspendLayout();
@@ -86,12 +86,14 @@
             lblValor.TabIndex = 4;
             lblValor.Text = "Valor:";
             // 
-            // txtID
+            // txtIditem
             // 
-            txtID.Location = new Point(157, 38);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(24, 23);
-            txtID.TabIndex = 5;
+            txtIditem.Enabled = false;
+            txtIditem.Location = new Point(157, 38);
+            txtIditem.Name = "txtIditem";
+            txtIditem.Size = new Size(24, 23);
+            txtIditem.TabIndex = 5;
+            txtIditem.Text = "0";
             // 
             // maskedValor
             // 
@@ -117,7 +119,7 @@
             ClientSize = new Size(441, 205);
             Controls.Add(txtNome);
             Controls.Add(maskedValor);
-            Controls.Add(txtID);
+            Controls.Add(txtIditem);
             Controls.Add(lblValor);
             Controls.Add(lbNome);
             Controls.Add(lbId);
@@ -137,7 +139,7 @@
         private Label lbId;
         private Label lbNome;
         private Label lblValor;
-        private TextBox txtID;
+        private TextBox txtIditem;
         private MaskedTextBox maskedValor;
         private MaskedTextBox txtNome;
     }

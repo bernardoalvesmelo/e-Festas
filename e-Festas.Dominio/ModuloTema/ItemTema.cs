@@ -35,6 +35,8 @@ namespace e_Festas.Dominio.ModuloTema
         public override string[] Validar()
         {
             List<string> erros = new List<string>();
+
+            int nomeErro = nome.Count();
           
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");
@@ -42,6 +44,11 @@ namespace e_Festas.Dominio.ModuloTema
                 erros.Add("O campo 'Id' é obrigatório");
             if (string.IsNullOrEmpty(valorItem.ToString()))
                 erros.Add("O campo 'Valor' é obrigatório");
+
+            if(nomeErro < 5)
+            {
+                erros.Add("O nome deve possuir no mínimo 5 caracteres");           
+            }
 
             return erros.ToArray();
         }
