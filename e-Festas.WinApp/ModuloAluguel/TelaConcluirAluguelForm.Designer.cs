@@ -36,7 +36,6 @@
             // 
             // txtDataQuitacao
             // 
-            txtDataQuitacao.Enabled = false;
             txtDataQuitacao.Format = DateTimePickerFormat.Short;
             txtDataQuitacao.Location = new Point(12, 50);
             txtDataQuitacao.Name = "txtDataQuitacao";

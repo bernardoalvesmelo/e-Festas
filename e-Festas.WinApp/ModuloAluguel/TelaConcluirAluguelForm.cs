@@ -38,11 +38,11 @@ namespace e_Festas.WinApp.ModuloAluguel
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-        Aluguel aluguel = ObterAluguel();
+            Aluguel aluguel = ObterAluguel();
 
-        string[] erros = aluguel.Validar();
+            string[] erros = aluguel.Validar();
 
-        if (erros.Length > 0)
+            if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
                 this.DialogResult = DialogResult.None;

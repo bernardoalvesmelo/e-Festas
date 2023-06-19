@@ -191,6 +191,7 @@ namespace e_Festas.WinApp.ModuloAluguel
 
 
             TelaConcluirAluguelForm telaConcluir = new TelaConcluirAluguelForm();
+            telaConcluir.ConfigurarTela(aluguel);
 
             opcaoEscolhida = telaConcluir.ShowDialog();
 
