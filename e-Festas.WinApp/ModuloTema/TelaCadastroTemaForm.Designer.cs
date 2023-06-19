@@ -42,7 +42,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(347, 266);
+            btnGravar.Location = new Point(240, 236);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(91, 38);
             btnGravar.TabIndex = 0;
@@ -53,7 +53,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(444, 266);
+            btnCancelar.Location = new Point(337, 236);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(91, 38);
             btnCancelar.TabIndex = 1;
@@ -101,7 +101,7 @@
             // 
             txtNomeTema.Location = new Point(152, 71);
             txtNomeTema.Name = "txtNomeTema";
-            txtNomeTema.Size = new Size(224, 23);
+            txtNomeTema.Size = new Size(209, 23);
             txtNomeTema.TabIndex = 7;
             // 
             // txtValorTema
@@ -109,23 +109,23 @@
             txtValorTema.Location = new Point(152, 41);
             txtValorTema.Mask = "00000000";
             txtValorTema.Name = "txtValorTema";
-            txtValorTema.Size = new Size(100, 23);
+            txtValorTema.Size = new Size(48, 23);
             txtValorTema.TabIndex = 8;
             txtValorTema.ValidatingType = typeof(int);
             // 
             // cbItens
             // 
             cbItens.FormattingEnabled = true;
-            cbItens.Location = new Point(152, 115);
+            cbItens.Location = new Point(152, 100);
             cbItens.Name = "cbItens";
-            cbItens.Size = new Size(224, 130);
+            cbItens.Size = new Size(209, 130);
             cbItens.TabIndex = 9;
             // 
             // TelaCadastroTemaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(547, 311);
+            ClientSize = new Size(447, 287);
             Controls.Add(cbItens);
             Controls.Add(txtValorTema);
             Controls.Add(txtNomeTema);
@@ -136,7 +136,6 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Name = "TelaCadastroTemaForm";
-            ShowIcon = false;
             Text = "Cadastro de Temas";
             ResumeLayout(false);
             PerformLayout();

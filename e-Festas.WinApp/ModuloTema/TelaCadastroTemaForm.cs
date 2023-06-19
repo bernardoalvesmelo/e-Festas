@@ -8,7 +8,7 @@ namespace e_Festas.WinApp.ModuloTema
         private List<ItemTema> itemtemas;
         private IRepositorioItem repositorio;
 
-        public TelaCadastroTemaForm(Tema tema,IRepositorioItem repositorio)
+        public TelaCadastroTemaForm(Tema tema, IRepositorioItem repositorio)
         {
             InitializeComponent();
 
@@ -16,7 +16,7 @@ namespace e_Festas.WinApp.ModuloTema
 
             this.repositorio = repositorio;
 
-            PopularCheckBox(tema);         
+            PopularCheckBox(tema);
         }
 
         public TelaCadastroTemaForm(IRepositorioItem repositorioItem)
@@ -38,14 +38,14 @@ namespace e_Festas.WinApp.ModuloTema
             {
                 itens.Add(item);
             }
-                       
+
             int id = Convert.ToInt32(txtIdTema.Text);
 
             string nome = txtNomeTema.Text;
 
             decimal valor = Convert.ToDecimal(txtValorTema.Text);
 
-            Tema tema = new Tema(valor, nome,id,itens);
+            Tema tema = new Tema(valor, nome, id, itens);
 
             if (id > 0)
                 tema.id = id;
@@ -60,7 +60,7 @@ namespace e_Festas.WinApp.ModuloTema
             foreach (ItemTema itemTema in listItens)
             {
                 cbItens.Items.Add(itemTema);
-            }           
+            }
         }
 
         private void PopularCheckBox(Tema tema)
@@ -91,7 +91,7 @@ namespace e_Festas.WinApp.ModuloTema
 
             txtValorTema.Text = temaSelecionada.valor.ToString();
         }
-      
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
             Tema tema;
@@ -113,7 +113,7 @@ namespace e_Festas.WinApp.ModuloTema
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
 
                 DialogResult = DialogResult.None;
-            }          
-        }       
+            }
+        }
     }
 }

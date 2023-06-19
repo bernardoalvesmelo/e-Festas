@@ -41,7 +41,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(239, 153);
+            btnGravar.Location = new Point(170, 113);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(88, 40);
             btnGravar.TabIndex = 0;
@@ -52,7 +52,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(339, 153);
+            btnCancelar.Location = new Point(264, 113);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(90, 40);
             btnCancelar.TabIndex = 1;
@@ -62,7 +62,7 @@
             // lbId
             // 
             lbId.AutoSize = true;
-            lbId.Location = new Point(131, 46);
+            lbId.Location = new Point(102, 20);
             lbId.Name = "lbId";
             lbId.Size = new Size(20, 15);
             lbId.TabIndex = 2;
@@ -71,7 +71,7 @@
             // lbNome
             // 
             lbNome.AutoSize = true;
-            lbNome.Location = new Point(108, 75);
+            lbNome.Location = new Point(79, 49);
             lbNome.Name = "lbNome";
             lbNome.Size = new Size(43, 15);
             lbNome.TabIndex = 3;
@@ -80,7 +80,7 @@
             // lblValor
             // 
             lblValor.AutoSize = true;
-            lblValor.Location = new Point(115, 105);
+            lblValor.Location = new Point(86, 81);
             lblValor.Name = "lblValor";
             lblValor.Size = new Size(36, 15);
             lblValor.TabIndex = 4;
@@ -89,7 +89,7 @@
             // txtIditem
             // 
             txtIditem.Enabled = false;
-            txtIditem.Location = new Point(157, 38);
+            txtIditem.Location = new Point(131, 12);
             txtIditem.Name = "txtIditem";
             txtIditem.Size = new Size(24, 23);
             txtIditem.TabIndex = 5;
@@ -97,7 +97,7 @@
             // 
             // maskedValor
             // 
-            maskedValor.Location = new Point(157, 97);
+            maskedValor.Location = new Point(131, 73);
             maskedValor.Mask = "00000";
             maskedValor.Name = "maskedValor";
             maskedValor.Size = new Size(67, 23);
@@ -106,7 +106,7 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(157, 67);
+            txtNome.Location = new Point(131, 41);
             txtNome.Mask = "aaaaaaaaa";
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(100, 23);
@@ -116,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(441, 205);
+            ClientSize = new Size(359, 161);
             Controls.Add(txtNome);
             Controls.Add(maskedValor);
             Controls.Add(txtIditem);
@@ -126,7 +126,6 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Name = "TelaCadastroItemForm";
-            ShowIcon = false;
             Text = "Cadastro de Itens";
             ResumeLayout(false);
             PerformLayout();

@@ -117,11 +117,10 @@ namespace e_Festas.WinApp
             btnInserir.ToolTipText = controlador.ToolTipInserir;
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
-            btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;
-            btnAdicionarItens.ToolTipText = controlador.ToolTipAdicionarItens;
+            btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;          
             btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
             btnConcluir.ToolTipText = controlador.ToolTipConcluir;
-            btnConfigurar.ToolTipText= controlador.ToolTipConfigurar;
+            btnConfigurar.ToolTipText = controlador.ToolTipConfigurar;
         }
 
         private void ConfigurarEstados(ControladorBase controlador)
@@ -129,8 +128,7 @@ namespace e_Festas.WinApp
             btnInserir.Enabled = controlador.InserirHabilitado;
             btnEditar.Enabled = controlador.EditarHabilitado;
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
-            btnVisualizar.Enabled = controlador.VisualizarHabilitado;
-            btnAdicionarItens.Enabled = controlador.AdicionarItensHabilitado;
+            btnVisualizar.Enabled = controlador.VisualizarHabilitado;          
             btnFiltrar.Enabled = controlador.FiltrarHabilitado;
             btnConcluir.Enabled = controlador.ConcluirHabilitado;
             btnConfigurar.Enabled = controlador.ConfigurarHabilitado;
