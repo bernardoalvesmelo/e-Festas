@@ -44,6 +44,8 @@ namespace e_Festas.WinApp.ModuloTema
             Item = ObterItem();
             string[] erros = Item.Validar();
 
+
+
             if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);

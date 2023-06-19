@@ -1,4 +1,5 @@
-﻿using e_Festas.Dominio.ModuloTema;
+﻿using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloTema;
 
 namespace e_Festas.WinApp.ModuloTema
 {
@@ -7,12 +8,14 @@ namespace e_Festas.WinApp.ModuloTema
         private TabelaTemaControl tabelaTema;
         protected List<Tema> listaregistros;
         private IRepositorioTema repositorioTema;
-        private IRepositorioItem repositorioItem;   
+        private IRepositorioItem repositorioItem;  
+        private IRepositorioAluguel repositorioAluguel;
         
-        public ControladorTema(IRepositorioTema repositorioTema, IRepositorioItem repositorio)
+        public ControladorTema(IRepositorioTema repositorioTema, IRepositorioItem repositorio,IRepositorioAluguel repositorioAluguel)
         {
             this.repositorioTema = repositorioTema;
             this.repositorioItem = repositorio;
+            this.repositorioAluguel = repositorioAluguel;
         }
 
         public override string ToolTipInserir => "Inserir novo Tema";
@@ -22,8 +25,8 @@ namespace e_Festas.WinApp.ModuloTema
         public override string ToolTipExcluir => "Excluir Tema Existente";
 
         public override void Inserir()
-        {                              
-            TelaCadastroTemaForm telaCadastroTema = new TelaCadastroTemaForm(repositorioItem);
+        {
+            TelaCadastroTemaForm telaCadastroTema = new TelaCadastroTemaForm(repositorioItem, repositorioTema.SelecionarTodos());
 
             DialogResult opcaoEscolhida = telaCadastroTema.ShowDialog();
          
@@ -61,6 +64,8 @@ namespace e_Festas.WinApp.ModuloTema
 
                 repositorioTema.Editar(tema.id,tema);
 
+                tema.CalcularValorTotal();
+
                 CarregarTemas();
             }
         }
@@ -81,6 +86,14 @@ namespace e_Festas.WinApp.ModuloTema
                 MessageBox.Show("Selecione um Tema Primeiro!", "Exclusão de Temas",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                return;
+            }
+
+            if(repositorioAluguel.SelecionarTodos().Find(a => a.tema.id == tema.id) != null )
+            {
+                MessageBox.Show("O tema não pode ser Excluído pois esta alugado","Exclusão de Temas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 

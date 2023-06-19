@@ -35,7 +35,7 @@
             lblValor = new Label();
             txtIditem = new TextBox();
             maskedValor = new MaskedTextBox();
-            txtNome = new MaskedTextBox();
+            this.txtNome = new TextBox();
             SuspendLayout();
             // 
             // btnGravar
@@ -106,18 +106,17 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(131, 41);
-            txtNome.Mask = "aaaaaaaaa";
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(100, 23);
-            txtNome.TabIndex = 8;
+            this.txtNome.Location = new Point(131, 44);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new Size(84, 23);
+            this.txtNome.TabIndex = 9;
             // 
             // TelaCadastroItemForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(359, 161);
-            Controls.Add(txtNome);
+            Controls.Add(this.txtNome);
             Controls.Add(maskedValor);
             Controls.Add(txtIditem);
             Controls.Add(lblValor);
@@ -139,7 +138,7 @@
         private Label lbNome;
         private Label lblValor;
         private TextBox txtIditem;
-        private MaskedTextBox maskedValor;
-        private MaskedTextBox txtNome;
+        private MaskedTextBox maskedValor;     
+        private TextBox txtNome;
     }
 }

@@ -5,7 +5,7 @@ namespace e_Festas.Dominio.ModuloTema
     public class Tema : EntidadeBase<Tema>
     {     
         public decimal valor;
-        public string nome;      
+        public string nome { get; set; }      
         public List<ItemTema> itemTemas;
         public decimal valorTotal;  
         

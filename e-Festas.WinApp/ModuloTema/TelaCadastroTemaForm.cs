@@ -1,4 +1,5 @@
 ﻿using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloCliente;
 using e_Festas.Dominio.ModuloTema;
 
 namespace e_Festas.WinApp.ModuloTema
@@ -7,25 +8,28 @@ namespace e_Festas.WinApp.ModuloTema
     {
         private List<ItemTema> itemtemas;
         private IRepositorioItem repositorio;
+        private List<Tema> temas = new List<Tema>();
 
         public TelaCadastroTemaForm(Tema tema, IRepositorioItem repositorio)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
-
+        
             this.repositorio = repositorio;
-
+         
             PopularCheckBox(tema);
         }
 
-        public TelaCadastroTemaForm(IRepositorioItem repositorioItem)
+        public TelaCadastroTemaForm(IRepositorioItem repositorioItem,List<Tema> temas)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
 
             this.repositorio = repositorioItem;
+
+            this.temas = temas;
 
             PopularCheckBox();
         }
@@ -105,15 +109,23 @@ namespace e_Festas.WinApp.ModuloTema
                 DialogResult = DialogResult.None;
                 return;
             }
-
             string[] erros = tema.Validar();
-
+                 
             if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
 
                 DialogResult = DialogResult.None;
             }
+
+            //int numero = temas.FindAll(t => t.nome == t.nome).Count();
+
+            //if (numero > 0)
+            //{
+            //    TelaPrincipalForm.Instancia.AtualizarRodape("Nome do 'Tema' já existente");
+
+            //    DialogResult = DialogResult.None;
+            //}
         }
     }
 }
