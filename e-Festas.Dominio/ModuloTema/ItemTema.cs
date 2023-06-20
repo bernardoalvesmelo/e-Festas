@@ -22,7 +22,7 @@ namespace e_Festas.Dominio.ModuloTema
 
         public override string ToString()
         {
-            return nome;
+            return ($"{nome}  {valorItem} R$");
         }
       
         public override void AtualizarInformacoes(ItemTema registroAtualizado)

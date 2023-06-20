@@ -9,13 +9,15 @@ namespace e_Festas.WinApp.ModuloTema
         private IRepositorioItem repositorio;
         private List<Tema> temas = new List<Tema>();
 
-        public TelaCadastroTemaForm(Tema tema, IRepositorioItem repositorio)
+        public TelaCadastroTemaForm(Tema tema, IRepositorioItem repositorio,List<Tema> temas)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
         
             this.repositorio = repositorio;
+
+            this.temas = temas;
          
             PopularCheckBox(tema);
         }

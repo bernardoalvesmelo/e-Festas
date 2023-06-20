@@ -52,7 +52,7 @@ namespace e_Festas.WinApp.ModuloTema
                 return;
             }
 
-            TelaCadastroTemaForm telatema = new TelaCadastroTemaForm(temaSelecionado, repositorioItem);
+            TelaCadastroTemaForm telatema = new TelaCadastroTemaForm(temaSelecionado, repositorioItem, repositorioTema.SelecionarTodos());
 
             telatema.ConfigurarTela(temaSelecionado);
 
