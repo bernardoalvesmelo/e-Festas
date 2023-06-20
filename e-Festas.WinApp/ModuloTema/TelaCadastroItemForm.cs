@@ -43,8 +43,16 @@ namespace e_Festas.WinApp.ModuloTema
         private void btnGravar_Click(object sender, EventArgs e)
         {
             ItemTema Item;
-
-            Item = ObterItem();
+            try
+            {
+                Item = ObterItem();
+            }
+            catch
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("O valor é obrigatório");
+                DialogResult = DialogResult.None;
+                return;
+            }           
             string[] erros = Item.Validar();
 
             if (erros.Length > 0)
