@@ -1,4 +1,5 @@
-﻿using e_Festas.Dominio.ModuloTema;
+﻿using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloTema;
 
 namespace e_Festas.WinApp.ModuloTema
 {
@@ -6,11 +7,13 @@ namespace e_Festas.WinApp.ModuloTema
     {
         private TabelaItemTemaControl tabelaItem;
         protected List<ItemTema> listaregistros;
-        private IRepositorioItem repositorioItem;      
+        private IRepositorioItem repositorioItem;
+        private IRepositorioTema repositorioTema;
 
-        public ControladorItem(IRepositorioItem repositorioItem)
+        public ControladorItem(IRepositorioItem repositorioItem,IRepositorioTema repositorioTema)
         {                    
             this.repositorioItem = repositorioItem;
+            this.repositorioTema = repositorioTema;
         }
 
         public override string ToolTipInserir => "Inserir novo Item";
@@ -21,7 +24,7 @@ namespace e_Festas.WinApp.ModuloTema
 
         public override void Inserir()
         {
-            TelaCadastroItemForm telaCadastroItem = new TelaCadastroItemForm();
+            TelaCadastroItemForm telaCadastroItem = new TelaCadastroItemForm(repositorioItem.SelecionarTodos());
 
             DialogResult opcaoEscolhida = telaCadastroItem.ShowDialog();
 
@@ -46,7 +49,7 @@ namespace e_Festas.WinApp.ModuloTema
                 return;
             }
 
-            TelaCadastroItemForm item = new TelaCadastroItemForm();
+            TelaCadastroItemForm item = new TelaCadastroItemForm(repositorioItem.SelecionarTodos());
 
             item.ConfigurarTela(itemSelecionado);
 
@@ -78,6 +81,13 @@ namespace e_Festas.WinApp.ModuloTema
                 MessageBox.Show("Selecione um Item Primeiro!", "Exclusão de Itens",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                return;
+            }
+            if (repositorioTema.SelecionarTodos().Find(t => t.id == itemTema.id) != null)
+            {
+                MessageBox.Show("O Item não pode ser Excluído pois esta em um Tema", "Exclusão de Itens",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 

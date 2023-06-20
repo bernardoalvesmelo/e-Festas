@@ -5,11 +5,14 @@ namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroItemForm : Form
     {
-        public TelaCadastroItemForm()
+        private List<ItemTema> itens = new List<ItemTema>();
+        public TelaCadastroItemForm(List<ItemTema> itens)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
+
+            this.itens = itens;
 
         }
         public ItemTema ObterItem()
@@ -44,11 +47,18 @@ namespace e_Festas.WinApp.ModuloTema
             Item = ObterItem();
             string[] erros = Item.Validar();
 
-
-
             if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
+
+            int numero = itens.FindAll(i => i.nome == txtNome.Text && i.id != Item.id).Count();
+
+            if (numero > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Nome do 'Item' já existente");
 
                 DialogResult = DialogResult.None;
             }

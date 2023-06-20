@@ -78,7 +78,7 @@ namespace e_Festas.WinApp
         }
         private void itensToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorItem(repositorioItem);
+            controlador = new ControladorItem(repositorioItem,repositorioTema);
 
             ConfigurarTelaPrincipal(controlador);
         }

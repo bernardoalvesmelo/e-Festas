@@ -6,7 +6,7 @@ namespace e_Festas.Dominio.ModuloTema
     {       
         public string nome;
         public decimal valorItem;
-        public bool selecionado;
+        public bool selecionado;      
 
         public ItemTema(int id,string nome,decimal valorItem)
         {

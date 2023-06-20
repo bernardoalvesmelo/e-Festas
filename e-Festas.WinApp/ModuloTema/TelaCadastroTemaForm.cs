@@ -6,7 +6,6 @@ namespace e_Festas.WinApp.ModuloTema
 {
     public partial class TelaCadastroTemaForm : Form
     {
-        private List<ItemTema> itemtemas;
         private IRepositorioItem repositorio;
         private List<Tema> temas = new List<Tema>();
 
