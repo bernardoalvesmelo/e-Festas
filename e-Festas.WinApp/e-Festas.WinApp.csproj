@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\e-Festas.Dominio\e-Festas.Dominio.csproj" />
     <ProjectReference Include="..\e-Festas.Infra.Dados.Arquivo\e-Festas.Infra.Dados.Arquivo.csproj" />
+    <ProjectReference Include="..\e-Festas.Infra.Dados.BancoDeDados\e-Festas.Infra.Dados.BancoDeDados.csproj" />
   </ItemGroup>
 
   <ItemGroup>

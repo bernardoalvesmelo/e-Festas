@@ -10,6 +10,7 @@ using e_Festas.Infra.Dados.Arquivo.ModuloTema;
 using e_Festas.WinApp.ModuloAluguel;
 using e_Festas.WinApp.ModuloTema;
 using e_Festas.WinApp.ModuloCliente;
+using e_Festas.Infra.Dados.BancoDeDados.ModuloCliente;
 
 namespace e_Festas.WinApp
 {
@@ -22,7 +23,7 @@ namespace e_Festas.WinApp
 
         private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmArquivo(contextoDados);
         private IRepositorioTema repositorioTema = new RepositorioTemaEmArquivo(contextoDados);
-        private IRepositorioCliente repositorioCliente = new RepositorioClienteEmArquivo(contextoDados);
+        private IRepositorioCliente repositorioCliente = new RepositorioClienteEmBancoDeDados();
         private IRepositorioItem repositorioItem = new RepositorioItemEmArquivo(contextoDados);
 
         private static TelaPrincipalForm telaPrincipal;

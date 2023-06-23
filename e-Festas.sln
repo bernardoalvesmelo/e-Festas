@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "e-Festas.Dominio", "e-Festa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "e-Festas.Infra.Dados.Arquivo", "e-Festas.Infra.Dados.Arquivo\e-Festas.Infra.Dados.Arquivo.csproj", "{DA745C8B-AFB8-4C32-BB65-CA03087AC253}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testeDb", "testeDb\testeDb.csproj", "{7CC820EF-8B60-4601-BBB0-7D7819129C8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-Festas.Infra.Dados.BancoDeDados", "e-Festas.Infra.Dados.BancoDeDados\e-Festas.Infra.Dados.BancoDeDados.csproj", "{9017BDD1-9971-4997-B76A-46329D725600}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{DA745C8B-AFB8-4C32-BB65-CA03087AC253}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA745C8B-AFB8-4C32-BB65-CA03087AC253}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA745C8B-AFB8-4C32-BB65-CA03087AC253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CC820EF-8B60-4601-BBB0-7D7819129C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC820EF-8B60-4601-BBB0-7D7819129C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC820EF-8B60-4601-BBB0-7D7819129C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC820EF-8B60-4601-BBB0-7D7819129C8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9017BDD1-9971-4997-B76A-46329D725600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9017BDD1-9971-4997-B76A-46329D725600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9017BDD1-9971-4997-B76A-46329D725600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9017BDD1-9971-4997-B76A-46329D725600}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +53,8 @@ Global
 		{E2AB7B84-A2D7-42DF-B1AC-19450AFBC506} = {26777516-8C2E-44EF-BB23-2ACE20B7B5E2}
 		{20F6376C-C890-4328-AB03-774285715488} = {879B17B3-B09F-422A-972F-D430DC09F2A0}
 		{DA745C8B-AFB8-4C32-BB65-CA03087AC253} = {608BC08C-1A15-4061-AB32-93CEF98AF13E}
+		{7CC820EF-8B60-4601-BBB0-7D7819129C8F} = {26777516-8C2E-44EF-BB23-2ACE20B7B5E2}
+		{9017BDD1-9971-4997-B76A-46329D725600} = {608BC08C-1A15-4061-AB32-93CEF98AF13E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {569BC0B1-293F-44FE-B889-4A1F4D1896DC}
