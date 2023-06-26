@@ -1,10 +1,13 @@
-﻿using e_Festas.Dominio.ModuloCliente;
+﻿using e_Festas.Dominio.ModuloAluguel;
+using e_Festas.Dominio.ModuloCliente;
+using e_Festas.Dominio.ModuloTema;
+using e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel;
 using Microsoft.Data.SqlClient;
 
 namespace e_Festas.Infra.Dados.BancoDeDados.ModuloCliente
 {
     public class RepositorioClienteEmBancoDeDados : IRepositorioCliente
-    {
+    {      
         private const string INSERT_TEXTO =
                         @"INSERT INTO [TBCLIENTE] 
 	                            (
@@ -53,7 +56,40 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloCliente
 	                            [TBCLIENTE]
                            WHERE 
 	                            [ID] = @ID";
-               
+
+        private const string SELECT_TEXTO_ALUGUEL =
+                        @"SELECT 
+	                            A.[ID]				       ALUGUEL_ID
+                                ,A.[SINAL]			       ALUGUEL_SINAL
+                                ,A.[DESCONTOAPLICADO]	   ALUGUEL_DESCONTO_APLICADO
+                                ,A.[DESCONTOVALOR]	       ALUGUEL_DESCONTO_VALOR
+                                ,A.[DESCONTOMAXIMO]		   ALUGUEL_DESCONTO_MAXIMO
+                                ,A.[DATA]				   ALUGUEL_DATA
+                                ,A.[DATAQUITACAO]		   ALUGUEL_DATA_QUITACAO
+                                ,A.[HORARIOINICIO]	       ALUGUEL_HORARIO_INICIO
+                                ,A.[HORARIOTERMINO]        ALUGUEL_HORARIO_TERMINO
+                                ,A.[VALOR]				   ALUGUEL_VALOR
+                                ,A.[ENTRADA]			   ALUGUEL_ENTRADA
+                                ,A.[ENDERECO_CIDADE]	   ALUGUEL_ENDERECO_CIDADE
+                                ,A.[ENDERECO_RUA]		   ALUGUEL_ENDERECO_RUA
+                                ,A.[ENDERECO_NUMERO]	   ALUGUEL_ENDERECO_NUMERO
+      
+	                            ,T.[ID]                    TEMA_ID
+                                ,T.[NOME]                  TEMA_NOME
+	                            ,T.[VALOR]                 TEMA_VALOR
+
+                                ,C.[ID]                    CLIENTE_ID
+                                ,C.[NOME]                  CLIENTE_NOME
+                                ,C.[TELEFONE]              CLIENTE_TELEFONE
+                                ,C.[EMAIL]                 CLIENTE_EMAIL
+                        FROM
+                            [DBO].[TBALUGUEL] AS A INNER JOIN [DBO].[TBTEMA] AS T
+                        ON
+                           A.TEMA_ID = T.ID INNER JOIN [DBO].[TBCLIENTE] AS C
+                        ON
+                           A.CLIENTE_ID = C.ID";
+
+
         public void Editar(int id, Cliente cliente)
         {
             SqlConnection conexao = ObterConexao();
@@ -104,9 +140,13 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloCliente
 
             Cliente cliente = null;
 
+
+            List<Aluguel> alugueis = SelecionarTodosAlugueis();
+
             if (leitorClientes.Read())
             {
                 cliente = ObterCliente(leitorClientes);
+                cliente.alugueis = alugueis.FindAll(a => a.cliente.id == cliente.id);
             }
 
             conexao.Close();
@@ -125,10 +165,16 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloCliente
 
             List<Cliente> clientes = new List<Cliente>();
 
+            List<Aluguel> alugueis = SelecionarTodosAlugueis();
+
             while (leitorClientes.Read())
             {
-                clientes.Add(ObterCliente(leitorClientes));
+                Cliente cliente = ObterCliente(leitorClientes);
+                cliente.alugueis = alugueis.FindAll(a => a.cliente.id == cliente.id);
+                clientes.Add(cliente);
             }
+
+            
 
             conexao.Close();
 
@@ -170,6 +216,89 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloCliente
             }
 
             return comando;
+        }
+
+        public List<Aluguel> SelecionarTodosAlugueis()
+        {
+            SqlConnection conexao = ObterConexao();
+            conexao.Open();
+
+            SqlCommand comandoSelecao = ObterComando(SELECT_TEXTO_ALUGUEL, conexao);
+
+            SqlDataReader leitorAlugueis = comandoSelecao.ExecuteReader();
+
+            List<Aluguel> alugueis = new List<Aluguel>();
+
+            while (leitorAlugueis.Read())
+            {
+                alugueis.Add(ObterAluguel(leitorAlugueis));
+            }
+
+            foreach (Aluguel aluguel in alugueis)
+            {
+                aluguel.cliente.alugueis = alugueis.FindAll(a => a.cliente.id == aluguel.cliente.id);
+                aluguel.AtualizarInformacoes(aluguel);
+            }
+
+            conexao.Close();
+
+            return alugueis;
+        }
+
+        private Aluguel ObterAluguel(SqlDataReader leitorAlugueis)
+        {
+            int id = Convert.ToInt32(leitorAlugueis["ALUGUEL_ID"]);
+
+            decimal sinal = Convert.ToDecimal(leitorAlugueis["ALUGUEL_SINAL"]);
+
+            bool descontoAplicado = Convert.ToBoolean(leitorAlugueis["ALUGUEL_DESCONTO_APLICADO"]);
+
+            decimal descontoValor = Convert.ToDecimal(leitorAlugueis["ALUGUEL_DESCONTO_VALOR"]);
+
+            decimal descontoMaximo = Convert.ToDecimal(leitorAlugueis["ALUGUEL_DESCONTO_MAXIMO"]);
+
+            DateTime data = Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA"]);
+
+            DateTime dataQuitacao = Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA_QUITACAO"]);
+
+            dataQuitacao = data.Equals(dataQuitacao) ? new DateTime() : dataQuitacao;
+
+            DateTime horarioInicio = Convert.ToDateTime(leitorAlugueis["ALUGUEL_HORARIO_INICIO"]);
+
+            DateTime horarioTermino = Convert.ToDateTime(leitorAlugueis["ALUGUEL_HORARIO_TERMINO"]);
+
+            Cliente cliente = ObterClienteAluguel(leitorAlugueis);
+
+            Tema tema = ObterTemaAluguel(leitorAlugueis);
+
+            string cidade = Convert.ToString(leitorAlugueis["ALUGUEL_ENDERECO_CIDADE"]);
+
+            string rua = Convert.ToString(leitorAlugueis["ALUGUEL_ENDERECO_RUA"]);
+
+            string numero = Convert.ToString(leitorAlugueis["ALUGUEL_ENDERECO_NUMERO"]);
+
+            Endereco endereco = new Endereco(cidade, rua, numero);
+
+            return new Aluguel(id, sinal, descontoAplicado, descontoValor, descontoMaximo, data, dataQuitacao, horarioInicio, horarioTermino, cliente, tema, endereco);
+        }
+        private Cliente ObterClienteAluguel(SqlDataReader leitorClientes)
+        {
+
+            int idCliente = Convert.ToInt32(leitorClientes["CLIENTE_ID"]);
+            string nome = Convert.ToString(leitorClientes["CLIENTE_NOME"]);
+            string telefone = Convert.ToString(leitorClientes["CLIENTE_TELEFONE"]);
+            string email = Convert.ToString(leitorClientes["CLIENTE_EMAIL"]);
+
+            return new Cliente(idCliente, nome, telefone, email);
+        }
+
+        private Tema ObterTemaAluguel(SqlDataReader leitorTemas)
+        {
+            int idTema = Convert.ToInt32(leitorTemas["TEMA_ID"]);
+            string nome = Convert.ToString(leitorTemas["TEMA_NOME"]);
+            decimal valor = Convert.ToDecimal(leitorTemas["TEMA_VALOR"]);
+
+            return new Tema(valor, nome, idTema, new List<ItemTema>());
         }
 
     }

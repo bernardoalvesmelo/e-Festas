@@ -11,6 +11,7 @@ using e_Festas.WinApp.ModuloAluguel;
 using e_Festas.WinApp.ModuloTema;
 using e_Festas.WinApp.ModuloCliente;
 using e_Festas.Infra.Dados.BancoDeDados.ModuloCliente;
+using e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel;
 
 namespace e_Festas.WinApp
 {
@@ -21,7 +22,7 @@ namespace e_Festas.WinApp
         static ContextoDados contextoDados = new ContextoDados(carregarDados: true);
 
 
-        private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmArquivo(contextoDados);
+        private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmBancoDeDados();
         private IRepositorioTema repositorioTema = new RepositorioTemaEmArquivo(contextoDados);
         private IRepositorioCliente repositorioCliente = new RepositorioClienteEmBancoDeDados();
         private IRepositorioItem repositorioItem = new RepositorioItemEmArquivo(contextoDados);
