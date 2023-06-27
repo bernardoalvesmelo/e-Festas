@@ -162,7 +162,7 @@ namespace e_Festas.WinApp.ModuloCliente
             if (Cliente == null)
             {
                 MessageBox.Show($"Selecione um cliente!!!",
-                    "Visualização de alkugueis de clientes",
+                    "Visualização de alugueis de clientes",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 
