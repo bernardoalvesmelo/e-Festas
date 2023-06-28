@@ -24,7 +24,7 @@ namespace e_Festas.WinApp
 
 
         private IRepositorioAluguel repositorioAluguel = new RepositorioAluguelEmBancoDeDados();
-        private IRepositorioTema repositorioTema = new RepositorioTemaEmArquivo(contextoDados);
+        private IRepositorioTema repositorioTema = new RepositorioTemaEmBancoDeDados();
         private IRepositorioCliente repositorioCliente = new RepositorioClienteEmBancoDeDados();
         private IRepositorioItem repositorioItem = new RepositorioItemEmBancoDeDados();
 

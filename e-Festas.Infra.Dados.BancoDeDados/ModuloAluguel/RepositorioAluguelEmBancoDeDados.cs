@@ -92,6 +92,7 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
 	                            ,T.[ID]                    TEMA_ID
                                 ,T.[NOME]                  TEMA_NOME
 	                            ,T.[VALOR]                 TEMA_VALOR
+                                ,T.[VALORTOTAL]            TEMA_VALOR_TOTAL
 
                                 ,C.[ID]                    CLIENTE_ID
                                 ,C.[NOME]                  CLIENTE_NOME
@@ -124,6 +125,7 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
 	                            ,T.[ID]                    TEMA_ID
                                 ,T.[NOME]                  TEMA_NOME
 	                            ,T.[VALOR]                 TEMA_VALOR
+                                ,T.[VALORTOTAL]            TEMA_VALOR_TOTAL
 
                                 ,C.[ID]                    CLIENTE_ID
                                 ,C.[NOME]                  CLIENTE_NOME
@@ -261,8 +263,12 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
             int idTema = Convert.ToInt32(leitorTemas["TEMA_ID"]);
             string nome = Convert.ToString(leitorTemas["TEMA_NOME"]);
             decimal valor = Convert.ToDecimal(leitorTemas["TEMA_VALOR"]);
+            decimal valorTotal = Convert.ToDecimal(leitorTemas["TEMA_VALOR_TOTAL"]);
 
-            return new Tema(valor, nome, idTema, new List<ItemTema>());
+            Tema tema = new Tema(valor, nome, idTema, new List<ItemTema>());
+            tema.valorTotal = valorTotal;
+
+            return tema;
         }
 
         private static SqlConnection ObterConexao()
