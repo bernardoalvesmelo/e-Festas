@@ -169,7 +169,7 @@ namespace e_Festas.WinApp.ModuloCliente
                 return;
             }
 
-            if (Cliente.alugueis.Count == 0)
+            if (Cliente.alugueis.Count == 0 && tabelaCliente.tabelasAlugueis == "Clientes")
             {
                 MessageBox.Show($"O cliente não tem alugueis!!!",
                     "Visualização de alkugueis de clientes",
