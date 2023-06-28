@@ -55,9 +55,57 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloTema
 	                            [ID] = @ID";
 
 
+        private const string INSERT_ITEM_TEXTO =
+            @"INSERT INTO [TBTema_TBItemTema]
+                (
+                    [Tema_Id]
+                   ,[ItemTema_Id])
+            VALUES
+                (
+                    @Tema_Id
+                   ,@ItemTema_Id
+                )";
+
+        private const string SELECT_ITEM_TEXTO =
+            @"SELECT 
+	            I.ID            ITEM_ID, 
+	            I.NOME          ITEM_NOME, 
+	            I.VALORITEM     ITEM_VALORITEM
+            FROM 
+	            TBITEMTEMA AS I 
+	
+	            INNER JOIN TBTEMA_TBITEMTEMA AS TI
+		
+		            ON I.ID = TI.ITEMTEMA_ID
+            WHERE 
+
+	            TI.TEMA_ID = @TEMA_ID";
+
+        private const string DELETE_ITEM_TEXTO =
+            @"DELETE FROM TBTEMA_TBITEMTEMA 
+                WHERE TEMA_ID = @TEMA_ID AND ITEMTEMA_ID = @ITEMTEMA_ID";
+
+
+
         public void Editar(int id, Tema tema)
         {
             tema.CalcularValorTotal();
+
+            List<ItemTema> itensNovos = tema.itemTemas;
+            List<ItemTema> itensPassados = SelecionarPorId(id).itemTemas;
+
+            foreach (ItemTema item in itensNovos)
+            {
+                if (itensPassados.Find(i => i.id == item.id) != null)
+                    AdicionarItem(item, tema);
+            }
+
+            foreach (ItemTema item in itensPassados)
+            {
+                if (itensNovos.Find(i => i.id == item.id) == null)
+                    RemoverItem(item, tema);
+            }
+
             SqlConnection conexao = ObterConexao();
             conexao.Open();
 
@@ -70,6 +118,13 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloTema
 
         public void Excluir(Tema tema)
         {
+            List<ItemTema> itensPassados = tema.itemTemas;
+
+            foreach(ItemTema item in itensPassados)
+            {
+                RemoverItem(item, tema);
+            }
+
             SqlConnection conexao = ObterConexao();
             conexao.Open();
 
@@ -83,6 +138,7 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloTema
         public void Inserir(Tema tema)
         {
             tema.CalcularValorTotal();
+
             SqlConnection conexao = ObterConexao();
             conexao.Open();
 
@@ -92,6 +148,13 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloTema
             tema.id = Convert.ToInt32(id);
 
             conexao.Close();
+
+            List<ItemTema> itensNovos = tema.itemTemas;
+
+            foreach (ItemTema item in itensNovos)
+            {
+                AdicionarItem(item, tema);
+            }
         }
 
         public Tema SelecionarPorId(int id)
@@ -113,6 +176,11 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloTema
             }
 
             conexao.Close();
+
+            if(tema != null)
+            {
+                tema.itemTemas = SelecionarTodosItens(tema.id);
+            }
 
             return tema;
         }
@@ -137,6 +205,68 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloTema
 
             return temas;
         }
+
+        private void AdicionarItem(ItemTema item, Tema tema)
+        {
+            SqlConnection conexao = ObterConexao();
+            conexao.Open();
+
+            SqlCommand comandoAdicionar = ObterComando(INSERT_ITEM_TEXTO, conexao);
+
+            comandoAdicionar.Parameters.AddWithValue("Tema_Id", tema.id);
+            comandoAdicionar.Parameters.AddWithValue("ItemTema_Id", item.id);
+
+            comandoAdicionar.ExecuteNonQuery();
+
+            conexao.Close();
+        }
+
+        private void RemoverItem(ItemTema item, Tema tema)
+        {
+            SqlConnection conexao = ObterConexao();
+            conexao.Open();
+
+            SqlCommand comandoAdicionar = ObterComando(DELETE_ITEM_TEXTO, conexao);
+
+            comandoAdicionar.Parameters.AddWithValue("Tema_Id", tema.id);
+            comandoAdicionar.Parameters.AddWithValue("ItemTema_Id", item.id);
+
+            comandoAdicionar.ExecuteNonQuery();
+
+            conexao.Close();
+        }
+
+        private List<ItemTema> SelecionarTodosItens(int id)
+        {
+            SqlConnection conexao = ObterConexao();
+            conexao.Open();
+
+            SqlCommand comandoSelecao = ObterComando(SELECT_ITEM_TEXTO, conexao);
+
+            comandoSelecao.Parameters.AddWithValue("TEMA_ID", id);
+            SqlDataReader leitorItens = comandoSelecao.ExecuteReader();
+            
+            List<ItemTema> itens = new List<ItemTema>();
+
+            while (leitorItens.Read())
+            {
+                itens.Add(ObterItem(leitorItens));
+            }
+
+            conexao.Close();
+
+            return itens;
+        }
+
+        private ItemTema ObterItem(SqlDataReader leitorItens)
+        {
+            int id = Convert.ToInt32(leitorItens["ITEM_ID"]);
+            string nome = Convert.ToString(leitorItens["ITEM_NOME"]);
+            decimal valorItem = Convert.ToDecimal(leitorItens["ITEM_VALORITEM"]);
+
+            return new ItemTema(id, nome, valorItem);
+        }
+
         private Tema ObterTema(SqlDataReader leitorTemas)
         {
             int id = Convert.ToInt32(leitorTemas["ID"]);
