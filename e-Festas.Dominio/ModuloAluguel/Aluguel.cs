@@ -83,7 +83,7 @@ namespace e_Festas.Dominio.ModuloAluguel
 
         public void DescontarValor()
         {
-            int numeroAlugueis = this.cliente.alugueis.Count();
+            int numeroAlugueis = this.cliente.alugueis.FindAll(a => a.id != this.id).Count();
 
             decimal descontoMaximo = 1 - (numeroAlugueis * this.descontoMaximo / 100);
             decimal desconto = 1 - (numeroAlugueis * this.descontoValor / 100);
@@ -103,6 +103,15 @@ namespace e_Festas.Dominio.ModuloAluguel
         private decimal CalcularEntrada()
         {
             return this.valor * sinal / 100;
+        }
+
+        public void CarregarValores()
+        {
+            CalcularValor();
+            CalcularEntrada();
+
+            if (this.descontoAplicado)
+                DescontarValor();
         }
 
         public override string ToString()

@@ -208,7 +208,7 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
                         ON
                            A.CLIENTE_ID = C.ID
 						WHERE               
-							A.DATA = A.DATAQUITACAO";
+							A.DATAQUITACAO = 0";
 
         private const string SELECT_ENDERECO_TEXTO =
                         @"SELECT 
@@ -301,7 +301,7 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
             {
                 aluguel = ObterAluguel(leitorAlugueis);
                 aluguel.cliente.alugueis = SelecionarTodosClienteAlugueis(aluguel.cliente);
-                aluguel.AtualizarInformacoes(aluguel);
+                aluguel.CarregarValores();
             }
 
             conexao.Close();
@@ -328,7 +328,7 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
             foreach(Aluguel aluguel in alugueis)
             {
                 aluguel.cliente.alugueis = alugueis.FindAll(a => a.cliente.id == aluguel.cliente.id);
-                aluguel.AtualizarInformacoes(aluguel);
+                aluguel.CarregarValores();
             }
 
             conexao.Close();
@@ -350,9 +350,11 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
 
             DateTime data = Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA"]);
 
-            DateTime dataQuitacao = Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA_QUITACAO"]);
+            DateTime dataQuitacao;
 
-            dataQuitacao = data.Equals(dataQuitacao) ? new DateTime() : dataQuitacao;
+            dataQuitacao = leitorAlugueis["ALUGUEL_DATA_QUITACAO"] == DBNull.Value ?
+                new DateTime() :
+                Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA_QUITACAO"]);
 
             DateTime horarioInicio = Convert.ToDateTime(leitorAlugueis["ALUGUEL_HORARIO_INICIO"]);
 
@@ -432,9 +434,11 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
 
             DateTime data = Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA"]);
 
-            DateTime dataQuitacao = Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA_QUITACAO"]);
+            DateTime dataQuitacao;
 
-            dataQuitacao = data.Equals(dataQuitacao) ? new DateTime() : dataQuitacao;
+            dataQuitacao = leitorAlugueis["ALUGUEL_DATA_QUITACAO"] == DBNull.Value ? 
+                new DateTime() :
+                Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA_QUITACAO"]);
 
             DateTime horarioInicio = Convert.ToDateTime(leitorAlugueis["ALUGUEL_HORARIO_INICIO"]);
 
@@ -484,10 +488,8 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloAluguel
 
                 comando.Parameters.AddWithValue("DATA", aluguel.data);
 
-                DateTime dataQuitacaoAtualizada = aluguel.dataQuitacao == new DateTime() ?
-                   aluguel.data : aluguel.dataQuitacao; 
-
-                comando.Parameters.AddWithValue("DATAQUITACAO", dataQuitacaoAtualizada);
+                comando.Parameters.AddWithValue("DATAQUITACAO", aluguel.dataQuitacao == new DateTime() ?
+                   DBNull.Value : aluguel.dataQuitacao);
 
                 comando.Parameters.AddWithValue("HORARIOINICIO", aluguel.horarioInicio);
 

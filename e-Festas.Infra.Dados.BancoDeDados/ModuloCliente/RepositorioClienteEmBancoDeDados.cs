@@ -250,9 +250,11 @@ namespace e_Festas.Infra.Dados.BancoDeDados.ModuloCliente
 
             DateTime data = Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA"]);
 
-            DateTime dataQuitacao = Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA_QUITACAO"]);
+            DateTime dataQuitacao;
 
-            dataQuitacao = data.Equals(dataQuitacao) ? new DateTime() : dataQuitacao;
+            dataQuitacao = leitorAlugueis["ALUGUEL_DATA_QUITACAO"] == DBNull.Value ?
+                new DateTime() :
+                Convert.ToDateTime(leitorAlugueis["ALUGUEL_DATA_QUITACAO"]);
 
             DateTime horarioInicio = Convert.ToDateTime(leitorAlugueis["ALUGUEL_HORARIO_INICIO"]);
 
